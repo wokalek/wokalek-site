@@ -1,0 +1,1 @@
+The entire code of this repository is under the MIT license, but the content of the site that is stored in this repository (texts, pictures, etc.) is distributed under the Creative Commons BY-NC 4.0 license.
