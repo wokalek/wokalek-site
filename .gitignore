@@ -1,0 +1,7 @@
+env/**/*.env
+!env/**/example*
+
+static/*
+nuxt/src/assets/fonts/optimized/*
+
+!.gitkeep

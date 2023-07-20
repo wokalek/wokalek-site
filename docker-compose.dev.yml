@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  nuxt:
+    container_name: wokalek-nuxt
+    build:
+      context: .
+      dockerfile: docker/nuxt.dev.Dockerfile
+    depends_on:
+      fonts:
+        condition: service_completed_successfully
+    expose:
+      - "3000"
+    ports:
+      - "24678:24678" #Для работы HMR
+    volumes:
+      - nuxt-devfolder:/nuxt/.nuxt
+      - ./nuxt/nuxt.config.ts:/nuxt/nuxt.config.ts
+      - ./nuxt/tsconfig.json:/nuxt/tsconfig.json
+      - ./env/nuxt/.env:/nuxt/.env
+      - ./nuxt/src:/nuxt/src
+      - ./static:/nuxt/src/public/static
+
+  nginx:
+    container_name: wokalek-nginx
+    image: fholzer/nginx-brotli
+    depends_on:
+      - nuxt
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.dev.conf:/etc/nginx/nginx.conf
+      - ./nginx/gzip_types.conf:/etc/nginx/gzip_types.conf
+      - ./nginx/brotli_types.conf:/etc/nginx/brotli_types.conf
+      - ./static:/static
+
+  fonts:
+    container_name: wokalek-fonts
+    build: https://github.com/wokalek/glyphhanger.git
+    entrypoint: ["bash", "/build.sh"]
+    volumes:
+      - ./fonts/build.sh:/build.sh
+      - ./nuxt/src/assets/fonts:/app
+
+volumes:
+  nuxt-devfolder:
