@@ -50,7 +50,7 @@
       Дизайн можно посмотреть в&nbsp;<NuxtLink :to="('https://www.figma.com/community/file/1263882470363110046' as string)" target="_blank">Figma</NuxtLink>.
     </p>
     <p>
-      С исходным кодом можно ознакомиться на <NuxtLink :to="('https://github.com' as string)" target="_blank">GitHub</NuxtLink>.
+      С исходным кодом можно ознакомиться на <NuxtLink :to="('https://github.com/wokalek/wokalek' as string)" target="_blank">GitHub</NuxtLink>.
     </p>
 
     <h3>Шрифты</h3>
