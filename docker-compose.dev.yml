@@ -16,6 +16,7 @@ services:
     volumes:
       - nuxt-devfolder:/nuxt/.nuxt
       - ./nuxt/nuxt.config.ts:/nuxt/nuxt.config.ts
+      - ./nuxt/app.config.ts:/nuxt/app.config.ts
       - ./nuxt/tsconfig.json:/nuxt/tsconfig.json
       - ./env/nuxt/.env:/nuxt/.env
       - ./nuxt/src:/nuxt/src

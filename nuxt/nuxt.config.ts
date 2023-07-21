@@ -9,6 +9,9 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   app: {
     rootId: 'app',
   },
+  extends: [
+    'nuxt-umami',
+  ],
   modules: [
     '@nuxtjs/robots',
     '@nuxtjs/color-mode',
