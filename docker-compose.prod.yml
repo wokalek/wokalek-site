@@ -1,0 +1,87 @@
+version: "3.8"
+
+services:
+  nuxt:
+    container_name: wokalek-nuxt
+    build:
+      context: .
+      dockerfile: docker/nuxt.prod.Dockerfile
+    depends_on:
+      fonts:
+        condition: service_completed_successfully
+    restart: always
+    volumes:
+      - nuxt-devfolder:/nuxt/.nuxt
+      - ./nuxt/src:/nuxt/src
+      - ./static:/nuxt/.output/public/static
+
+  nginx:
+    container_name: wokalek-nginx
+    image: fholzer/nginx-brotli
+    restart: always
+    depends_on:
+      - nuxt
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/conf/nginx.prod.conf:/etc/nginx/nginx.conf
+      - ./nginx/types/gzip_types.conf:/etc/nginx/gzip_types.conf
+      - ./nginx/types/brotli_types.conf:/etc/nginx/brotli_types.conf
+      - ./static:/usr/share/nginx/html/static
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
+
+  fonts:
+    container_name: wokalek-fonts
+    build: https://github.com/wokalek/glyphhanger.git
+    entrypoint: ["bash", "/build.sh"]
+    volumes:
+      - ./fonts/build.sh:/build.sh
+      - ./nuxt/src/assets/fonts:/app
+
+  certbot:
+    container_name: wokalek-certbot
+    image: certbot/certbot:latest
+    depends_on:
+      - nginx
+    command: >-
+      certonly
+        --non-interactive
+        --agree-tos
+        --webroot
+        --webroot-path /var/www/certbot/
+        --email wokalek@wokalek.ru
+        -d wokalek.ru -d statistic.wokalek.ru
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
+      - ./certbot/webroot/:/var/lib/letsencrypt/:rw
+
+  umami:
+    container_name: wokalek-umami
+    image: ghcr.io/umami-software/umami:postgresql-v2.3.0
+    restart: always
+    ports:
+      - 3000:3000
+    env_file: env/umami/.env
+    depends_on:
+      umami-db:
+        condition: service_healthy
+
+  umami-db:
+    container_name: wokalek-umami-db
+    image: postgres:15-alpine
+    restart: always
+    env_file: env/umami-db/.env
+    volumes:
+      - umami-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  nuxt-devfolder:
+  umami-db-data:

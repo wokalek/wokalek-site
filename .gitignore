@@ -3,5 +3,7 @@ env/**/*.env
 
 static/*
 nuxt/src/assets/fonts/optimized/*
+certbot/*
 
+!certbot/renew.sh
 !.gitkeep
