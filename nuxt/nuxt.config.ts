@@ -27,6 +27,11 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     'nuxt-schema-org',
     'nuxt-lodash',
   ],
+  appConfig: {
+    umami: {
+      version: 2,
+    },
+  },
   runtimeConfig: {
     public: {
       domain: process.env.DOMAIN,
