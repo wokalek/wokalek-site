@@ -18,20 +18,22 @@ services:
 
   nginx:
     container_name: wokalek-nginx
-    image: fholzer/nginx-brotli
+    image: macbre/nginx-http3:1.25.1
+    user: root
     restart: always
     depends_on:
       - nuxt
     ports:
       - 80:80
-      - 443:443
+      - 443:443/tcp
+      - 443:443/udp
     volumes:
       - ./nginx/conf/nginx.prod.conf:/etc/nginx/nginx.conf
       - ./nginx/types/gzip_types.conf:/etc/nginx/gzip_types.conf
       - ./nginx/types/brotli_types.conf:/etc/nginx/brotli_types.conf
       - ./static:/usr/share/nginx/html/static
-      - ./certbot/www:/var/www/certbot/:ro
-      - ./certbot/conf/:/etc/nginx/ssl/:ro
+      - ./certbot/www:/certbot/www
+      - ./certbot/conf/archive:/certbot/cert
 
   fonts:
     container_name: wokalek-fonts
@@ -55,9 +57,9 @@ services:
         --email wokalek@wokalek.ru
         -d wokalek.ru -d statistic.wokalek.ru
     volumes:
-      - ./certbot/www/:/var/www/certbot/:rw
-      - ./certbot/conf/:/etc/letsencrypt/:rw
-      - ./certbot/webroot/:/var/lib/letsencrypt/:rw
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/webroot:/var/lib/letsencrypt
 
   umami:
     container_name: wokalek-umami
