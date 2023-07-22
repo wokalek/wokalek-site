@@ -66,8 +66,8 @@ dependencies:
     specifier: ^3.2.5
     version: 3.2.5(rollup@2.79.1)
   nuxt-umami:
-    specifier: ^2.5.1
-    version: 2.5.1(vue@3.3.4)
+    specifier: ^2.5.2
+    version: 2.5.2(vue@3.3.4)
   photoswipe:
     specifier: ^5.3.8
     version: 5.3.8
@@ -6922,8 +6922,8 @@ packages:
       - supports-color
     dev: false
 
-  /nuxt-umami@2.5.1(vue@3.3.4):
-    resolution: {integrity: sha512-NSwlfKwEhraAywPYGBx8jGgY5qEHYRWjzroTAHnofhxogKW42LfgM1KbSYNiEgyogFN6SdvrIyrbduGztnC6Og==}
+  /nuxt-umami@2.5.2(vue@3.3.4):
+    resolution: {integrity: sha512-HY+eiiOEIAjwY/1+e4n5p+WOeeVfPNuSxkv84GevkJeAcQInsVNEZBeygCcN2hLPYlbLn/wTlEcc+qrJB0nWqQ==}
     dependencies:
       '@vueuse/core': 10.2.1(vue@3.3.4)
     transitivePeerDependencies:
