@@ -29,6 +29,7 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   ],
   appConfig: {
     umami: {
+      ignoreLocalhost: true,
       version: 2,
     },
   },
