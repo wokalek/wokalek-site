@@ -2,14 +2,11 @@ import type { ModuleOptions } from '@nuxtjs/robots'
 
 const robots: ModuleOptions['rules'] = [
   { UserAgent: '*' },
-  { Disallow: '/' },
+  { Allow: '/' },
+  { Disallow: '/settings' },
 
-  // { UserAgent: '*' },
-  // { Allow: '/' },
-  // { Disallow: '/settings' },
-
-  // { BlankLine: true },
-  // { Sitemap: `https://${process.env.DOMAIN}/sitemap.xml` },
+  { BlankLine: true },
+  { Sitemap: `https://${process.env.DOMAIN}/sitemap.xml` },
 ]
 
 export default robots
