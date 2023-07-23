@@ -14,7 +14,7 @@
     "@nuxt/image": "1.0.0-rc.1",
     "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/device": "^3.1.0",
-    "@nuxtjs/fontaine": "^0.4.0",
+    "@nuxtjs/fontaine": "^0.4.1",
     "@nuxtjs/robots": "^3.0.0",
     "@sass-collective/strip-unit": "^3.1.2",
     "@vite-pwa/nuxt": "^0.1.0",
@@ -36,13 +36,13 @@
     "postcss-easings": "^4.0.0",
     "rehype-katex": "^6.0.3",
     "remark-math": "^5.1.1",
-    "sass": "^1.64.0",
+    "sass": "^1.64.1",
     "timeago.js": "^4.0.2",
     "vanilla-lazyload": "^17.8.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "@types/node": "^20.4.2",
+    "@types/node": "^20.4.4",
     "eslint": "^8.45.0"
   },
   "overrides": {
