@@ -33,7 +33,8 @@ services:
       - ./nginx/types/brotli_types.conf:/etc/nginx/brotli_types.conf
       - ./static:/usr/share/nginx/html/static
       - ./volumes/certbot/www:/certbot/www
-      - ./volumes/certbot/conf/archive:/certbot/certs
+      - ./volumes/certbot/conf/live/wokalek.ru/fullchain.pem:/certbot/certs/fullchain.pem
+      - ./volumes/certbot/conf/live/wokalek.ru/privkey.pem:/certbot/certs/privkey.pem
 
   fonts:
     container_name: wokalek-fonts
@@ -52,10 +53,12 @@ services:
       certonly
         --non-interactive
         --agree-tos
+        --expand
         --webroot
         --webroot-path /var/www/certbot
         --email wokalek@wokalek.ru
         -d wokalek.ru -d statistic.wokalek.ru
+        -d wokalek.com -d statistic.wokalek.com
     volumes:
       - ./volumes/certbot/www:/var/www/certbot
       - ./volumes/certbot/conf:/etc/letsencrypt
