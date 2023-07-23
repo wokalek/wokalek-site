@@ -53,7 +53,7 @@ services:
         --non-interactive
         --agree-tos
         --webroot
-        --webroot-path /var/www/certbot/
+        --webroot-path /var/www/certbot
         --email wokalek@wokalek.ru
         -d wokalek.ru -d statistic.wokalek.ru
     volumes:
