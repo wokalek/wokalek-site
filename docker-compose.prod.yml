@@ -77,7 +77,7 @@ services:
     restart: always
     env_file: env/umami-db/.env
     volumes:
-      - umami-db-data:/var/lib/postgresql/data
+      - ./volumes/umami-db/data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
       interval: 5s
@@ -86,4 +86,3 @@ services:
 
 volumes:
   nuxt-devfolder:
-  umami-db-data:

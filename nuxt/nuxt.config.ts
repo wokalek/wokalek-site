@@ -37,7 +37,7 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     public: {
       domain: process.env.DOMAIN,
       siteUrl: `https://${process.env.DOMAIN}`,
-      statisticUrl: `https://statistic.${process.env.DOMAIN}/share/OtVWyrkCuWsYFOXD/wokalek.ru`,
+      statisticUrl: `https://statistic.${process.env.DOMAIN}/share/NzChi1xQn1FB7AEB/wokalek`,
       email: 'wokalek@wokalek.ru',
       tgUrl: 'https://t.me/wokalek',
     },

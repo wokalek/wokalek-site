@@ -7,3 +7,5 @@ certbot/*
 
 !certbot/renew.sh
 !.gitkeep
+
+volumes
