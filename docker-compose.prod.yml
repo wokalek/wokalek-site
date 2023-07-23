@@ -28,9 +28,8 @@ services:
       - 443:443/tcp
       - 443:443/udp
     volumes:
-      - ./nginx/conf/nginx.prod.conf:/etc/nginx/nginx.conf
-      - ./nginx/types/gzip_types.conf:/etc/nginx/gzip_types.conf
-      - ./nginx/types/brotli_types.conf:/etc/nginx/brotli_types.conf
+      - ./nginx/conf/prod.conf:/etc/nginx/nginx.conf
+      - ./nginx/snippets:/etc/nginx/snippets
       - ./static:/usr/share/nginx/html/static
       - ./volumes/certbot/www:/certbot/www
       - ./volumes/certbot/conf/live/wokalek.ru/fullchain.pem:/certbot/certs/fullchain.pem

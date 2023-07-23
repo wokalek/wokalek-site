@@ -28,9 +28,8 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./nginx/conf/nginx.dev.conf:/etc/nginx/nginx.conf
-      - ./nginx/types/gzip_types.conf:/etc/nginx/gzip_types.conf
-      - ./nginx/types/brotli_types.conf:/etc/nginx/brotli_types.conf
+      - ./nginx/conf/dev.conf:/etc/nginx/nginx.conf
+      - ./nginx/snippets:/etc/nginx/snippets
       - ./static:/usr/share/nginx/html/static
 
   fonts:
