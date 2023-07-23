@@ -21,7 +21,8 @@ services:
 
   nginx:
     container_name: wokalek-nginx
-    image: fholzer/nginx-brotli
+    user: root
+    image: macbre/nginx-http3:1.25.1
     depends_on:
       - nuxt
     ports:
