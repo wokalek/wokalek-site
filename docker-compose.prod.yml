@@ -18,8 +18,7 @@ services:
 
   nginx:
     container_name: wokalek-nginx
-    image: macbre/nginx-http3:1.25.1
-    user: root
+    image: vickeyrao/docker-nginx-quic:1.25.1
     restart: always
     depends_on:
       - nuxt
@@ -33,7 +32,7 @@ services:
       - ./nginx/types/brotli_types.conf:/etc/nginx/brotli_types.conf
       - ./static:/usr/share/nginx/html/static
       - ./certbot/www:/certbot/www
-      - ./certbot/conf/archive:/certbot/cert
+      - ./certbot/conf/archive:/certbot/certs
 
   fonts:
     container_name: wokalek-fonts
