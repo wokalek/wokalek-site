@@ -22,6 +22,7 @@ services:
     restart: always
     depends_on:
       - nuxt
+      - umami
     ports:
       - 80:80
       - 443:443/tcp
@@ -31,8 +32,8 @@ services:
       - ./nginx/types/gzip_types.conf:/etc/nginx/gzip_types.conf
       - ./nginx/types/brotli_types.conf:/etc/nginx/brotli_types.conf
       - ./static:/usr/share/nginx/html/static
-      - ./certbot/www:/certbot/www
-      - ./certbot/conf/archive:/certbot/certs
+      - ./volumes/certbot/www:/certbot/www
+      - ./volumes/certbot/conf/archive:/certbot/certs
 
   fonts:
     container_name: wokalek-fonts
@@ -56,9 +57,9 @@ services:
         --email wokalek@wokalek.ru
         -d wokalek.ru -d statistic.wokalek.ru
     volumes:
-      - ./certbot/www:/var/www/certbot
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/webroot:/var/lib/letsencrypt
+      - ./volumes/certbot/www:/var/www/certbot
+      - ./volumes/certbot/conf:/etc/letsencrypt
+      - ./volumes/certbot/webroot:/var/lib/letsencrypt
 
   umami:
     container_name: wokalek-umami

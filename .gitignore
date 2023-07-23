@@ -1,11 +1,13 @@
+# .env
 env/**/*.env
 !env/**/example*
 
+# Docker volumes
+volumes
+
+# Статические файлы
 static/*
 nuxt/src/assets/fonts/optimized/*
-certbot/*
 
-!certbot/renew.sh
+# Не игнорируем .gitkeep
 !.gitkeep
-
-volumes
