@@ -34,7 +34,7 @@
         <NuxtLink :to="('https://nuxt.com' as string)" target="_blank">Nuxt.js</NuxtLink>, фронтенд.
       </li>
       <li class="logo-li">
-        <SvgoLogoUmami :filled="true" class="logo-icon" aria-disabled="true" />
+        <SvgoLogoUmami :filled="true" class="logo-icon umami" aria-disabled="true"/>
         <NuxtLink :to="('https://umami.is' as string)" target="_blank">Umami</NuxtLink>, статистика.
       </li>
       <li class="logo-li">
@@ -90,4 +90,13 @@ const { public: { statisticUrl } } = useRuntimeConfig()
   height: auto
   margin-bottom: 0
   margin-right: var(--f-16-8)
+
+  &.umami
+    .dark-mode &
+      stroke: $white-color
+      fill: $white-color
+
+    .light-mode &
+      stroke: $black-color
+      fill: $black-color
 </style>
