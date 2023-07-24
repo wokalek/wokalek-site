@@ -71,6 +71,9 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   },
   image: {
     densities: [1, 2, 3],
+    ipx: {
+      maxAge: 31536000,
+    },
   },
   content: {
     highlight: {
