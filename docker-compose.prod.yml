@@ -5,7 +5,7 @@ services:
     container_name: wokalek-nuxt
     build:
       context: .
-      dockerfile: docker/nuxt.prod.Dockerfile
+      dockerfile: docker/nuxt/prod.Dockerfile
     env_file: env/nuxt/.env
     depends_on:
       fonts:
