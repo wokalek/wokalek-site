@@ -1,9 +1,10 @@
 import { serverQueryContent } from '#content/server'
 
 export default defineEventHandler(async (event) => {
-  const articles = await serverQueryContent(event, '/articles').find()
+  const articleList = await serverQueryContent<{ _path: string, updatedAt: Date, createdAt: Date}>(event, '/articles').find()
 
-  return articles.map((article) => {
-    return { loc: article._path, lastmod: article.updatedAt || article.createdAt }
-  })
+  return articleList.map(({ _path, updatedAt, createdAt }) => ({
+    loc: _path,
+    lastmod: updatedAt || createdAt,
+  }))
 })
