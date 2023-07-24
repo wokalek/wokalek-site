@@ -31,6 +31,7 @@ services:
       - ./nginx/conf/prod.conf:/etc/nginx/nginx.conf
       - ./nginx/snippets:/etc/nginx/snippets
       - ./static:/usr/share/nginx/html/static
+      - ./volumes/nginx/cache:/data/nginx/cache
       - ./volumes/certbot/www:/certbot/www
       - ./volumes/certbot/conf/live/wokalek.ru/fullchain.pem:/certbot/certs/fullchain.pem
       - ./volumes/certbot/conf/live/wokalek.ru/privkey.pem:/certbot/certs/privkey.pem
