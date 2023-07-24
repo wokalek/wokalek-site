@@ -41,8 +41,9 @@ import { getFileExtension } from '#image'
 
 const props = defineProps({
   ...pictureProps,
-  ...{ src: { type: String, required: true } },
-  ...{ formats: { type: Array, default: () => ['webp', 'avif'] } },
+  src: { type: String, required: true },
+  posterSrc: { type: String, default: '' },
+  formats: { type: Array, default: () => ['webp', 'avif'] },
 })
 
 const { $lazyLoad } = useNuxtApp()
@@ -84,11 +85,19 @@ const sources = computed((): Array<{ src: string, type?: string, sizes?: string,
   })
 })
 
-const poster = computed(() => $img.getSizes(props.src, {
-  ..._base.options.value,
-  sizes: '30px:30px',
-  modifiers: { ..._base.modifiers.value, format: legacyFormat.value, blur: 1.5 },
-}))
+const poster = computed(() => {
+  if (props.posterSrc) {
+    return { src: props.posterSrc }
+  }
+
+  const sizes = $img.getSizes(props.src, {
+    ..._base.options.value,
+    sizes: '30px:30px',
+    modifiers: { ..._base.modifiers.value, format: legacyFormat.value, blur: 1.5 },
+  })
+
+  return { src: sizes.src }
+})
 
 onMounted(() => {
   const images = document.querySelectorAll<HTMLImageElement>(`#${picture.value?.id} img`)

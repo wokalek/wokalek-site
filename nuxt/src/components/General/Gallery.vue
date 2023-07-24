@@ -19,10 +19,11 @@
           <GeneralPicture
             class="img"
             :src="image.src"
-            :alt="image.alt ? 'Изображение: ' + image.alt : ''"
             :width="image.width"
             :height="image.height"
-            sizes="xs:144px sm:204px md:226px lg:274px xl:320px xxl:366px 2xl:600px"
+            :alt="image.alt ? 'Изображение: ' + image.alt : ''"
+            :poster-src="image.posterSrc"
+            sizes="xs:144px sm:204px md:113px lg:140px xl:160px xxl:218px 2xl:500px"
           />
         </a>
       </div>
@@ -37,7 +38,13 @@ import { nanoid } from 'nanoid'
 
 export interface DataItemType {
   title: string,
-  images: { src: string, width: string | number, height: string | number, alt?: string }[],
+  images: {
+    src: string,
+    width: string | number,
+    height: string | number,
+    alt?: string,
+    posterSrc?: string
+  }[],
 }
 
 withDefaults(defineProps<{

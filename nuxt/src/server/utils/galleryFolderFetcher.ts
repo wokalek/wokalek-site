@@ -10,6 +10,21 @@ const stat = promisify(fsStat)
 type ImageType = { width: number, height: number, src: string, mtime: Date }
 type DataItemType = { title: string, images: ImageType[] }
 
+async function prepareImage (filePath: string) {
+  const src = filePath.replace(/.*(\/static)/, '$1')
+  const size = await sizeOf(filePath)
+  const meta = await stat(filePath)
+
+  const width = size?.width || 0
+  const height = size?.height || 0
+
+  const imgBlob = await $fetch<Blob>(`http://nuxt:3000/_ipx/f_jpeg&fit_outside&blur_1.5&s_30x30${src}`)
+  const buffer = Buffer.from(await imgBlob.arrayBuffer()).toString('base64')
+  const posterSrc = `data:${imgBlob.type};base64,${buffer}`
+
+  return { src, posterSrc, width, height, mtime: meta.mtime }
+}
+
 export async function fetchGallery (folderSrc: string) {
   const mainFolder = resolve(`./${process.env.NODE_ENV === 'production' ? '.output' : 'src'}/public/${folderSrc}`)
 
@@ -25,23 +40,13 @@ export async function fetchGallery (folderSrc: string) {
     await Promise.all(files.map(async (file) => {
       const filePath = `${mainFolder}/${folder}/${file}`
 
-      const meta = await sizeOf(filePath)
-      const _stat = await stat(filePath)
-
-      const width = meta?.width || 0
-      const height = meta?.height || 0
-
-      images.push({ width, height, src: filePath.replace(/.*(\/static)/, '$1'), mtime: _stat.mtime })
+      images.push(await prepareImage(filePath))
     }))
+
+    images.sort((a, b) => +b.mtime - +a.mtime)
 
     result.push({ title: folder, images })
   }))
-
-  result.forEach((res) => {
-    res.images.sort((a, b) => +b.mtime - +a.mtime)
-
-    return res
-  })
 
   result.sort((a, b) => +b.title - +a.title)
 
