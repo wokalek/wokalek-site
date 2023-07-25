@@ -34,7 +34,7 @@ services:
 
   fonts:
     container_name: wokalek-fonts
-    build: https://github.com/wokalek/glyphhanger.git
+    image: wokalek/glyphhanger:latest
     entrypoint: ["bash", "/build.sh"]
     volumes:
       - ./fonts/build.sh:/build.sh
