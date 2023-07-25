@@ -22,7 +22,6 @@ services:
     restart: always
     depends_on:
       - nuxt
-      - umami
     ports:
       - 80:80
       - 443:443/tcp
