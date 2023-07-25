@@ -18,7 +18,7 @@ services:
 
   nginx:
     container_name: wokalek-nginx
-    image: vickeyrao/docker-nginx-quic:1.25.1
+    image: wokalek/nginx-brotli:1.25.1
     restart: always
     depends_on:
       - nuxt
