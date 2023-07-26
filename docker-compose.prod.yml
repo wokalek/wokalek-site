@@ -24,8 +24,7 @@ services:
       - nuxt
     ports:
       - 80:80
-      - 443:443/tcp
-      - 443:443/udp
+      - 443:443
     volumes:
       - ./nginx/conf/prod.conf:/etc/nginx/nginx.conf
       - ./nginx/snippets:/etc/nginx/snippets
