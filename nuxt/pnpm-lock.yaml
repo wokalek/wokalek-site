@@ -57,8 +57,8 @@ dependencies:
     specifier: ^2.2.0
     version: 2.2.0(@unhead/vue@1.1.32)(rollup@2.79.1)
   nuxt-simple-sitemap:
-    specifier: ^3.0.12
-    version: 3.0.12(nuxt@3.6.5)(rollup@2.79.1)(vite@4.4.6)
+    specifier: ^3.0.15
+    version: 3.0.15(nuxt@3.6.5)(rollup@2.79.1)(vite@4.4.6)
   nuxt-svgo:
     specifier: ^3.4.0
     version: 3.4.0(rollup@2.79.1)
@@ -1953,8 +1953,8 @@ packages:
     resolution: {integrity: sha512-GBzP8zOc7CGWyFQS6dv1lQz8VVpz5C2yRszbXufwG/9zhStTIH50EtD87NmWbTMwXDvZLNg8GIpb1UFdH93JCA==}
     dev: false
 
-  /@nuxt/devtools-kit@0.7.0(nuxt@3.6.5)(rollup@2.79.1)(vite@4.4.6):
-    resolution: {integrity: sha512-cbSeiIjWau2LxNgo1YHmUunA88IQEESJOlYgpJFxyOkDXzpKaR6xA0i6MT0zZTmQFCkT+u7DtExdp999icbwXQ==}
+  /@nuxt/devtools-kit@0.7.1(nuxt@3.6.5)(rollup@2.79.1)(vite@4.4.6):
+    resolution: {integrity: sha512-g7OgrU0VlW9fibLdHmhad4tEQzkS4g8yxaqDD/Kri/i3mEOeS7w9E8x7kkA/56FmmnXe6F6lCcLqG6u3FYW6WA==}
     peerDependencies:
       nuxt: ^3.6.1
       vite: '*'
@@ -6836,10 +6836,10 @@ packages:
       - supports-color
     dev: false
 
-  /nuxt-simple-sitemap@3.0.12(nuxt@3.6.5)(rollup@2.79.1)(vite@4.4.6):
-    resolution: {integrity: sha512-2rCsTZTv4pNrG/vo7GxAheFv7wdIOgTAadOs5K8MxXz3DSh6+m3WBBuR2xWh+HLvKMGXa+qiMqSqRWSFogM+hA==}
+  /nuxt-simple-sitemap@3.0.15(nuxt@3.6.5)(rollup@2.79.1)(vite@4.4.6):
+    resolution: {integrity: sha512-7XBOrlYYr+OleSF63BH0THiAGdJhHyxyttQxb9c8w2tau1xg+zHrmxWKJZKFlaux6e4femsmZB2M/kRNuYq7Tw==}
     dependencies:
-      '@nuxt/devtools-kit': 0.7.0(nuxt@3.6.5)(rollup@2.79.1)(vite@4.4.6)
+      '@nuxt/devtools-kit': 0.7.1(nuxt@3.6.5)(rollup@2.79.1)(vite@4.4.6)
       '@nuxt/kit': 3.6.5(rollup@2.79.1)
       chalk: 5.3.0
       defu: 6.1.2
@@ -6850,6 +6850,7 @@ packages:
       nuxt-site-config-kit: 1.0.7(rollup@2.79.1)
       pathe: 1.1.1
       radix3: 1.0.1
+      semver: 7.5.4
       site-config-stack: 1.0.7(rollup@2.79.1)
       ufo: 1.1.2
     transitivePeerDependencies:

@@ -27,7 +27,7 @@
     "nuxt": "^3.6.5",
     "nuxt-lodash": "^2.5.0",
     "nuxt-schema-org": "^2.2.0",
-    "nuxt-simple-sitemap": "^3.0.12",
+    "nuxt-simple-sitemap": "^3.0.15",
     "nuxt-svgo": "^3.4.0",
     "nuxt-typed-router": "^3.2.5",
     "nuxt-umami": "^2.5.2",
