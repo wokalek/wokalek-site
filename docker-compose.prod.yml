@@ -6,11 +6,11 @@ services:
     build:
       context: .
       dockerfile: docker/nuxt/prod.Dockerfile
+    restart: always
     env_file: env/nuxt/.env
     depends_on:
       fonts:
         condition: service_completed_successfully
-    restart: always
     volumes:
       - nuxt-devfolder:/nuxt/.nuxt
       - ./nuxt/src:/nuxt/src
