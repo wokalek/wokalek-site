@@ -34,7 +34,7 @@
         <NuxtLink :to="('https://nuxt.com' as string)" target="_blank">Nuxt.js</NuxtLink>, фронтенд.
       </li>
       <li class="logo-li">
-        <SvgoLogoUmami :filled="true" class="logo-icon umami" aria-disabled="true"/>
+        <SvgoLogoUmami :filled="true" class="logo-icon umami" aria-disabled="true" />
         <NuxtLink :to="('https://umami.is' as string)" target="_blank">Umami</NuxtLink>, статистика.
       </li>
       <li class="logo-li">
