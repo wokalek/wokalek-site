@@ -1,6 +1,9 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/nuxt"
+  - package-ecosystem: npm
+    directory: /nuxt
     schedule:
-      interval: "weekly"
+      timezone: Europe/Moscow
+      interval: weekly
+      day: saturday
+      time: 08:00
