@@ -9,8 +9,16 @@
 </template>
 
 <script setup lang="ts">
+import type { NuxtLinkProps } from '#app'
+
+export type MapItemType = NuxtLinkProps & Required<Pick<NuxtLinkProps, 'to'>> & {
+  text: string,
+  caption?: string,
+  isDisabled?: boolean,
+}
+
 defineProps<{
-  items: object[],
+  items: MapItemType[],
 }>()
 </script>
 

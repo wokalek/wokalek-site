@@ -16,13 +16,9 @@
 </template>
 
 <script setup lang="ts">
-import type { NuxtLinkProps } from '#app'
+import type { MapItemType } from '@/components/Block/Map/Grid.vue'
 
-const props = withDefaults(defineProps<NuxtLinkProps & Required<Pick<NuxtLinkProps, 'to'>> & {
-  text: string,
-  caption?: string,
-  isDisabled?: boolean,
-}>(), {
+const props = withDefaults(defineProps<MapItemType>(), {
   to: '',
   caption: '',
 })

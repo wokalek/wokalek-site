@@ -1,12 +1,12 @@
 @use 'sass:math'
 
 img.lazy
-    filter: saturate(math.div(1, 3))
+  filter: saturate(math.div(1, 3))
 
 img.lazy:not(.initial)
-    transition: filter 1s easeOutBack
+  transition: filter 1s easeOutBack
 
 img.lazy.initial,
 img.lazy.loaded,
 img.lazy.error
-    filter: saturate(1)
+  filter: saturate(1)

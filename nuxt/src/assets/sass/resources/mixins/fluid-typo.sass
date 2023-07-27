@@ -2,14 +2,14 @@
 @use '@sass-collective/strip-unit'
 
 @mixin fluid-typo($property, $font-max, $font-min, $screen-max: 1920, $screen-min: 320)
-    $font-max: strip-unit.strip($font-max)
-    $font-min: strip-unit.strip($font-min)
+  $font-max: strip-unit.strip($font-max)
+  $font-min: strip-unit.strip($font-min)
 
-    $k: math.div($font-max - $font-min, $screen-max - $screen-min)
-    #{$property}: calc((#{$k * 100}vw + #{$font-min - $k * $screen-min}px) * var(--font-scale, 1) * var(--site-scale, 1))
+  $k: math.div($font-max - $font-min, $screen-max - $screen-min)
+  #{$property}: calc((#{$k * 100}vw + #{$font-min - $k * $screen-min}px) * var(--font-scale, 1) * var(--site-scale, 1))
 
-    @media (max-width: #{$screen-min}px)
-        #{$property}: calc(#{$font-min}px * var(--font-scale, 1) * var(--site-scale, 1))
+  @media (max-width: #{$screen-min}px)
+    #{$property}: calc(#{$font-min}px * var(--font-scale, 1) * var(--site-scale, 1))
 
-    @media (min-width: #{$screen-max}px)
-        #{$property}: calc(#{math.div($font-max, $screen-max) * 100}vw * var(--font-scale, 1) * var(--site-scale, 1))
+  @media (min-width: #{$screen-max}px)
+    #{$property}: calc(#{math.div($font-max, $screen-max) * 100}vw * var(--font-scale, 1) * var(--site-scale, 1))
