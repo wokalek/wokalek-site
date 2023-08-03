@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-const { public: { domain, siteUrl } } = useRuntimeConfig()
+const { public: { domain, siteUrl, resumeUrl } } = useRuntimeConfig()
 
 const items = [
   { text: 'Статьи', to: { name: 'articles' } },
@@ -12,7 +12,7 @@ const items = [
   { text: 'Блог', to: { name: 'blog' } },
   { text: 'Рассказы', caption: '(в будущем)', isDisabled: true },
   { text: 'Другое', to: { name: 'other' } },
-  { text: 'Резюме ↗', to: 'https://example.com' },
+  { text: 'Резюме ↗', to: resumeUrl },
   { text: 'Контакты', to: { name: 'contacts' } },
 ]
 

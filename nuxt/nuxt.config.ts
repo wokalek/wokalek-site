@@ -40,6 +40,7 @@ const config: ReturnType<typeof defineNuxtConfig> = {
       statisticUrl: `https://statistic.${process.env.DOMAIN}/share/NzChi1xQn1FB7AEB/wokalek`,
       email: 'wokalek@wokalek.ru',
       tgUrl: 'https://t.me/wokalek',
+      resumeUrl: 'https://krasnodar.hh.ru/resume/12a6da3eff0bbbc1ee0039ed1f617772445849',
     },
   },
   vite: {
