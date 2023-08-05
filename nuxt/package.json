@@ -18,7 +18,7 @@
     "@nuxtjs/robots": "^3.0.0",
     "@sass-collective/strip-unit": "^3.1.2",
     "@vite-pwa/nuxt": "^0.1.0",
-    "@vueuse/core": "^10.2.1",
+    "@vueuse/core": "^10.3.0",
     "@vueuse/nuxt": "^10.2.1",
     "image-size": "^1.0.2",
     "kaokun": "^1.1.8",
