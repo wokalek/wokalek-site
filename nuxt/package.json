@@ -21,7 +21,7 @@
     "@vueuse/core": "^10.2.1",
     "@vueuse/nuxt": "^10.2.1",
     "image-size": "^1.0.2",
-    "kaokun": "^1.1.8",
+    "kaokun": "^1.1.10",
     "nanoid": "^4.0.2",
     "normalize.css": "^8.0.1",
     "nuxt": "^3.6.5",

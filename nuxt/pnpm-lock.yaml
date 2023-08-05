@@ -39,8 +39,8 @@ dependencies:
     specifier: ^1.0.2
     version: 1.0.2
   kaokun:
-    specifier: ^1.1.8
-    version: 1.1.8
+    specifier: ^1.1.10
+    version: 1.1.10
   nanoid:
     specifier: ^4.0.2
     version: 4.0.2
@@ -5787,8 +5787,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /kaokun@1.1.8:
-    resolution: {integrity: sha512-inT1A3xhpKyHGADMSSTcX0UOSJfzNh9Oe/xWFXWnSRbiQXec9Ln+1Cqh9JfbLxDI7pvIBKCO/5imO62oHb7TFw==}
+  /kaokun@1.1.10:
+    resolution: {integrity: sha512-52Tok8eQb5+tDPJIh8yE/lgU1OJCNpcYciVBsGnxGdFXvaiutDNTbJjpCYLiFMw3ZdRuuZnShUm9FhHhOTo3TA==}
     dev: false
 
   /katex@0.16.8:
