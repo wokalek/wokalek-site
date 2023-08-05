@@ -36,7 +36,7 @@
     "postcss-easings": "^4.0.0",
     "rehype-katex": "^6.0.3",
     "remark-math": "^5.1.1",
-    "sass": "^1.64.1",
+    "sass": "^1.64.2",
     "timeago.js": "^4.0.2",
     "vanilla-lazyload": "^17.8.4"
   },
