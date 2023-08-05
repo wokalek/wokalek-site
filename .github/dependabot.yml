@@ -8,3 +8,7 @@ updates:
       interval: weekly
       day: saturday
       time: "08:00"
+    groups:
+      dev-dependencies:
+        patterns:
+          - "*"
