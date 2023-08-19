@@ -22,7 +22,7 @@ services:
   nginx:
     container_name: wokalek-nginx
     user: root
-    image: wokalek/nginx-brotli:1.25.1
+    image: wokalek/nginx-brotli:1.25.2
     depends_on:
       - nuxt
     ports:
