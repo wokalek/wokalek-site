@@ -18,19 +18,19 @@
     "@nuxtjs/robots": "^3.0.0",
     "@sass-collective/strip-unit": "^3.1.2",
     "@vite-pwa/nuxt": "^0.1.0",
-    "@vueuse/core": "^10.3.0",
-    "@vueuse/nuxt": "^10.3.0",
+    "@vueuse/core": "^10.4.0",
+    "@vueuse/nuxt": "^10.4.0",
     "image-size": "^1.0.2",
     "kaokun": "^1.1.10",
     "nanoid": "^4.0.2",
     "normalize.css": "^8.0.1",
-    "nuxt": "^3.6.5",
+    "nuxt": "^3.7.0",
     "nuxt-lodash": "^2.5.0",
     "nuxt-schema-org": "^2.2.0",
-    "nuxt-simple-sitemap": "^3.1.7",
-    "nuxt-svgo": "^3.4.0",
-    "nuxt-typed-router": "^3.2.6",
-    "nuxt-umami": "^2.5.2",
+    "nuxt-simple-sitemap": "^3.2.5",
+    "nuxt-svgo": "^3.4.1",
+    "nuxt-typed-router": "^3.3.1",
+    "nuxt-umami": "^2.5.3",
     "photoswipe": "^5.3.8",
     "postcss": "^8.4.28",
     "postcss-easings": "^4.0.0",
@@ -42,8 +42,8 @@
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "@types/node": "^20.5.1",
-    "eslint": "^8.47.0"
+    "@types/node": "^20.5.6",
+    "eslint": "^8.48.0"
   },
   "overrides": {
     "vue": "latest"
