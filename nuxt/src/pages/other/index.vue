@@ -1,10 +1,17 @@
 <template>
   <GeneralHeadline>Другое</GeneralHeadline>
-  <div>
-    <GeneralLink class="lead" to="#">
-      Секретная ссылка на секретную страницу
-    </GeneralLink>
-  </div>
+  <ul class="lead">
+    <li>
+      <GeneralLink :to="{ name: 'age' }">
+        Узнать сколько лет Вокальку
+      </GeneralLink>
+    </li>
+    <li>
+      <GeneralLink to="#">
+        Секретная ссылка на секретную страницу
+      </GeneralLink>
+    </li>
+  </ul>
 </template>
 
 <script setup lang="ts">

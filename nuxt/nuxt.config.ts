@@ -41,6 +41,7 @@ const config: ReturnType<typeof defineNuxtConfig> = {
       email: 'wokalek@wokalek.ru',
       tgUrl: 'https://t.me/wokalek',
       resumeUrl: 'https://krasnodar.hh.ru/resume/12a6da3eff0bbbc1ee0039ed1f617772445849',
+      birthdate: '1995-07-10',
     },
   },
   vite: {
