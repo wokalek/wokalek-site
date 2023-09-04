@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-const { public: { siteUrl, email } } = useRuntimeConfig()
+const { public: { siteUrl, socials } } = useRuntimeConfig()
 const { isDesktop, isMobile, isMobileOrTablet } = useDevice()
 const colorMode = useColorMode()
 
@@ -56,7 +56,7 @@ useSchemaOrg([
     image: '/avatar.png',
     url: siteUrl,
     jobTitle: 'Веб-разработчик',
-    email: `mailto:${email}`,
+    email: `mailto:${socials.email}`,
     hasOccupation: {
       '@type': 'Occupation',
       name: 'Программист',

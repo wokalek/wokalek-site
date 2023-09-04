@@ -38,10 +38,13 @@ const config: ReturnType<typeof defineNuxtConfig> = {
       domain: process.env.DOMAIN,
       siteUrl: `https://${process.env.DOMAIN}`,
       statisticUrl: `https://statistic.${process.env.DOMAIN}/share/NzChi1xQn1FB7AEB/wokalek`,
-      email: 'wokalek@wokalek.ru',
-      tgUrl: 'https://t.me/wokalek',
       resumeUrl: 'https://krasnodar.hh.ru/resume/12a6da3eff0bbbc1ee0039ed1f617772445849',
       birthdate: '1995-07-10',
+      socials: {
+        email: 'wokalek@wokalek.ru',
+        tgUrl: 'https://t.me/wokalek',
+        discordUrl: 'https://discord.com/users/wokalek',
+      },
     },
   },
   vite: {

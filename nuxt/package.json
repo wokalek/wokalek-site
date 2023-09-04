@@ -33,6 +33,7 @@
     "nuxt-svgo": "^3.5.0",
     "nuxt-typed-router": "^3.3.1",
     "nuxt-umami": "^2.5.4",
+    "oh-vue-icons": "1.0.0-rc3",
     "photoswipe": "^5.3.9",
     "postcss": "^8.4.29",
     "postcss-easings": "^4.0.0",
