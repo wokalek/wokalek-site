@@ -10,4 +10,4 @@ COPY ./nuxt/package.json ./nuxt/pnpm-lock.yaml ./nuxt/.npmrc ./
 RUN pnpm fetch
 RUN pnpm install -r --offline
 
-ENTRYPOINT [ "pnpm", "run", "dev" ]
+ENTRYPOINT [ "pnpm", "run", "dev", "--host" ]
