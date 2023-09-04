@@ -14,4 +14,4 @@ COPY ./nuxt/nuxt.config.ts ./nuxt/tsconfig.json ./env/nuxt/.env ./
 COPY ./nuxt/src ./src
 RUN pnpm run build
 
-ENTRYPOINT [ "node", ".output/server/index.mjs", "--host" ]
+ENTRYPOINT [ "node", ".output/server/index.mjs" ]
