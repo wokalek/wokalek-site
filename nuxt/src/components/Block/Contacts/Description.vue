@@ -21,6 +21,14 @@
       </GeneralLink>
     </div>
     <div class="contacts-row">
+      <GeneralLink :to="socials.githubUrl" class="link" is-hide-external>
+        <template #before>
+          <VIcon class="icon" name="bi-github" />
+        </template>
+        GitHub
+      </GeneralLink>
+    </div>
+    <div class="contacts-row">
       <GeneralLink :to="socials.discordUrl" class="link" is-hide-external>
         <template #before>
           <VIcon class="icon" name="fa-discord" />

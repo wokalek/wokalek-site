@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import type { NuxtLinkProps } from '#app'
 
-export type MapItemType = NuxtLinkProps & Required<Pick<NuxtLinkProps, 'to'>> & {
+export type MapItemType = NuxtLinkProps & {
   text: string,
   caption?: string,
   isDisabled?: boolean,

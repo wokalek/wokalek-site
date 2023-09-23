@@ -3,12 +3,14 @@ import {
   MdAlternateemail,
   FaDiscord,
   FaTelegramPlane,
+  BiGithub,
 } from 'oh-vue-icons/icons'
 
 addIcons(
   MdAlternateemail,
   FaDiscord,
   FaTelegramPlane,
+  BiGithub,
 )
 
 export default defineNuxtPlugin(({ vueApp }) => {
