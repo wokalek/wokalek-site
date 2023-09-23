@@ -37,8 +37,8 @@
     "photoswipe": "^5.4.1",
     "postcss": "^8.4.30",
     "postcss-easings": "^4.0.0",
-    "rehype-katex": "^7.0.0",
-    "remark-math": "^6.0.0",
+    "rehype-katex": "^6.0.3",
+    "remark-math": "^5.1.1",
     "sass": "^1.68.0",
     "timeago.js": "^4.0.2",
     "vanilla-lazyload": "^17.8.4"
