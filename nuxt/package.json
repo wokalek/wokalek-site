@@ -28,7 +28,7 @@
     "normalize.css": "^8.0.1",
     "nuxt": "^3.7.3",
     "nuxt-lodash": "^2.5.0",
-    "nuxt-schema-org": "^3.0.0",
+    "nuxt-schema-org": "^3.0.1",
     "nuxt-simple-sitemap": "^3.3.4",
     "nuxt-svgo": "^3.5.3",
     "nuxt-typed-router": "^3.3.1",
