@@ -27,7 +27,7 @@
     "nanoid": "^5.0.2",
     "normalize.css": "^8.0.1",
     "nuxt": "^3.7.4",
-    "nuxt-lodash": "^2.5.0",
+    "nuxt-lodash": "^2.5.3",
     "nuxt-schema-org": "^3.0.1",
     "nuxt-simple-sitemap": "^3.4.0",
     "nuxt-svgo": "^3.5.5",
