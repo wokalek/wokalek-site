@@ -19,7 +19,7 @@
     "@sass-collective/strip-unit": "^3.1.2",
     "@vite-pwa/nuxt": "^0.1.1",
     "@vueuse/core": "^10.5.0",
-    "@vueuse/nuxt": "^10.5.0",
+    "@vueuse/nuxt": "^10.6.0",
     "dayjs": "^1.11.10",
     "image-size": "^1.0.2",
     "kaokun": "^1.1.10",
