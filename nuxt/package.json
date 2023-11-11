@@ -23,7 +23,7 @@
     "dayjs": "^1.11.10",
     "image-size": "^1.0.2",
     "kaokun": "^1.1.10",
-    "lightningcss": "^1.22.0",
+    "lightningcss": "^1.22.1",
     "nanoid": "^5.0.2",
     "normalize.css": "^8.0.1",
     "nuxt": "^3.7.4",
