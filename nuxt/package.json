@@ -24,7 +24,7 @@
     "image-size": "^1.0.2",
     "kaokun": "^1.1.10",
     "lightningcss": "^1.22.0",
-    "nanoid": "^5.0.2",
+    "nanoid": "^5.0.3",
     "normalize.css": "^8.0.1",
     "nuxt": "^3.7.4",
     "nuxt-lodash": "^2.5.0",
