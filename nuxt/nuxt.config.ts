@@ -116,10 +116,6 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   site: {
     url: `https://${process.env.DOMAIN}`,
   },
-  schemaOrg: {
-    inLanguage: 'ru',
-    currency: 'RUB',
-  },
 }
 
 export default defineNuxtConfig(config)
