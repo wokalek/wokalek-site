@@ -77,6 +77,8 @@ services:
     image: postgres:15-alpine
     restart: always
     env_file: env/umami-db/.env
+    ports:
+      - 5432:5432
     volumes:
       - ./volumes/umami-db/data:/var/lib/postgresql/data
     healthcheck:
