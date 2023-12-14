@@ -1,4 +1,4 @@
-FROM node:21.2.0-alpine
+FROM node:21.4.0-alpine
 
 WORKDIR /nuxt
 
