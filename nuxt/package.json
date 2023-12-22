@@ -17,7 +17,7 @@
     "@nuxtjs/fontaine": "^0.4.1",
     "@nuxtjs/robots": "^3.0.0",
     "@sass-collective/strip-unit": "^3.1.2",
-    "@vite-pwa/nuxt": "^0.3.5",
+    "@vite-pwa/nuxt": "^0.3.6",
     "@vueuse/core": "^10.7.0",
     "@vueuse/nuxt": "^10.7.0",
     "dayjs": "^1.11.10",
@@ -28,11 +28,11 @@
     "normalize.css": "^8.0.1",
     "nuxt": "^3.8.2",
     "nuxt-lodash": "^2.5.3",
-    "nuxt-schema-org": "^3.2.3",
-    "nuxt-simple-sitemap": "^4.1.17",
+    "nuxt-schema-org": "^3.3.0",
+    "nuxt-simple-sitemap": "^4.2.0",
     "nuxt-svgo": "^3.7.0",
     "nuxt-typed-router": "^3.5.0",
-    "nuxt-umami": "^2.5.5",
+    "nuxt-umami": "^2.5.6",
     "oh-vue-icons": "1.0.0-rc3",
     "photoswipe": "^5.4.3",
     "postcss": "^8.4.32",
@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "@types/node": "^20.10.4",
-    "eslint": "^8.55.0"
+    "@types/node": "^20.10.5",
+    "eslint": "^8.56.0"
   }
 }
