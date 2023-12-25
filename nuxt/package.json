@@ -1,13 +1,14 @@
 {
   "name": "wokalek",
   "private": true,
+  "type": "module",
   "scripts": {
+    "postinstall": "nuxt prepare",
     "dev": "nuxt dev",
     "build": "nuxt build",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "fix": "eslint --ext .ts --ext .vue . --fix",
-    "lint": "eslint --ext .ts --ext .vue ."
+    "lint": "eslint --ext .ts --ext .vue .",
+    "fix": "eslint --ext .ts --ext .vue . --fix"
   },
   "dependencies": {
     "@nuxt/content": "2.8.2",
@@ -26,7 +27,7 @@
     "lightningcss": "^1.22.1",
     "nanoid": "^5.0.4",
     "normalize.css": "^8.0.1",
-    "nuxt": "^3.8.2",
+    "nuxt": "^3.9.0",
     "nuxt-lodash": "^2.5.3",
     "nuxt-schema-org": "^3.3.0",
     "nuxt-simple-sitemap": "^4.2.0",
@@ -41,7 +42,9 @@
     "remark-math": "^5.1.1",
     "sass": "^1.69.5",
     "timeago.js": "^4.0.2",
-    "vanilla-lazyload": "^17.8.5"
+    "vanilla-lazyload": "^17.8.5",
+    "vue": "^3.3.13",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
