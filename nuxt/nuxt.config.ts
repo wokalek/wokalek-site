@@ -5,14 +5,16 @@ import manifest from './src/manifest'
 
 const config: ReturnType<typeof defineNuxtConfig> = {
   telemetry: false,
+  devtools: { enabled: true },
   srcDir: 'src',
   app: {
-    rootId: 'app',
+    rootId: 'nuxt',
   },
   extends: [
     'nuxt-umami',
   ],
   modules: [
+    '@nuxtjs/eslint-module',
     '@nuxtjs/robots',
     '@nuxtjs/color-mode',
     '@nuxtjs/fontaine',
@@ -63,6 +65,9 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   css: [
     '@/assets/sass/global/index.sass',
   ],
+  eslint: {
+    lintOnStart: false,
+  },
   postcss: {
     plugins: {
       'postcss-easings': {},

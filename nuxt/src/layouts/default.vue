@@ -15,7 +15,7 @@
   min-height: 100%
 
 :global(body),
-:global(#app),
+:global(#nuxt),
 .layout
   display: flex
   flex-direction: column
