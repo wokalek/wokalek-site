@@ -10,9 +10,6 @@ services:
     depends_on:
       fonts:
         condition: service_completed_successfully
-    ports:
-      - 4000:4000 # Для работы HMR
-      - 24678:24678 # Для работы HMR
     volumes:
       - nuxt-devfolder:/nuxt/.nuxt
       - ./nuxt/nuxt.config.ts:/nuxt/nuxt.config.ts
@@ -28,6 +25,8 @@ services:
       - nuxt
     ports:
       - 80:80
+      - 4000:4000 # Для работы HMR
+      - 24678:24678 # Для работы HMR
     volumes:
       - ./nginx/conf/dev.conf:/etc/nginx/nginx.conf
       - ./nginx/snippets:/etc/nginx/snippets
