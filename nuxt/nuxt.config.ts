@@ -15,6 +15,7 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   ],
   modules: [
     '@nuxtjs/eslint-module',
+    '@nuxtjs/tailwindcss',
     '@nuxtjs/robots',
     '@nuxtjs/color-mode',
     '@nuxtjs/fontaine',
@@ -61,12 +62,21 @@ const config: ReturnType<typeof defineNuxtConfig> = {
         },
       },
     },
+    optimizeDeps: {
+      include: [
+        // https://github.com/cipami/nuxt-lodash/issues/53#issuecomment-1870583442
+        'lodash-es',
+      ],
+    },
   },
   css: [
     '@/assets/sass/global/index.sass',
   ],
   eslint: {
     lintOnStart: false,
+  },
+  tailwindcss: {
+    cssPath: '~/assets/sass/vendors/tailwind.sass',
   },
   postcss: {
     plugins: {
@@ -78,9 +88,6 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   },
   device: {
     refreshOnResize: true,
-  },
-  image: {
-    densities: [1, 2, 3],
   },
   content: {
     highlight: {
