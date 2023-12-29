@@ -47,6 +47,9 @@ dependencies:
   lightningcss:
     specifier: ^1.22.1
     version: 1.22.1
+  magic-snowflakes:
+    specifier: ^6.3.0
+    version: 6.3.0
   nanoid:
     specifier: ^5.0.4
     version: 5.0.4
@@ -2560,6 +2563,7 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.5
+      napi-wasm: 1.1.0
     dev: false
     bundledDependencies:
       - napi-wasm
@@ -7460,6 +7464,11 @@ packages:
       unplugin: 1.5.1
     dev: false
 
+  /magic-snowflakes@6.3.0:
+    resolution: {integrity: sha512-sTENq0CmS7r70BA5XyRuA9a0dYbF6ENyTzAHUDd5yjPacUTXNAd/NyTF6E3iEt2SuX/aonyW7dtTm3ILN74AXQ==}
+    engines: {node: '>=10'}
+    dev: false
+
   /magic-string-ast@0.3.0:
     resolution: {integrity: sha512-0shqecEPgdFpnI3AP90epXyxZy9g6CRZ+SZ7BcqFwYmtFEnZ1jpevcV5HoyVnlDS9gCnc1UIg3Rsvp3Ci7r8OA==}
     engines: {node: '>=16.14.0'}
@@ -8404,6 +8413,10 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /napi-wasm@1.1.0:
+    resolution: {integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==}
+    dev: false
 
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
