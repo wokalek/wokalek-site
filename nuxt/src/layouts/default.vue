@@ -1,5 +1,4 @@
 <template>
-  <div class="snowflakes-container" />
   <div class="layout">
     <TheHeader />
     <main>
@@ -8,20 +7,6 @@
     <TheFooter />
   </div>
 </template>
-
-<script setup lang="ts">
-import Snowflakes from 'magic-snowflakes'
-
-onMounted(() => {
-  // eslint-disable-next-line no-new
-  new Snowflakes({
-    container: document.querySelector<HTMLDivElement>('.snowflakes-container') as HTMLDivElement,
-    color: '#808080',
-    minOpacity: 0.2,
-    minSize: 1,
-  })
-})
-</script>
 
 <style lang="sass" scoped>
 :global(html)
@@ -48,11 +33,4 @@ main
   align-items: center
   flex-grow: 1
   padding: var(--f-32-16) var(--f-64-16)
-
-.snowflakes-container
-  position: fixed
-  height: 100vh
-  width: 100vw
-  pointer-events: none
-  user-select: none
 </style>

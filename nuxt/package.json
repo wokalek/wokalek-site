@@ -25,7 +25,6 @@
     "image-size": "^1.0.2",
     "kaokun": "^1.1.10",
     "lightningcss": "^1.22.1",
-    "magic-snowflakes": "^6.3.0",
     "nanoid": "^5.0.4",
     "normalize.css": "^8.0.1",
     "nuxt": "^3.9.0",
