@@ -19,7 +19,7 @@
         sizes="xs:288px sm:405px md:452px lg:545px xl:640px xxl:872px 2xl:2616px"
       />
     </a>
-    <span v-if="alt" class="caption">{{ alt }}</span>
+    <span v-if="alt" class="caption text-gray-4">{{ alt }}</span>
   </span>
 </template>
 
@@ -83,16 +83,15 @@ onBeforeUnmount(() => {
   width: 100%
 
   & :deep(img)
+    @apply border-1-1 border-gray-1 dark:border-gray-5
     width: 100%
     height: auto
     max-width: var(--max-width)
-    border: var(--f-1-1) solid var(--invisible-color)
     border-radius: var(--f-4-4)
 
 .caption
   display: block
   box-sizing: border-box
-  color: var(--faded-color)
   padding-left: var(--f-32-8)
   padding-right: var(--f-32-8)
   margin-top: var(--f-16-8)

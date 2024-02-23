@@ -14,13 +14,13 @@ export function useLightbox (id: string): PhotoSwipe {
   })
 
   lightbox.on('uiRegister', function () {
-    lightbox.pswp.ui.registerElement({
+    lightbox.pswp?.ui?.registerElement({
       name: 'lightbox-close',
       title: '',
       order: 20,
       isButton: true,
       onClick: 'close',
-      html: '<span class="emoji-icon">✖️</span>',
+      html: '<span class="emoji">✖️</span>',
     })
   })
 

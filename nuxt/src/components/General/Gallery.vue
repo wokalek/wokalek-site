@@ -2,7 +2,10 @@
   <div class="list">
     <div v-for="(dataItem, index) in data" :key="index" class="list-item">
       <div class="headline">
-        <h2>{{ dataItem.title }}</h2><span class="count caption">{{ dataItem.images.length }}</span>
+        <h2 class="font-lora font-bold leading-1.3 text-38-24 my-1em">
+          {{ dataItem.title }}
+        </h2>
+        <span class="count text-gray-4 caption">{{ dataItem.images.length }}</span>
       </div>
       <div :id="'id_' + nanoid()" ref="lightBoxGallery" class="images-list">
         <a
@@ -92,7 +95,6 @@ h2
   margin: 0
 
 .count
-  color: var(--faded-color)
   vertical-align: top
   margin-left: var(--f-8-4)
   user-select: none

@@ -3,7 +3,7 @@
     <Transition name="emoji" mode="out-in">
       <button
         :key="emoji"
-        class="emoji-button emoji-icon"
+        class="emoji-button emoji"
         aria-label="Эмодзи логотипа"
         aria-disabled="true"
         @click="onClickEmoji"

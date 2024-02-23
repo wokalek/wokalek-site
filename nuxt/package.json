@@ -26,7 +26,6 @@
     "kaokun": "^1.1.10",
     "lightningcss": "^1.22.1",
     "nanoid": "^5.0.4",
-    "normalize.css": "^8.0.1",
     "nuxt": "^3.9.0",
     "nuxt-lodash": "^2.5.3",
     "nuxt-schema-org": "^3.3.0",
@@ -50,7 +49,7 @@
     "@nuxt/devtools": "^1.0.6",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/eslint-module": "^4.1.0",
-    "@nuxtjs/tailwindcss": "^6.10.1",
+    "@nuxtjs/tailwindcss": "^6.11.4",
     "@types/node": "^20.10.5",
     "eslint": "^8.56.0"
   }

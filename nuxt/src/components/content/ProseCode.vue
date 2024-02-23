@@ -1,8 +1,8 @@
 <template>
-  <div class="codeblock">
-    <span v-if="filename" class="filename caption">{{ filename }}</span>
+  <div class="codeblock scrollbar">
+    <span v-if="filename" class="filename caption text-gray-4">{{ filename }}</span>
     <slot />
-    <button class="copy-button" type="button" @click="copy(code)">
+    <button class="copy-button text-gray-4" type="button" @click="copy(code)">
       <span class="caption">{{ isCopied ? 'Скопировано ✓' : 'Копировать' }}</span>
     </button>
   </div>
@@ -49,29 +49,18 @@ onBeforeUnmount(() => {
 
 <style lang="sass">
 pre
-  display: flex
-  overflow-x: auto
-  padding: var(--f-32-16)
-  border-radius: 0.5em
-  background-color: var(--invisible-color)
+  @apply flex overflow-x-auto p-32-16 rounded-0.5em
 
 pre code
-  display: flex
-  flex-direction: column
-  font-size: var(--f-18-12)
+  @apply flex flex-col text-18-12
 
 pre code .line
-  display: block
-  min-height: 1rem
+  @apply block min-h-1em
 </style>
 
 <style lang="sass" scoped>
-.codeblock
-  position: relative
-
 .filename
   position: absolute
-  color: var(--faded-color)
   top: var(--f-8-4)
   right: var(--f-8-4)
   backdrop-filter: blur(var(--f-4-4))
@@ -87,7 +76,6 @@ pre code .line
   position: absolute
   right: var(--f-8-4)
   bottom: var(--f-8-4)
-  color: var(--faded-color)
   padding: calc(var(--f-8-4) / 2)
   backdrop-filter: blur(var(--f-4-4))
   user-select: none

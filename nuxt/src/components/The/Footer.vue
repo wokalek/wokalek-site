@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="text-gray-3 dark:text-gray-4">
     <div class="menu-wrapper caption">
       <GeneralNav :links="[{ to: statisticUrl, text: 'Статистика' }]" />
       <GeneralNav :links="[{ to: { name: 'site' }, text: 'О сайте' }]" />
@@ -19,7 +19,6 @@ footer
   justify-content: center
   padding-top: var(--f-32-16)
   padding-bottom: var(--f-32-16)
-  color: var(--disabled-color)
   margin-bottom: var(--f-16-16)
 
 .menu-wrapper

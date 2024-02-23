@@ -1,8 +1,10 @@
 <template>
   <nav v-if="links.length" class="general-nav">
-    <ul class="list">
+    <ul class="flex items-center">
       <li v-for="(link, index) in links" :key="index">
-        <GeneralLink v-bind="useOmit(link, ['text'])">{{ link.text }}</GeneralLink>
+        <GeneralLink v-bind="useOmit(link, ['text'])">
+          {{ link.text }}
+        </GeneralLink>
       </li>
     </ul>
   </nav>
@@ -23,9 +25,4 @@ defineProps<{
 <style lang="sass" scoped>
 .general-nav
   user-select: none
-
-.list
-  display: flex
-  align-items: center
-  @include list-reset
 </style>

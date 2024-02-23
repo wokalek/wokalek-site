@@ -5,7 +5,7 @@
       class="nav"
       :links="[
         { to: { name: 'map' }, text: 'Карта сайта', },
-        { to: { name: 'settings' }, text: '⚙️', class: ['settings-emoji', 'emoji-icon'], ariaLabel: 'Настройки сайта', rel: 'nofollow' },
+        { to: { name: 'settings' }, text: '⚙️', class: ['settings-emoji', 'emoji'], ariaLabel: 'Настройки сайта', rel: 'nofollow' },
       ]"
     />
   </header>

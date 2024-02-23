@@ -1,7 +1,7 @@
 <template>
   <article>
-    <GeneralLink class="link lead" :to="(article._path as string)">{{ article.title }}</GeneralLink>
-    <GeneralTime class="time caption" :date="article.createdAt" capitalize />
+    <GeneralLink class="mb-8-4 block lead" :to="(article._path as string)">{{ article.title }}</GeneralLink>
+    <GeneralTime class="text-gray-4 caption" :date="article.createdAt" capitalize />
   </article>
 </template>
 
@@ -12,12 +12,3 @@ defineProps<{
   article: ParsedContent,
 }>()
 </script>
-
-<style lang="sass" scoped>
-.link
-  display: block
-  margin-bottom: var(--f-8-4)
-
-.time
-  color: var(--faded-color)
-</style>

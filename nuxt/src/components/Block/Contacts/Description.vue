@@ -1,5 +1,5 @@
 <template>
-  <p class="text">
+  <p class="text-balance text-center">
     Я&nbsp;всегда рад получить сообщение от&nbsp;вас! Если у&nbsp;вас есть вопросы, предложения или просто хотите
     поделиться своим мнением, не&nbsp;стесняйтесь написать мне, я&nbsp;отвечу в&nbsp;кратчайшие сроки.
   </p>
@@ -44,9 +44,6 @@ const { public: { socials } } = useRuntimeConfig()
 </script>
 
 <style lang="sass" scoped>
-.text
-  margin: 0
-
 .contacts-wrapper
   display: flex
   margin-top: var(--f-32-16)

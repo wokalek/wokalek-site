@@ -1,7 +1,7 @@
 <template>
   <div
     ref="slider"
-    class="control-range-count lead"
+    class="control-range-count lead border-1-1 border-gray-6 dark:border-gray-2"
     role="slider"
     :aria-label="label"
     :aria-valuenow="value"
@@ -29,7 +29,7 @@ withDefaults(defineProps<{
 })
 
 const emits = defineEmits<{
-  (e: 'change', changeValue: number): void
+  change: [changeValue: number],
 }>()
 
 let isFocused = ref(false)
@@ -62,7 +62,6 @@ watch(arrowright, (pressed) => {
 .control-range-count
   display: flex
   justify-content: center
-  border: var(--f-1-1) solid var(--faded-color)
   border-radius: var(--f-16-8)
 
 .button
@@ -75,13 +74,13 @@ watch(arrowright, (pressed) => {
   user-select: none
 
   &:first-of-type
-    border-right: var(--f-1-1) solid var(--faded-color)
+    @apply border-r-1-1 border-r-gray-4
 
   &:last-of-type
-    border-left: var(--f-1-1) solid var(--faded-color)
+    @apply border-l-1-1 border-l-gray-4
 
   &.disabled
-    color: var(--faded-color)
+    @apply text-gray-4
 
   &:not(.disabled)
     cursor: pointer

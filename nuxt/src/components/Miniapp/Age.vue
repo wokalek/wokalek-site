@@ -1,7 +1,7 @@
 <template>
-  <GeneralHeadline>Сколько лет Вокальку?</GeneralHeadline>
+  <GeneralHeadline>Сколько сейчас лет Вокальку?</GeneralHeadline>
   <div class="lead">
-    Мне <time :datetime="(new Date(birthdate)).toISOString()">{{ wokalekBirthdayYears }}</time> лет
+    Мне <time :datetime="(new Date(birthdate)).toISOString()">{{ wokalekBirthdayYears }}</time> лет (:
   </div>
 </template>
 

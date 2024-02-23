@@ -1,15 +1,15 @@
-.isDesktop .typograph-content
+.isDesktop .scrollbar
   ::-webkit-scrollbar
-    background-color: transparent
-    height: var(--f-8-8)
-    width: var(--f-8-8)
+    @apply bg-transparent size-8-8
 
   ::-webkit-scrollbar-track
-    background-color: transparent
+    @apply bg-transparent
 
   ::-webkit-scrollbar-thumb
-    background-color: var(--scrollbar-thumb-color)
-    border-radius: var(--f-8-8)
+    @apply rounded-full bg-gray-2
+
+    .dark-mode &
+      @apply bg-gray-5
 
   ::-webkit-scrollbar-thumb:hover
-    background-color: var(--scrollbar-thumb-hover-color)
+    @apply bg-gray-3

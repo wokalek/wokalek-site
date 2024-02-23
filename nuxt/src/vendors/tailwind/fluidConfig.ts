@@ -9,7 +9,9 @@ export const spacingRanges: RangeType = [
   [16, 16],
   [16, 8],
   [16, 0],
+  [8, 8],
   [8, 4],
+  [4, 4],
 ]
 
 export const typographyRanges: RangeType = [

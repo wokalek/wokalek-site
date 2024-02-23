@@ -1,5 +1,5 @@
 <template>
-  <nav class="block-map-grid">
+  <nav class="grid grid-cols-3 auto-rows-fr gap-x-16-8 gap-y-16-8 mobile:grid-cols-1">
     <BlockMapItem
       v-for="(item, index) in items"
       :key="index"
@@ -21,17 +21,3 @@ defineProps<{
   items: MapItemType[],
 }>()
 </script>
-
-<style lang="sass" scoped>
-.block-map-grid
-  display: grid
-  grid-template-columns: repeat(3, 1fr)
-  row-gap: var(--f-32-16)
-  column-gap: var(--f-16-16)
-  padding: 0 var(--f-76-0)
-  width: 100%
-  box-sizing: border-box
-
-  .isMobile &
-    grid-template-columns: 1fr
-</style>

@@ -2,7 +2,7 @@
   <picture :id="'id_' + nanoid()" ref="picture">
     <template v-if="originalFormat === 'gif'">
       <img
-        class="lazy"
+        class="lazy select-none"
         v-bind="{ ..._base.attrs.value as ImgHTMLAttributes, ...props.imgAttrs}"
         :width="props.width"
         :height="props.height"
@@ -19,7 +19,7 @@
         :type="source.type"
       >
       <img
-        class="lazy"
+        class="lazy select-none"
         v-bind="{ ..._base.attrs.value as ImgHTMLAttributes, ...props.imgAttrs}"
         :width="props.width"
         :height="props.height"

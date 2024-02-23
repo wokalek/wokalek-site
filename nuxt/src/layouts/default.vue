@@ -1,7 +1,7 @@
 <template>
-  <div class="layout">
+  <div class="layout flex flex-col flex-grow mx-auto fluid-[width,1000-320] max-w-[100vw]">
     <TheHeader />
-    <main>
+    <main class="flex flex-col justify-center items-center flex-grow py-32-16 px-64-16">
       <slot />
     </main>
     <TheFooter />
@@ -9,28 +9,15 @@
 </template>
 
 <style lang="sass" scoped>
+:global(html),
+:global(body),
+:global(#nuxt)
+  @apply flex flex-col
+
 :global(html)
-  display: flex
-  flex-direction: column
-  min-height: 100%
+  @apply min-h-full
 
 :global(body),
-:global(#nuxt),
-.layout
-  display: flex
-  flex-direction: column
-  flex-grow: 1
-
-.layout
-  margin: 0 auto
-  @include fluid('width', 1000px, 320px)
-  max-width: 100vw
-
-main
-  display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
-  flex-grow: 1
-  padding: var(--f-32-16) var(--f-64-16)
+:global(#nuxt)
+  @apply flex-grow
 </style>

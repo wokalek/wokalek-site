@@ -1,11 +1,13 @@
 <template>
   <NuxtLayout name="default">
-    <GeneralHeadline>Ошибка {{ error.statusCode }}</GeneralHeadline>
+    <GeneralHeadline>
+      Ошибка {{ error.statusCode }}
+    </GeneralHeadline>
     <div>
-      <p class="kaomoji mt-0 nowrap">
+      <div class="flex justify-center text-nowrap text-38-24">
         <span>{{ kaomoji }}</span>
-      </p>
-      <p class="mb-0">
+      </div>
+      <div class="mt-1em text-balance text-center">
         <template v-if="error.statusCode === 404">
           Извините, страница, которую вы&nbsp;ищете, не&nbsp;может быть найдена.
         </template>
@@ -15,7 +17,7 @@
         <template v-else>
           {{ error.statusMessage }}
         </template>
-      </p>
+      </div>
     </div>
   </NuxtLayout>
 </template>
@@ -35,10 +37,3 @@ defineProps<{
   },
 }>()
 </script>
-
-<style lang="sass" scoped>
-.kaomoji
-  display: flex
-  justify-content: center
-  @include fluid('font-size', 34px, 20px)
-</style>

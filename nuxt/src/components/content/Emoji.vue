@@ -1,5 +1,7 @@
 <template>
-  <span class="emoji">{{ text }}</span>
+  <span class="font-bold">
+    {{ text }}
+  </span>
 </template>
 
 <script setup lang="ts">
@@ -7,8 +9,3 @@ defineProps<{
   text: string,
 }>()
 </script>
-
-<style lang="sass" scoped>
-.emoji
-  font-weight: bold
-</style>

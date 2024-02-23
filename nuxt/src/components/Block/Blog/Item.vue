@@ -1,6 +1,6 @@
 <template>
-  <article class="typograph-content">
-    <GeneralTime class="time caption" :date="post.createdAt" capitalize />
+  <article class="prose w-full">
+    <GeneralTime class="mb-16-8 text-gray-4 caption" :date="post.createdAt" capitalize />
     <ContentRenderer :value="post" />
   </article>
 </template>
@@ -12,12 +12,3 @@ defineProps<{
   post: ParsedContent,
 }>()
 </script>
-
-<style lang="sass" scoped>
-.link
-  display: block
-
-.time
-  color: var(--faded-color)
-  margin-bottom: var(--f-16-8)
-</style>

@@ -50,6 +50,9 @@ const config: ReturnType<typeof defineNuxtConfig> = {
       },
     },
   },
+  eslint: {
+    lintOnStart: false,
+  },
   vite: {
     build: {
       target: 'esnext',
@@ -69,15 +72,12 @@ const config: ReturnType<typeof defineNuxtConfig> = {
       ],
     },
   },
+  tailwindcss: {
+    cssPath: '~/assets/sass/global/vendors/tailwind.sass',
+  },
   css: [
     '@/assets/sass/global/index.sass',
   ],
-  eslint: {
-    lintOnStart: false,
-  },
-  tailwindcss: {
-    cssPath: '~/assets/sass/vendors/tailwind.sass',
-  },
   postcss: {
     plugins: {
       'postcss-easings': {},
