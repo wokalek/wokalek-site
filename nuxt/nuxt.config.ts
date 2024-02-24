@@ -1,6 +1,3 @@
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
-
 import manifest from './src/manifest'
 
 const config: ReturnType<typeof defineNuxtConfig> = {
@@ -93,16 +90,12 @@ const config: ReturnType<typeof defineNuxtConfig> = {
       anchorLinks: {
         exclude: [1, 2, 3, 4, 5, 6],
       },
-      tags: {
-        // remark-math и rehype-katex фикс варнинга «Failed to resolve component»
-        mo: 'empty', mi: 'empty', mn: 'empty', mrow: 'empty', msub: 'empty', mtext: 'empty', frac: 'empty', mfrac: 'empty', semantics: 'empty', annotation: 'empty',
-      },
       remarkPlugins: {
-        'remark-math': { instance: remarkMath },
+        'remark-math': {},
       },
-      rehypePlugins: {
-        'rehype-katex': { instance: rehypeKatex },
-      },
+      rehypePlugins: [
+        'rehype-katex',
+      ],
     },
   },
   pwa: {
