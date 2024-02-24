@@ -1,5 +1,5 @@
 <template>
-  <h3 class="font-lora font-bold leading-1.3 text-28-18 my-1em">
+  <h3 class="font-lora font-bold leading-1.3 text-28-18 mb-1em">
     Оформление
   </h3>
   <ControlRadioButtons

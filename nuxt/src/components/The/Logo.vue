@@ -43,7 +43,6 @@ function onMouseLeaveEmoji () {
   align-items: center
 
 .emoji-button
-  @include button-reset
   cursor: pointer
   margin-right: var(--f-8-4)
   user-select: none
@@ -67,7 +66,6 @@ function onMouseLeaveEmoji () {
   opacity: 0
 
 .home-link
-  @include link-reset
   display: flex
 
   & :deep(.logo-word)

@@ -72,7 +72,6 @@ onBeforeUnmount(() => {
   margin-left: calc(-1 * var(--f-32-8))
 
 .link
-  @include link-reset
   display: flex
   justify-content: center
   width: 100%

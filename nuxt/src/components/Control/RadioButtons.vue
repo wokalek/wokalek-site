@@ -3,9 +3,9 @@
     <div v-for="element in set" :key="element.value" class="control-button">
       <button
         class="
-          relative p-16-8 rounded-16-8 border-1-1 select-none
-          border-gray-3 dark:border-gray-4 text-gray-3 dark:text-gray-4
-          [&.selected]:border-gray-6 dark:[&.selected]:border-gray-2 [&.selected]:text-gray-6 dark:[&.selected]:text-gray-2
+          relative p-16-8 border-1-1 select-none
+          border-gray-3 text-gray-6 dark:border-gray-4 dark:text-gray-2
+          [&.selected]:border-gray-6 [&.selected]:text-gray-6 dark:[&.selected]:border-gray-2 dark:[&.selected]:text-gray-2
         "
         :class="{ 'selected': value === element.value }"
         role="radio"
@@ -13,7 +13,7 @@
         :aria-label="element.label"
         @click="$emit('click', element.value)"
       >
-        <span class="emoji-icon text-28-18">{{ element.icon }}</span>
+        <span class="emoji text-28-18">{{ element.icon }}</span>
       </button>
       <label v-if="element.label" class="label caption">{{ element.label }}</label>
     </div>

@@ -1,7 +1,7 @@
 <template>
   <div
     ref="slider"
-    class="control-range-count lead border-1-1 border-gray-6 dark:border-gray-2"
+    class="control-range-count lead border-1-1 border-gray-3 dark:border-gray-4"
     role="slider"
     :aria-label="label"
     :aria-valuenow="value"
@@ -62,7 +62,6 @@ watch(arrowright, (pressed) => {
 .control-range-count
   display: flex
   justify-content: center
-  border-radius: var(--f-16-8)
 
 .button
   display: flex
@@ -72,12 +71,7 @@ watch(arrowright, (pressed) => {
   height: var(--f-64-32)
   line-height: 100%
   user-select: none
-
-  &:first-of-type
-    @apply border-r-1-1 border-r-gray-4
-
-  &:last-of-type
-    @apply border-l-1-1 border-l-gray-4
+  @apply text-38-24 font-light
 
   &.disabled
     @apply text-gray-4

@@ -72,7 +72,6 @@ pre code .line
     opacity: 0
 
 .copy-button
-  @include button-reset
   position: absolute
   right: var(--f-8-4)
   bottom: var(--f-8-4)

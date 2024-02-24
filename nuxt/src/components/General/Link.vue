@@ -33,7 +33,6 @@ const isExternalLink = useIsExternalLink(props.to)
 
 <style lang="sass" scoped>
 .general-link
-  @include link-reset
   transition: opacity 150ms easeInOutQuad
   opacity: 1
 

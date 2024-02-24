@@ -1,6 +1,6 @@
 <template>
   <div class="list">
-    <div v-for="(dataItem, index) in data" :key="index" class="list-item">
+    <div v-for="(dataItem, index) in data" :key="index">
       <div class="headline">
         <h2 class="font-lora font-bold leading-1.3 text-38-24 my-1em">
           {{ dataItem.title }}
@@ -109,7 +109,6 @@ h2
 .image-link
   position: relative
   display: flex
-  @include link-reset
   object-fit: contain
   padding-top: 100%
 
