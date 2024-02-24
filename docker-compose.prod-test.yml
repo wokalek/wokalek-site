@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  nuxt:
+    container_name: wokalek-nuxt
+    build:
+      context: .
+      dockerfile: docker/nuxt/prod.Dockerfile
+    env_file: env/nuxt/.env
+    depends_on:
+      fonts:
+        condition: service_completed_successfully
+    volumes:
+      - nuxt-devfolder:/nuxt/.nuxt
+      - ./nuxt/src:/nuxt/src
+      - ./static:/nuxt/.output/public/static
+
+  nginx:
+    container_name: wokalek-nginx
+    user: root
+    image: wokalek/nginx-brotli:1.25.2
+    depends_on:
+      - nuxt
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/conf/dev.conf:/etc/nginx/nginx.conf
+      - ./nginx/snippets:/etc/nginx/snippets
+      - ./static:/usr/share/nginx/html/static
+
+  fonts:
+    container_name: wokalek-fonts
+    image: wokalek/glyphhanger:latest
+    entrypoint: ["bash", "/build.sh"]
+    volumes:
+      - ./fonts/build.sh:/build.sh
+      - ./nuxt/src/assets/fonts:/app
+
+volumes:
+  nuxt-devfolder:
