@@ -16,5 +16,5 @@
   @apply gap-32-16
 
 .general-nav :deep(.settings-emoji)
-  @apply text-24-18
+  @apply text-28-18
 </style>
