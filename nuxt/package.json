@@ -41,8 +41,8 @@
     "sass": "1.71.1",
     "timeago.js": "4.0.2",
     "vanilla-lazyload": "17.8.8",
-    "vue": "3.3.13",
-    "vue-router": "4.2.5"
+    "vue": "3.4.8",
+    "vue-router": "4.3.0"
   },
   "devDependencies": {
     "@nuxt/devtools": "1.0.8",
