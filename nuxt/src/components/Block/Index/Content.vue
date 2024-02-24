@@ -1,6 +1,6 @@
 <template>
-  <div class="block-index-lead">
-    <article class="text-block prose lead text-balance">
+  <div class="fluid-[padding-left,76-0] fluid-[padding-right,76-0] flex justify-center items-start">
+    <article class="lead text-balance mr-16-0 space-y-1em">
       <p>Привет! <span v-if="isMobile" class="icon emoji" aria-disabled="true">🙋</span></p>
       <p>Я&nbsp;<span class="text-accent">Александр Вокалёк</span>,<br>веб-разработчик, который хочет и&nbsp;может делать крутые вещи.</p>
       <p>Я&nbsp;очень любопытный и&nbsp;внимательный к&nbsp;мелочам человек, который любит программирование, фотографию, природу и&nbsp;искусство. На&nbsp;данный момент живу в&nbsp;Краснодаре.</p>
@@ -13,7 +13,7 @@
         </GeneralLink>!
       </p>
     </article>
-    <div v-if="isDesktopOrTablet" class="icon emoji" aria-disabled="true">
+    <div v-if="isDesktopOrTablet" class="emoji fluid-[font-size,200-64] mobile:font-[1.5em]" aria-disabled="true">
       🙋
     </div>
   </div>
@@ -22,33 +22,3 @@
 <script setup lang="ts">
 const { isMobile, isDesktopOrTablet } = useDevice()
 </script>
-
-<style lang="sass" scoped>
-.block-index-lead
-  display: flex
-  justify-content: center
-  align-items: center
-  padding: 0 var(--f-76-0)
-  align-items: flex-start
-
-.text-block
-  margin-right: var(--f-16-0)
-
-  & > p
-    margin-left: 0
-    margin-right: 0
-
-  & > p:first-child
-    margin-top: 0
-
-  & > p:last-child
-    margin-bottom: 0
-
-.icon
-  @include fluid('font-size', 200px, 64px)
-  font-weight: normal
-
-  .isMobile &
-    font-size: 1.5em
-    font-weight: bold
-</style>

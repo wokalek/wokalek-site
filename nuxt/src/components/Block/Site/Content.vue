@@ -31,25 +31,25 @@
     <ul>
       <li>
         <div class="flex">
-          <SvgoLogoNuxt :filled="true" class="logo-icon" aria-disabled="true" />
+          <SvgoLogoNuxt :filled="true" class="mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
           <NuxtLink :to="('https://nuxt.com' as string)" target="_blank">Nuxt.js</NuxtLink>, фронтенд.
         </div>
       </li>
       <li>
         <div class="flex">
-          <SvgoLogoUmami :filled="true" class="logo-icon umami stroke-black fill-black dark:stroke-white dark:fill-white" aria-disabled="true" />
+          <SvgoLogoUmami :filled="true" class="mr-16-8 fluid-[width,40-30] h-auto umami stroke-black fill-black dark:stroke-white dark:fill-white" aria-disabled="true" :font-controlled="false" />
           <NuxtLink :to="('https://umami.is' as string)" target="_blank">Umami</NuxtLink>, статистика.
         </div>
       </li>
       <li>
         <div class="flex">
-          <SvgoLogoNginx :filled="true" class="logo-icon" aria-disabled="true" />
+          <SvgoLogoNginx :filled="true" class="mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
           <NuxtLink :to="('https://nginx.org' as string)" target="_blank">Nginx</NuxtLink>, сервер.
         </div>
       </li>
       <li>
         <div class="flex">
-          <SvgoLogoDocker :filled="true" class="logo-icon" aria-disabled="true" />
+          <SvgoLogoDocker :filled="true" class="mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
           <NuxtLink :to="('https://docker.com' as string)" target="_blank">Docker</NuxtLink>.
         </div>
       </li>
@@ -92,11 +92,3 @@
 <script setup lang="ts">
 const { public: { statisticUrl } } = useRuntimeConfig()
 </script>
-
-<style lang="sass" scoped>
-.logo-icon
-  @include fluid('width', 40px, 30px)
-  height: auto
-  margin-bottom: 0
-  margin-right: var(--f-16-8)
-</style>

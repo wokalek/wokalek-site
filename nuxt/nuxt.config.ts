@@ -58,13 +58,6 @@ const config: ReturnType<typeof defineNuxtConfig> = {
       target: 'esnext',
       cssMinify: 'lightningcss',
     },
-    css: {
-      preprocessorOptions: {
-        sass: {
-          additionalData: '@use "@/assets/sass/resources/index.sass" as *\n',
-        },
-      },
-    },
     optimizeDeps: {
       include: [
         // https://github.com/cipami/nuxt-lodash/issues/53#issuecomment-1870583442
@@ -73,10 +66,10 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     },
   },
   tailwindcss: {
-    cssPath: '~/assets/sass/global/vendors/tailwind.sass',
+    cssPath: '~/assets/sass/vendors/tailwind.sass',
   },
   css: [
-    '@/assets/sass/global/index.sass',
+    '@/assets/sass/index.sass',
   ],
   postcss: {
     plugins: {

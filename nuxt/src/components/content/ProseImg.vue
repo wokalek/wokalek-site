@@ -1,7 +1,7 @@
 <template>
-  <span :id="'id_' + nanoid()" ref="lightBoxGallery" class="prose-img">
+  <span :id="'id_' + nanoid()" ref="lightBoxGallery" class="prose-img not-prose flex flex-col items-center -ml-32-8">
     <a
-      class="link"
+      class="flex justify-center w-full"
       :href="src"
       target="_blank"
       :data-pswp-width="width"
@@ -9,7 +9,7 @@
       data-cropped="true"
     >
       <GeneralPicture
-        class="picture"
+        class="picture flex justify-center w-full"
         :src="refinedSrc"
         :width="width"
         :height="height"
@@ -19,7 +19,9 @@
         sizes="xs:288px sm:405px md:452px lg:545px xl:640px xxl:872px 2xl:2616px"
       />
     </a>
-    <span v-if="alt" class="caption text-gray-4">{{ alt }}</span>
+    <span v-if="alt" class="caption mt-16-8 px-32-8 block box-border text-center text-balance text-gray-4">
+      {{ alt }}
+    </span>
   </span>
 </template>
 
@@ -65,35 +67,11 @@ onBeforeUnmount(() => {
 
 <style lang="sass" scoped>
 .prose-img
-  display: flex
-  flex-direction: column
-  align-items: center
-  width: calc(100% + 2 * var(--f-32-8))
-  margin-left: calc(-1 * var(--f-32-8))
-
-.link
-  display: flex
-  justify-content: center
-  width: 100%
+  width: calc(100% + 2 * var(--fluid-32-8, 1) * var(--site-scale))
 
 .picture
-  display: flex
-  justify-content: center
-  width: 100%
-
   & :deep(img)
+    @apply w-full h-auto rounded-4-4
     @apply border-1-1 border-gray-1 dark:border-gray-5
-    width: 100%
-    height: auto
     max-width: var(--max-width)
-    border-radius: var(--f-4-4)
-
-.caption
-  display: block
-  box-sizing: border-box
-  padding-left: var(--f-32-8)
-  padding-right: var(--f-32-8)
-  margin-top: var(--f-16-8)
-  text-align: center
-  white-space: break-spaces
 </style>

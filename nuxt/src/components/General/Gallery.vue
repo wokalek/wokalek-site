@@ -1,17 +1,19 @@
 <template>
-  <div class="list">
+  <div class="grid gap-64-32">
     <div v-for="(dataItem, index) in data" :key="index">
-      <div class="headline">
-        <h2 class="font-lora font-bold leading-1.3 text-38-24 my-1em">
+      <div class="mb-32-16">
+        <h2 class="inline font-lora font-bold leading-1.3 text-38-24 my-1em">
           {{ dataItem.title }}
         </h2>
-        <span class="count text-gray-4 caption">{{ dataItem.images.length }}</span>
+        <span class="caption ml-8-4 align-top text-gray-4 select-none">
+          {{ dataItem.images.length }}
+        </span>
       </div>
-      <div :id="'id_' + nanoid()" ref="lightBoxGallery" class="images-list">
+      <div :id="'id_' + nanoid()" ref="lightBoxGallery" class="grid grid-cols-4 mobile-or-tablet:grid-cols-2">
         <a
           v-for="image in dataItem.images"
           :key="image.src"
-          class="image-link"
+          class="relative flex object-contain pt-[100%]"
           :href="image.src"
           :data-pswp-width="image.width"
           :data-pswp-height="image.height"
@@ -20,7 +22,7 @@
           :aria-label="image.alt ? 'Ссылка на изображение: ' + image.alt : 'Ссылка на изображение'"
         >
           <GeneralPicture
-            class="img"
+            class="img absolute inset-0"
             :src="image.src"
             :width="image.width"
             :height="image.height"
@@ -83,45 +85,6 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="sass" scoped>
-.list
-  display: grid
-  gap: var(--f-64-32)
-
-.headline
-  margin-bottom: var(--f-32-16)
-
-h2
-  display: inline
-  margin: 0
-
-.count
-  vertical-align: top
-  margin-left: var(--f-8-4)
-  user-select: none
-
-.images-list
-  display: grid
-  grid-template-columns: repeat(4, 1fr)
-
-  .isMobileOrTablet &
-    grid-template-columns: repeat(2, 1fr)
-
-.image-link
-  position: relative
-  display: flex
-  object-fit: contain
-  padding-top: 100%
-
-.img
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-
 .img :deep(img)
-  display: block
-  width: 100%
-  height: 100%
-  object-fit: cover
+  @apply w-full h-full object-cover
 </style>

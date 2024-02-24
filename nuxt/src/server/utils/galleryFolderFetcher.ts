@@ -8,7 +8,7 @@ const sizeOf = promisify(imageSize)
 const stat = promisify(fsStat)
 
 type ImageType = { width: number, height: number, src: string, mtime: Date }
-type DataItemType = { title: string, images: ImageType[] }
+export type DataItemType = { title: string, images: ImageType[] }
 
 async function prepareImage (filePath: string) {
   const src = filePath.replace(/.*(\/static)/, '$1')

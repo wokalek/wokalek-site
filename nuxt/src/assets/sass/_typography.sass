@@ -33,6 +33,10 @@
   .codeblock
     @apply mx-32-8 my-1em
 
+  a:not(.not-prose *)
+    @apply underline decoration-from-font underline-offset-0.35em
+    @apply transition-opacity ease-in-out-quad desktop:hover:opacity-50
+
   ul,
   ol
     @apply pl-1em my-1em mx-32-8

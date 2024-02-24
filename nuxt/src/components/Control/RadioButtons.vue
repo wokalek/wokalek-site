@@ -1,6 +1,6 @@
 <template>
-  <div :key="forceUpdate" role="radiogroup" class="control-radio-buttons">
-    <div v-for="element in set" :key="element.value" class="control-button">
+  <div :key="forceUpdate" role="radiogroup" class="grid grid-cols-3 gap-32-16 items-center">
+    <div v-for="element in set" :key="element.value" class="flex flex-col items-center">
       <button
         class="
           relative p-16-8 border-1-1 select-none
@@ -15,7 +15,7 @@
       >
         <span class="emoji text-28-18">{{ element.icon }}</span>
       </button>
-      <label v-if="element.label" class="label caption">{{ element.label }}</label>
+      <label v-if="element.label" class="caption select-none mt-8-4">{{ element.label }}</label>
     </div>
   </div>
 </template>
@@ -36,21 +36,3 @@ onMounted(() => {
   forceUpdate.value++
 })
 </script>
-
-<style lang="sass" scoped>
-.control-radio-buttons
-  display: grid
-  grid-template-columns: repeat(3, 1fr)
-  gap: var(--f-32-16)
-  align-items: center
-
-.control-button
-  display: flex
-  flex-direction: column
-  align-items: center
-
-.label
-  user-select: none
-  pointer-events: none
-  margin-top: 0.5em
-</style>

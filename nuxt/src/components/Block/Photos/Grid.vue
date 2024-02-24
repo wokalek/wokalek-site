@@ -1,16 +1,11 @@
 <template>
-  <div class="block-photos-grid">
+  <div class="w-full">
     <GeneralGallery :data="data" />
   </div>
 </template>
 
 <script setup lang="ts">
-import type { DataType } from '~/server/api/photos'
+import type { DataItemType } from '~/server/utils/galleryFolderFetcher'
 
-const { data } = useNuxtData<DataType>('photos')
+const { data } = useNuxtData<DataItemType[]>('photos')
 </script>
-
-<style lang="sass" scoped>
-.block-photos-grid
-  width: 100%
-</style>

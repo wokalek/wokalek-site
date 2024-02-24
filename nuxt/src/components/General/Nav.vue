@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="links.length" class="general-nav">
+  <nav v-if="links.length" class="select-none">
     <ul class="flex items-center">
       <li v-for="(link, index) in links" :key="index">
         <GeneralLink v-bind="useOmit(link, ['text'])">
@@ -21,8 +21,3 @@ defineProps<{
   }>
 }>()
 </script>
-
-<style lang="sass" scoped>
-.general-nav
-  user-select: none
-</style>

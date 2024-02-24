@@ -1,42 +1,13 @@
 <template>
-  <footer class="text-gray-3 dark:text-gray-4">
-    <div class="menu-wrapper caption">
+  <footer class="py-32-16 mb-16-16 relative flex justify-center text-gray-3 dark:text-gray-4">
+    <div class="caption px-16-16 absolute flex justify-between items-center w-full h-1/2 box-border left-0 bottom-0">
       <GeneralNav :links="[{ to: statisticUrl, text: 'Статистика' }]" />
       <GeneralNav :links="[{ to: { name: 'site' }, text: 'О сайте' }]" />
     </div>
-    <SvgoLogoSign class="logo-sign" />
+    <SvgoLogoSign class="relative w-auto fluid-[height,20-16]" :font-controlled="false" />
   </footer>
 </template>
 
 <script setup lang="ts">
 const { public: { statisticUrl } } = useRuntimeConfig()
 </script>
-
-<style lang="sass" scoped>
-footer
-  position: relative
-  display: flex
-  justify-content: center
-  padding-top: var(--f-32-16)
-  padding-bottom: var(--f-32-16)
-  margin-bottom: var(--f-16-16)
-
-.menu-wrapper
-  position: absolute
-  display: flex
-  justify-content: space-between
-  align-items: center
-  bottom: 0
-  left: 0
-  width: 100%
-  height: 50%
-  padding-left: var(--f-16-16)
-  padding-right: var(--f-16-16)
-  box-sizing: border-box
-
-.logo-sign
-  position: relative
-  width: auto
-  @include fluid('height', 20px, 16px)
-  margin: 0 auto
-</style>

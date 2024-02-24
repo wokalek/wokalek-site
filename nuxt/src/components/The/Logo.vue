@@ -1,9 +1,9 @@
 <template>
-  <div class="the-logo">
+  <div class="flex items-center">
     <Transition name="emoji" mode="out-in">
       <button
         :key="emoji"
-        class="emoji-button emoji"
+        class="emoji mr-8-4 select-none font-bold translate-y-[5%] scale-100 text-28-18"
         aria-label="Эмодзи логотипа"
         aria-disabled="true"
         @click="onClickEmoji"
@@ -12,10 +12,10 @@
         {{ emoji }}
       </button>
     </Transition>
-    <NuxtLink v-if="$route.name !== 'index'" :to="{ name: 'index' }" class="home-link" aria-label="Главная страница">
-      <SvgoLogoWord class="logo-word" />
+    <NuxtLink v-if="$route.name !== 'index'" :to="{ name: 'index' }" class="flex group" aria-label="Главная страница">
+      <SvgoLogoWord class="logo-word fluid-[width,100-68] h-auto transition-opacity ease-in-out-quad opacity-100 desktop:group-hover:opacity-50" :font-controlled="false" />
     </NuxtLink>
-    <SvgoLogoWord v-else class="logo-word" />
+    <SvgoLogoWord v-else class="logo-word fluid-[width,100-68] h-auto" :font-controlled="false" />
   </div>
 </template>
 
@@ -38,18 +38,6 @@ function onMouseLeaveEmoji () {
 </script>
 
 <style lang="sass" scoped>
-.the-logo
-  display: flex
-  align-items: center
-
-.emoji-button
-  cursor: pointer
-  margin-right: var(--f-8-4)
-  user-select: none
-  font-size: var(--f-26-18)
-  font-weight: bold
-  transform: scale(1) translateY(0.04em)
-
 .emoji-enter-active
   transition: transform 300ms easeOutBack
 
@@ -64,19 +52,4 @@ function onMouseLeaveEmoji () {
 
 .emoji-leave-to
   opacity: 0
-
-.home-link
-  display: flex
-
-  & :deep(.logo-word)
-    transition: opacity 150ms easeInOutQuad
-    opacity: 1
-
-  .isDesktop &:hover :deep(.logo-word)
-    opacity: 0.5
-
-.logo-word
-  height: auto
-  @include fluid('width', 98px, 68px)
-  margin: 0
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <header>
+  <header class="flex justify-between items-center py-32-16 px-16-16">
     <TheLogo />
     <GeneralNav
-      class="nav"
+      class="general-nav nav"
       :links="[
         { to: { name: 'map' }, text: 'Карта сайта', },
         { to: { name: 'settings' }, text: '⚙️', class: ['settings-emoji', 'emoji'], ariaLabel: 'Настройки сайта', rel: 'nofollow' },
@@ -12,15 +12,9 @@
 </template>
 
 <style lang="sass" scoped>
-header
-  display: flex
-  justify-content: space-between
-  align-items: center
-  padding: var(--f-32-16) var(--f-16-16)
-
-.general-nav :deep(li:not(:last-child))
-  margin-right: var(--f-32-16)
+.general-nav :deep(ul)
+  @apply gap-32-16
 
 .general-nav :deep(.settings-emoji)
-  font-size: var(--f-26-18)
+  @apply text-24-18
 </style>

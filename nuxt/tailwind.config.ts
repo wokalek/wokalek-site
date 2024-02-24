@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss'
 
+import { pick } from 'lodash-es'
 import plugin from 'tailwindcss/plugin'
 import defaultTheme from 'tailwindcss/defaultTheme'
 import colors from 'tailwindcss/colors'
@@ -19,6 +20,7 @@ export default <Partial<Config>>{
         ],
         borderRadius: [
           [16, 8],
+          [4, 4],
         ],
       },
     }),
@@ -32,11 +34,7 @@ export default <Partial<Config>>{
   theme: {
     colors: {
       // Базовые
-      inherit: colors.inherit,
-      current: colors.current,
-      transparent: colors.transparent,
-      black: colors.black,
-      white: colors.white,
+      ...pick(colors, ['inherit', 'current', 'transparent', 'black', 'white']),
 
       // Акцентные
       accent: '#DA0045', // pantone-199-xgc-color // oklch(56.4% 0.2256331505962411 16.220450036499507)
@@ -57,8 +55,7 @@ export default <Partial<Config>>{
     },
     borderWidth: {},
     borderRadius: {
-      0: defaultTheme.borderRadius.none,
-      full: defaultTheme.borderRadius.full,
+      ...pick(defaultTheme.borderRadius, ['none', 'full']),
       '0.25em': '0.25em',
       '0.5em': '0.5em',
     },
@@ -80,6 +77,12 @@ export default <Partial<Config>>{
       1.3: '1.3em',
       1.4: '1.4em',
       1.5: '1.5em',
+    },
+    textDecorationThickness: {
+      ...pick(defaultTheme.textDecorationThickness, ['auto', 'from-font']),
+    },
+    textUnderlineOffset: {
+      '0.35em': '0.35em',
     },
   },
 }

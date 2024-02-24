@@ -1,5 +1,5 @@
 <template>
-  <div class="general-time">
+  <div class="select-none">
     <span :title="useDateLongFormat(date)">
       <slot name="before" />
       <time ref="time" :datetime="(date as string)">{{ getFormattedDate() }}</time>
@@ -47,8 +47,3 @@ onBeforeUnmount(() => {
   }
 })
 </script>
-
-<style lang="sass" scoped>
-.general-time
-  user-select: none
-</style>

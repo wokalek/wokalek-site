@@ -15,7 +15,7 @@ withDefaults(defineProps<{
   code: string,
   language: string | null,
   filename?: string | null,
-  highlights?: number[] | (() => number[]),
+  highlights?: number[] |(() => number[]),
   meta?: string | null,
 }>(), {
   code: '',
@@ -60,11 +60,8 @@ pre code .line
 
 <style lang="sass" scoped>
 .filename
+  @apply top-8-4 right-8-4 p-4-2
   position: absolute
-  top: var(--f-8-4)
-  right: var(--f-8-4)
-  backdrop-filter: blur(var(--f-4-4))
-  padding: calc(var(--f-8-4) / 2)
   transition: opacity 300ms easeOutBack
   opacity: 1
 
@@ -72,11 +69,8 @@ pre code .line
     opacity: 0
 
 .copy-button
+  @apply bottom-8-4 right-8-4 p-4-2
   position: absolute
-  right: var(--f-8-4)
-  bottom: var(--f-8-4)
-  padding: calc(var(--f-8-4) / 2)
-  backdrop-filter: blur(var(--f-4-4))
   user-select: none
   transition: opacity 300ms easeOutBack
   opacity: 0
