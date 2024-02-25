@@ -26,7 +26,8 @@
 </template>
 
 <script setup lang="ts">
-import type PhotoSwipe from 'photoswipe'
+import type PhotoSwipeLightbox from 'photoswipe/lightbox'
+
 import { withBase } from 'ufo'
 import { nanoid } from 'nanoid'
 
@@ -51,7 +52,7 @@ const refinedSrc = computed(() => {
 })
 
 const lightBoxGallery = ref<HTMLSpanElement | null>(null)
-let lightbox: PhotoSwipe | null = null
+let lightbox: PhotoSwipeLightbox | null = null
 
 onMounted(() => {
   lightbox = useLightbox(lightBoxGallery.value?.id as string)

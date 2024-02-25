@@ -3,6 +3,8 @@
 </template>
 
 <script setup lang="ts">
+import type { LocationAsRelativeRaw } from 'vue-router'
+
 const { public: { domain, siteUrl } } = useRuntimeConfig()
 
 const items = [
@@ -24,7 +26,7 @@ useSchemaOrg([
   defineItemList({
     itemListElement: items.filter(item => !isEmpty(item.to)).map(item => defineWebPage({
       '@id': typeof item.to === 'object' ? `https://${domain + '/'}#${item.to.name}` : undefined,
-      url: useLink({ to: item.to || '' }).href,
+      url: useLink({ to: item.to as unknown as LocationAsRelativeRaw }).href,
       name: item.text,
       description: ' ',
       author: { '@id': `${siteUrl}/#${'Author'}` },

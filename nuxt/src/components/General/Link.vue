@@ -19,6 +19,7 @@
 </template>
 
 <script setup lang="ts">
+import type { LocationAsRelativeRaw } from 'vue-router'
 import type { NuxtLinkProps } from '#app'
 
 const props = defineProps<NuxtLinkProps & Required<Pick<NuxtLinkProps, 'to'>> & {
@@ -27,7 +28,7 @@ const props = defineProps<NuxtLinkProps & Required<Pick<NuxtLinkProps, 'to'>> & 
   ariaLabel?: string | undefined,
 }>()
 
-const link = reactive(useLink(props))
+const link = reactive(useLink({ to: props.to as unknown as LocationAsRelativeRaw }))
 
 const isExternalLink = useIsExternalLink(props.to)
 </script>

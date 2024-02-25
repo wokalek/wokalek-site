@@ -2,7 +2,7 @@ import PhotoSwipeLightbox from 'photoswipe/lightbox'
 import PhotoSwipe from 'photoswipe'
 import 'photoswipe/style.css'
 
-export function useLightbox (id: string): PhotoSwipe {
+export function useLightbox (id: string) {
   const lightbox = new PhotoSwipeLightbox({
     pswpModule: PhotoSwipe,
     gallery: `#${id}`,

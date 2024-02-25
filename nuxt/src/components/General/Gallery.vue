@@ -37,7 +37,8 @@
 </template>
 
 <script setup lang="ts">
-import type PhotoSwipe from 'photoswipe'
+import type PhotoSwipeLightbox from 'photoswipe/lightbox'
+
 import { nanoid } from 'nanoid'
 // const { isMobile } = useDevice()
 
@@ -58,7 +59,7 @@ withDefaults(defineProps<{
   data: () => [],
 })
 
-const lightboxes: PhotoSwipe[] = []
+const lightboxes: PhotoSwipeLightbox[] = []
 const lightBoxGallery = ref<HTMLDivElement[]>()
 
 // До лучших времён

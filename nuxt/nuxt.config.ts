@@ -93,9 +93,16 @@ const config: ReturnType<typeof defineNuxtConfig> = {
       remarkPlugins: {
         'remark-math': {},
       },
-      rehypePlugins: [
-        'rehype-katex',
-      ],
+      rehypePlugins: {
+        'rehype-katex': {
+          output: 'html',
+        },
+      },
+    },
+  },
+  mdc: {
+    highlight: {
+      langs: ['css', 'sass'],
     },
   },
   pwa: {

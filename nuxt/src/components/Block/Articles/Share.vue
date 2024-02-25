@@ -1,11 +1,13 @@
 <template>
-  <div v-if="isServer || isSupported" class="mt-64-32 ml-1em select-none">
-    <button
-      class="inline-block items-baseline whitespace-pre-wrap text-current transition-opacity desktop:hover:opacity-50 ease-in-out-quad opacity-100"
-      @click="share(value)"
-    >
-      Поделиться <span class="emoji" aria-hidden="true">📢</span>
-    </button>
+  <div v-if="isServer || isSupported" class="mt-64-32 select-none">
+    <p>
+      <button
+        class="inline-block items-baseline text-current transition-opacity desktop:hover:opacity-50 ease-in-out-quad opacity-100"
+        @click="share(value)"
+      >
+        Поделиться&nbsp;<span class="emoji" aria-hidden="true">📢</span>
+      </button>
+    </p>
   </div>
 </template>
 
