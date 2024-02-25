@@ -27,6 +27,18 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     'nuxt-schema-org',
     'nuxt-lodash',
   ],
+  vite: {
+    build: {
+      target: 'esnext',
+      cssMinify: 'lightningcss',
+    },
+    optimizeDeps: {
+      include: [
+        // https://github.com/cipami/nuxt-lodash/issues/53#issuecomment-1870583442
+        'lodash-es',
+      ],
+    },
+  },
   appConfig: {
     umami: {
       ignoreLocalhost: true,
@@ -49,18 +61,6 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   },
   eslint: {
     lintOnStart: false,
-  },
-  vite: {
-    build: {
-      target: 'esnext',
-      cssMinify: 'lightningcss',
-    },
-    optimizeDeps: {
-      include: [
-        // https://github.com/cipami/nuxt-lodash/issues/53#issuecomment-1870583442
-        'lodash-es',
-      ],
-    },
   },
   tailwindcss: {
     cssPath: '~/assets/sass/vendors/tailwind.sass',
