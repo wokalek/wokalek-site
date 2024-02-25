@@ -81,9 +81,10 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   },
   content: {
     highlight: {
+      langs: ['css', 'sass'],
       theme: {
-        default: 'min-light',
-        'dark-mode': 'min-dark',
+        default: 'github-light',
+        'dark-mode': 'tokyo-night',
       },
     },
     markdown: {
@@ -98,11 +99,6 @@ const config: ReturnType<typeof defineNuxtConfig> = {
           output: 'html',
         },
       },
-    },
-  },
-  mdc: {
-    highlight: {
-      langs: ['css', 'sass'],
     },
   },
   pwa: {
