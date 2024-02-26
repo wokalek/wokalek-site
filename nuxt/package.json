@@ -24,6 +24,7 @@
     "@vueuse/core": "10.8.0",
     "@vueuse/nuxt": "10.8.0",
     "dayjs": "1.11.10",
+    "hyphen": "1.10.4",
     "image-size": "1.1.1",
     "kaokun": "1.1.10",
     "lightningcss": "1.24.0",
@@ -47,6 +48,7 @@
   "devDependencies": {
     "@nuxt/devtools": "1.0.8",
     "@nuxtjs/eslint-config-typescript": "12.1.0",
+    "@types/hyphen": "1.6.7",
     "@types/node": "20.11.20",
     "eslint": "8.57.0"
   }

@@ -12,5 +12,5 @@
 <script setup lang="ts">
 import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
 
-const { data: article } = useNuxtData<ParsedContent>('article')
+const { data: article } = useNuxtData<ParsedContent>('content__article')
 </script>

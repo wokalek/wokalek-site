@@ -8,7 +8,7 @@ import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
 const { public: { siteUrl } } = useRuntimeConfig()
 const route = useRoute('articles-slug')
 
-const { data: article } = await useAsyncData('article', () => queryContent(route.path).findOne(), { default: () => { return {} as ParsedContent } })
+const { data: article } = await useAsyncData('content__article', () => queryContent(route.path).findOne(), { default: () => { return {} as ParsedContent } })
 
 if (isEmpty(article.value)) {
   throw createError({ statusCode: 404 })

@@ -4,30 +4,34 @@
     :to="to"
     :target="isExternalLink ? '_blank' : null"
     class="item
-      relative flex flex-col justify-center items-center select-none whitespace-nowrap p-16-8
+      p-16-8
+      relative flex flex-col justify-center items-center select-none text-center
       border-1-1 border-gray-6 dark:border-gray-2
     "
     :class="{ 'disabled': isDisabled }"
   >
-    <span class="lead">{{ text }}</span>
+    <span class="lead">{{ hypnenText || props.text }}</span>
     <span v-if="caption" class="caption">{{ caption }}</span>
   </NuxtLink>
   <div
     v-else
     class="item
-      relative flex flex-col justify-center items-center select-none whitespace-nowrap p-16-8
+      p-16-8
+      relative flex flex-col justify-center items-center select-none text-center
       border-1-1 border-gray-3 dark:border-gray-4
       text-gray-3 dark:text-gray-4
     "
     :class="{ 'disabled': isDisabled }"
     :disabled="isDisabled"
   >
-    <span class="lead">{{ text }}</span>
+    <span class="lead">{{ hypnenText || props.text }}</span>
     <span v-if="caption" class="caption">{{ caption }}</span>
   </div>
 </template>
 
 <script setup lang="ts">
+import { hyphenate } from 'hyphen/ru'
+
 import type { MapItemType } from '@/components/Block/Map/Grid.vue'
 
 const props = withDefaults(defineProps<MapItemType>(), {
@@ -36,6 +40,10 @@ const props = withDefaults(defineProps<MapItemType>(), {
 })
 
 const isExternalLink = useIsExternalLink(props.to)
+
+const hypnenText = computedAsync(async () => {
+  return await hyphenate(props.text)
+})
 </script>
 
 <style lang="sass" scoped>

@@ -1,12 +1,8 @@
 <template>
   <nav v-if="links.length" class="select-none">
-    <ul class="flex items-center">
-      <li v-for="(link, index) in links" :key="index">
-        <GeneralLink v-bind="useOmit(link, ['text'])">
-          {{ link.text }}
-        </GeneralLink>
-      </li>
-    </ul>
+    <GeneralLink v-for="(link, index) in links" :key="index" v-bind="useOmit(link, ['text'])">
+      {{ link.text }}
+    </GeneralLink>
   </nav>
 </template>
 

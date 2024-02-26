@@ -14,20 +14,44 @@
 .emoji
   @apply font-emoji font-bold leading-1.3 tracking-normal text-center select-none
 
+h1,
+h2,
+h3,
+h4
+  @apply font-lora font-bold leading-1.3
+
+h1
+  @apply text-48-30
+
+h2
+  @apply text-38-24
+
+h3
+  @apply text-28-18
+
+ul,
+ol
+  @apply pl-1em
+
+  li
+    @apply pl-1em my-1em
+
+ul
+  @apply list-['—']
+
+ol
+  @apply list-decimal
+
+code
+  @apply font-code font-normal
+
 .prose
-  h1,
+  h1
+    @apply mb-1em
+
   h2,
   h3
-    @apply font-lora font-bold leading-1.3
-
-  h1
-    @apply text-48-30 mb-1em
-
-  h2
-    @apply text-38-24 my-1em
-
-  h3
-    @apply text-28-18 my-1em
+    @apply my-1em
 
   p,
   .codeblock
@@ -39,16 +63,4 @@
 
   ul,
   ol
-    @apply pl-1em my-1em mx-32-8
-
-    li
-      @apply pl-1em my-1em
-
-  ul
-    @apply list-['—']
-
-  ol
-    @apply list-decimal
-
-  code
-    @apply font-code font-normal
+    @apply my-1em mx-32-8
