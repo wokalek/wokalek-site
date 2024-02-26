@@ -2,7 +2,7 @@
   <div class="grid gap-64-32">
     <div v-for="(dataItem, index) in data" :key="index">
       <div class="mb-32-16">
-        <h2 class="inline font-lora font-bold leading-1.3 text-38-24 my-1em">
+        <h2 class="inline">
           {{ dataItem.title }}
         </h2>
         <span class="caption ml-8-4 align-top text-gray-4 select-none">
