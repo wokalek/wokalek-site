@@ -62,12 +62,12 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   eslint: {
     lintOnStart: false,
   },
-  tailwindcss: {
-    cssPath: '~/assets/sass/vendors/tailwind.sass',
-  },
   css: [
     '@/assets/sass/index.sass',
   ],
+  tailwindcss: {
+    cssPath: '~/assets/sass/vendors/tailwind.sass',
+  },
   postcss: {
     plugins: {
       'postcss-easings': {},
@@ -100,6 +100,9 @@ const config: ReturnType<typeof defineNuxtConfig> = {
         },
       },
     },
+  },
+  image: {
+    format: ['avif'],
   },
   pwa: {
     manifest,

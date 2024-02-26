@@ -9,7 +9,7 @@
           {{ dataItem.images.length }}
         </span>
       </div>
-      <div :id="'id_' + nanoid()" ref="lightBoxGallery" class="grid grid-cols-4 mobile-or-tablet:grid-cols-2">
+      <div :id="ids[index]" ref="lightBoxGallery" class="grid grid-cols-4 mobile-or-tablet:grid-cols-2">
         <a
           v-for="image in dataItem.images"
           :key="image.src"
@@ -21,14 +21,15 @@
           target="_blank"
           :aria-label="image.alt ? 'Ссылка на изображение: ' + image.alt : 'Ссылка на изображение'"
         >
-          <GeneralPicture
-            class="img absolute inset-0"
+          <NuxtPicture
+            class="img absolute inset-0 *:w-full *:h-full *:object-cover"
             :src="image.src"
             :width="image.width"
             :height="image.height"
+            fit="outside"
+            :sizes="sizes"
             :alt="image.alt ? 'Изображение: ' + image.alt : ''"
-            :poster-src="image.posterSrc"
-            sizes="xs:144px sm:204px md:113px lg:140px xl:160px xxl:218px 2xl:500px"
+            loading="lazy"
           />
         </a>
       </div>
@@ -39,8 +40,7 @@
 <script setup lang="ts">
 import type PhotoSwipeLightbox from 'photoswipe/lightbox'
 
-import { nanoid } from 'nanoid'
-// const { isMobile } = useDevice()
+const { isMobile } = useDevice()
 
 export interface DataItemType {
   title: string,
@@ -49,11 +49,10 @@ export interface DataItemType {
     width: string | number,
     height: string | number,
     alt?: string,
-    posterSrc?: string
   }[],
 }
 
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   data: DataItemType[] | null,
 }>(), {
   data: () => [],
@@ -62,17 +61,22 @@ withDefaults(defineProps<{
 const lightboxes: PhotoSwipeLightbox[] = []
 const lightBoxGallery = ref<HTMLDivElement[]>()
 
-// До лучших времён
-// https://github.com/nuxt/image/pull/901
-// const sizes = computed(() => {
-//   return isMobile ?
-//     'xs:144px sm:204px md:226px lg:274px xl:320px xxl:366px 2xl:1098px' :
-//     'xs:72px sm:102px md:114px lg:138px xl:160px xxl:184px 2xl:552px'
-// })
+const ids: string[] = reactive([])
+
+props.data?.forEach(() => {
+  ids.push(useId())
+})
+
+const sizes = computed(() => {
+  return isMobile
+    ? 'xs:144px sm:204px md:226px lg:274px xl:320px xxl:370px 2xl:450px'
+    : 'xs:72px sm:102px md:114px lg:138px xl:160px xxl:184px 2xl:450px'
+})
 
 onMounted(() => {
   lightBoxGallery.value?.forEach((el) => {
-    const lightbox = useLightbox(el.id)
+    const lightbox = useLightbox(el.id.replace(':', '\\:'))
+
     lightbox.init()
     lightboxes.push(lightbox)
   })
@@ -84,8 +88,3 @@ onBeforeUnmount(() => {
   })
 })
 </script>
-
-<style lang="sass" scoped>
-.img :deep(img)
-  @apply w-full h-full object-cover
-</style>

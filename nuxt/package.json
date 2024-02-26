@@ -27,7 +27,6 @@
     "image-size": "1.1.1",
     "kaokun": "1.1.10",
     "lightningcss": "1.24.0",
-    "nanoid": "5.0.6",
     "nuxt": "3.10.3",
     "nuxt-lodash": "2.5.3",
     "nuxt-schema-org": "3.3.4",
@@ -42,8 +41,7 @@
     "remark-math": "6.0.0",
     "sass": "1.71.1",
     "timeago.js": "4.0.2",
-    "vanilla-lazyload": "17.8.8",
-    "vue": "3.4.19",
+    "vue": "3.4.20",
     "vue-router": "4.3.0"
   },
   "devDependencies": {
