@@ -30,7 +30,8 @@
 </template>
 
 <script setup lang="ts">
-import { hyphenate } from 'hyphen/ru'
+// eslint-disable-next-line import/default
+import hyphen from 'hyphen/ru'
 
 import type { MapItemType } from '@/components/Block/Map/Grid.vue'
 
@@ -38,6 +39,9 @@ const props = withDefaults(defineProps<MapItemType>(), {
   to: '',
   caption: '',
 })
+
+// eslint-disable-next-line import/no-named-as-default-member
+const { hyphenate } = hyphen
 
 const isExternalLink = useIsExternalLink(props.to)
 

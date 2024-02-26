@@ -40,9 +40,9 @@ const props = withDefaults(defineProps<{
   height: 0,
 })
 
-const id = useId()
+const id = 'n' + useId()
 
-const lightBoxGallery = ref<HTMLSpanElement | null>(null)
+const lightBoxGallery = ref<HTMLDivElement>()
 let lightbox: PhotoSwipeLightbox | null = null
 
 onMounted(() => {

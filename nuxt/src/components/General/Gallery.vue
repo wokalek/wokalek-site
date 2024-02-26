@@ -64,7 +64,7 @@ const lightBoxGallery = ref<HTMLDivElement[]>()
 const ids: string[] = reactive([])
 
 props.data?.forEach(() => {
-  ids.push(useId())
+  ids.push('n' + useId())
 })
 
 const sizes = computed(() => {
