@@ -1,17 +1,21 @@
 <template>
-  <div :key="forceUpdate" role="radiogroup" class="control-radio-buttons">
-    <div v-for="element in set" :key="element.value" class="control-button">
+  <div :key="forceUpdate" role="radiogroup" class="grid grid-cols-3 gap-32-16 items-center">
+    <div v-for="element in set" :key="element.value" class="flex flex-col items-center">
       <button
-        class="button"
-        :class="{ 'checked': value === element.value }"
+        class="
+          relative p-16-8 border-1-1 select-none
+          border-gray-3 text-gray-6 dark:border-gray-4 dark:text-gray-2
+          [&.selected]:border-gray-6 [&.selected]:text-gray-6 dark:[&.selected]:border-gray-2 dark:[&.selected]:text-gray-2
+        "
+        :class="{ 'selected': value === element.value }"
         role="radio"
         :aria-checked="value === element.value"
         :aria-label="element.label"
         @click="$emit('click', element.value)"
       >
-        <span class="emoji emoji-icon">{{ element.icon }}</span>
+        <span class="emoji text-28-18">{{ element.icon }}</span>
       </button>
-      <label v-if="element.label" class="label caption">{{ element.label }}</label>
+      <label v-if="element.label" class="caption select-none mt-8-4">{{ element.label }}</label>
     </div>
   </div>
 </template>
@@ -25,44 +29,10 @@ defineProps<{
 }>()
 
 defineEmits<{
-  (e: 'click', value: string): void,
+  click: [value: string]
 }>()
 
 onMounted(() => {
   forceUpdate.value++
 })
 </script>
-
-<style lang="sass" scoped>
-.control-radio-buttons
-  display: grid
-  grid-template-columns: repeat(3, 1fr)
-  gap: var(--f-32-16)
-  align-items: center
-
-.control-button
-  display: flex
-  flex-direction: column
-  align-items: center
-
-.button
-  @include button-reset
-  position: relative
-  padding: var(--f-16-8)
-  border: var(--f-1-1) solid var(--disabled-color)
-  border-radius: var(--f-16-8)
-  user-select: none
-  color: var(--disabled-color)
-
-  &.checked
-    border: var(--f-1-1) solid var(--text-color)
-    color: var(--text-color)
-
-.emoji
-  font-size: var(--f-26-18)
-
-.label
-  user-select: none
-  pointer-events: none
-  margin-top: 0.5em
-</style>

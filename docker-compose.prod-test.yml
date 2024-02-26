@@ -5,17 +5,15 @@ services:
     container_name: wokalek-nuxt
     build:
       context: .
-      dockerfile: docker/nuxt/dev.Dockerfile
+      dockerfile: docker/nuxt/prod.Dockerfile
     env_file: env/nuxt/.env
     depends_on:
       fonts:
         condition: service_completed_successfully
     volumes:
       - nuxt-devfolder:/nuxt/.nuxt
-      - ./nuxt/nuxt.config.ts:/nuxt/nuxt.config.ts
-      - ./nuxt/tsconfig.json:/nuxt/tsconfig.json
       - ./nuxt/src:/nuxt/src
-      - ./static:/nuxt/src/public/static
+      - ./static:/nuxt/.output/public/static
 
   nginx:
     container_name: wokalek-nginx
@@ -25,8 +23,6 @@ services:
       - nuxt
     ports:
       - 80:80
-      - 4000:4000 # Для работы HMR
-      - 24678:24678 # Для работы HMR
     volumes:
       - ./nginx/conf/dev.conf:/etc/nginx/nginx.conf
       - ./nginx/snippets:/etc/nginx/snippets

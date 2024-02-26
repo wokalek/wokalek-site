@@ -1,6 +1,6 @@
 <template>
-  <article class="typograph-content">
-    <GeneralTime class="time caption" :date="article?.createdAt">
+  <article class="prose w-full">
+    <GeneralTime class="mb-16-8 text-gray-4 caption" :date="article?.createdAt">
       <template #before>Опубликовано&nbsp;</template>
     </GeneralTime>
     <h1>{{ article?.title }}</h1>
@@ -12,11 +12,5 @@
 <script setup lang="ts">
 import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
 
-const { data: article } = useNuxtData<ParsedContent>('article')
+const { data: article } = useNuxtData<ParsedContent>('content__article')
 </script>
-
-<style lang="sass" scoped>
-.time
-  color: var(--faded-color)
-  margin-bottom: var(--f-16-8)
-</style>

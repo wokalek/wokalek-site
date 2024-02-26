@@ -1,6 +1,6 @@
 <template>
-  <article class="typograph-content">
-    <h2 class="mt-0">
+  <article class="prose w-full">
+    <h2 class="mt-[0!important]">
       Положения
     </h2>
     <p>
@@ -10,7 +10,7 @@
 
     <h2>Лицензия</h2>
     <p>
-      Весь контент, размещенный на&nbsp;сайте, распространяется по&nbsp;лицензии <NuxtLink :to="('https://creativecommons.org/licenses/by-nc/4.0/deed.ru' as string)" class="nowrap" target="_blank">Creative Commons BY-NC 4.0</NuxtLink>, если на&nbsp;странице материала не&nbsp;указано иное.
+      Весь контент, размещенный на&nbsp;сайте, распространяется по&nbsp;лицензии <NuxtLink :to="('https://creativecommons.org/licenses/by-nc/4.0/deed.ru' as string)" class="text-nowrap" target="_blank">Creative Commons BY-NC 4.0</NuxtLink>, если на&nbsp;странице материала не&nbsp;указано иное.
     </p>
 
     <h2>Куки</h2>
@@ -29,21 +29,29 @@
     <p>Сайт задизайнен и&nbsp;собран мной.</p>
     <p>Используются:</p>
     <ul>
-      <li class="logo-li">
-        <SvgoLogoNuxt :filled="true" class="logo-icon" aria-disabled="true" />
-        <NuxtLink :to="('https://nuxt.com' as string)" target="_blank">Nuxt.js</NuxtLink>, фронтенд.
+      <li>
+        <div class="flex">
+          <SvgoLogoNuxt :filled="true" class="mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
+          <NuxtLink :to="('https://nuxt.com' as string)" target="_blank">Nuxt.js</NuxtLink>, фронтенд.
+        </div>
       </li>
-      <li class="logo-li">
-        <SvgoLogoUmami :filled="true" class="logo-icon umami" aria-disabled="true" />
-        <NuxtLink :to="('https://umami.is' as string)" target="_blank">Umami</NuxtLink>, статистика.
+      <li>
+        <div class="flex">
+          <SvgoLogoUmami :filled="true" class="mr-16-8 fluid-[width,40-30] h-auto umami stroke-black fill-black dark:stroke-white dark:fill-white" aria-disabled="true" :font-controlled="false" />
+          <NuxtLink :to="('https://umami.is' as string)" target="_blank">Umami</NuxtLink>, статистика.
+        </div>
       </li>
-      <li class="logo-li">
-        <SvgoLogoNginx :filled="true" class="logo-icon" aria-disabled="true" />
-        <NuxtLink :to="('https://nginx.org' as string)" target="_blank">Nginx</NuxtLink>, сервер.
+      <li>
+        <div class="flex">
+          <SvgoLogoNginx :filled="true" class="mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
+          <NuxtLink :to="('https://nginx.org' as string)" target="_blank">Nginx</NuxtLink>, сервер.
+        </div>
       </li>
-      <li class="logo-li">
-        <SvgoLogoDocker :filled="true" class="logo-icon" aria-disabled="true" />
-        <NuxtLink :to="('https://docker.com' as string)" target="_blank">Docker</NuxtLink>.
+      <li>
+        <div class="flex">
+          <SvgoLogoDocker :filled="true" class="mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
+          <NuxtLink :to="('https://docker.com' as string)" target="_blank">Docker</NuxtLink>.
+        </div>
       </li>
     </ul>
     <p>
@@ -72,10 +80,10 @@
       <li>✓ Настроить автодеплой на&nbsp;прод.</li>
       <li>✓ Заселфхостить twitch bot.</li>
       <li>✓ Сделать опенсорсное расширение для браузера.</li>
+      <li>✓ Переписать фронт на tailwind</li>
       <li>Сделать бэкенд. Сейчас для публикации материалов сайт необходимо пересобирать.</li>
       <li>Сделать RSS.</li>
       <li>Комментарии к&nbsp;статьям и&nbsp;блогу.</li>
-      <li>Переписать фронт на tailwind</li>
       <li>Реализовать новый фронтенд. Данный дизайн намеренно крайне прост и&nbsp;изначально задумывался более сложным 3D-шным. Возможно это будет смесь текущего и&nbsp;нового видения.</li>
     </ol>
   </article>
@@ -84,20 +92,3 @@
 <script setup lang="ts">
 const { public: { statisticUrl } } = useRuntimeConfig()
 </script>
-
-<style lang="sass" scoped>
-.logo-icon
-  @include fluid('width', 40px, 30px)
-  height: auto
-  margin-bottom: 0
-  margin-right: var(--f-16-8)
-
-  &.umami
-    .dark-mode &
-      stroke: $white-color
-      fill: $white-color
-
-    .light-mode &
-      stroke: $black-color
-      fill: $black-color
-</style>

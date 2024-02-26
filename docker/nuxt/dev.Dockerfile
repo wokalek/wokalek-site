@@ -1,4 +1,4 @@
-FROM node:21.4.0-alpine
+FROM node:20.11.1-alpine
 
 WORKDIR /nuxt
 
@@ -8,5 +8,6 @@ RUN npm i -g pnpm
 
 COPY ./nuxt/package.json ./nuxt/pnpm-lock.yaml ./nuxt/.npmrc ./
 RUN pnpm install --frozen-lockfile
+COPY ./nuxt/.eslintrc ./nuxt/tailwind.config.ts ./
 
-ENTRYPOINT [ "pnpm", "run", "dev", "--host" ]
+ENTRYPOINT [ "pnpm", "run", "dev" ]

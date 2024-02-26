@@ -1,7 +1,7 @@
 <template>
   <div
     ref="slider"
-    class="control-range-count lead"
+    class="lead flex justify-center border-1-1 border-gray-3 dark:border-gray-4"
     role="slider"
     :aria-label="label"
     :aria-valuenow="value"
@@ -9,9 +9,21 @@
     :aria-valuemax="maxValue"
     tabindex="0"
   >
-    <div class="button" :class="{ 'disabled': value === minValue }" @click="value !== minValue ? $emit('change', -1) : null"> - </div>
-    <div class="value">{{ value }}</div>
-    <div class="button" :class="{ 'disabled': value === maxValue }" @click="value !== maxValue ? $emit('change', 1) : null"> + </div>
+    <button
+      class="flex justify-center items-center leading-1 select-none size-64-32 text-38-24 font-light"
+      :class="{ 'text-gray-4 cursor-default': value === minValue }"
+      @click="value !== minValue ? $emit('change', -1) : null"
+    >
+      -
+    </button>
+    <div class="px-16-8 flex items-center select-none">{{ value }}</div>
+    <button
+      class="flex justify-center items-center leading-1 select-none size-64-32 text-38-24 font-light"
+      :class="{ 'text-gray-4 cursor-default': value === maxValue }"
+      @click="value !== maxValue ? $emit('change', 1) : null"
+    >
+      +
+    </button>
   </div>
 </template>
 
@@ -29,7 +41,7 @@ withDefaults(defineProps<{
 })
 
 const emits = defineEmits<{
-  (e: 'change', changeValue: number): void
+  change: [changeValue: number],
 }>()
 
 let isFocused = ref(false)
@@ -57,39 +69,3 @@ watch(arrowright, (pressed) => {
   emits('change', 1)
 })
 </script>
-
-<style lang="sass" scoped>
-.control-range-count
-  display: flex
-  justify-content: center
-  border: var(--f-1-1) solid var(--faded-color)
-  border-radius: var(--f-16-8)
-
-.button
-  display: flex
-  justify-content: center
-  align-items: center
-  width: var(--f-64-32)
-  height: var(--f-64-32)
-  line-height: 100%
-  user-select: none
-
-  &:first-of-type
-    border-right: var(--f-1-1) solid var(--faded-color)
-
-  &:last-of-type
-    border-left: var(--f-1-1) solid var(--faded-color)
-
-  &.disabled
-    color: var(--faded-color)
-
-  &:not(.disabled)
-    cursor: pointer
-
-.value
-  display: flex
-  align-items: center
-  padding-left: var(--f-16-8)
-  padding-right: var(--f-16-8)
-  user-select: none
-</style>

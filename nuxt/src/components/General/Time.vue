@@ -1,5 +1,5 @@
 <template>
-  <div class="general-time">
+  <div :key="forceUpdate" class="select-none">
     <span :title="useDateLongFormat(date)">
       <slot name="before" />
       <time ref="time" :datetime="(date as string)">{{ getFormattedDate() }}</time>
@@ -9,12 +9,15 @@
 
 <script setup lang="ts">
 import type { TDate } from 'timeago.js'
-const { $timeago } = useNuxtApp()
 
 const props = defineProps<{
   date: TDate,
   capitalize?: boolean,
 }>()
+
+const { $timeago } = useNuxtApp()
+
+const forceUpdate = ref(0)
 
 const time = ref<HTMLTimeElement>()
 let stopObserver: () => void
@@ -26,6 +29,7 @@ function getFormattedDate () {
 }
 
 onMounted(() => {
+  forceUpdate.value++
   $timeago.render(time.value as HTMLTimeElement, 'ru')
 
   if (props.capitalize) {
@@ -47,8 +51,3 @@ onBeforeUnmount(() => {
   }
 })
 </script>
-
-<style lang="sass" scoped>
-.general-time
-  user-select: none
-</style>

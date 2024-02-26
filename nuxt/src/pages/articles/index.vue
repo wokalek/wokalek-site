@@ -6,7 +6,7 @@
 <script setup lang="ts">
 const { public: { siteUrl } } = useRuntimeConfig()
 
-const { data: articles } = await useAsyncData('articles', () => queryContent('/articles').sort({ createdAt: -1, $numeric: false }).find(), { default: () => [] })
+const { data: articles } = await useAsyncData('content__articles', () => queryContent('/articles').sort({ createdAt: -1, $numeric: false }).find(), { default: () => [] })
 
 useSeoMeta({
   title: 'Статьи',

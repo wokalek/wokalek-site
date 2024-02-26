@@ -1,32 +1,32 @@
 <template>
-  <span :id="'id_' + nanoid()" ref="lightBoxGallery" class="prose-img">
+  <div :id="id" ref="lightBoxGallery" class="-mx-32-8 not-prose flex flex-col items-center">
     <a
-      class="link"
+      class="flex justify-center w-full"
+      :style="{ maxWidth: width + 'px' }"
       :href="src"
       target="_blank"
       :data-pswp-width="width"
       :data-pswp-height="height"
       data-cropped="true"
     >
-      <GeneralPicture
-        class="picture"
-        :src="refinedSrc"
+      <NuxtPicture
+        class="flex justify-center w-full rounded-4-4 border-1-1 border-gray-1 dark:border-gray-5"
+        :src="props.src"
         :width="width"
         :height="height"
+        sizes="xs:288px sm:405px md:452px lg:545px xl:640px xxl:732px 2xl:1536px"
         :alt="'Изображение: ' + alt"
-        fit="inside"
-        :img-attrs="{ style: { '--max-width': width + 'px' } }"
-        sizes="xs:288px sm:405px md:452px lg:545px xl:640px xxl:872px 2xl:2616px"
+        loading="lazy"
       />
     </a>
-    <span v-if="alt" class="caption">{{ alt }}</span>
-  </span>
+    <span v-if="alt" class="caption mt-16-8 px-32-8 block box-border text-center text-balance text-gray-4">
+      {{ alt }}
+    </span>
+  </div>
 </template>
 
 <script setup lang="ts">
-import type PhotoSwipe from 'photoswipe'
-import { withBase } from 'ufo'
-import { nanoid } from 'nanoid'
+import type PhotoSwipeLightbox from 'photoswipe/lightbox'
 
 const props = withDefaults(defineProps<{
   src: string,
@@ -40,19 +40,13 @@ const props = withDefaults(defineProps<{
   height: 0,
 })
 
-const refinedSrc = computed(() => {
-  if (props.src?.startsWith('/') && !props.src.startsWith('//')) {
-    return withBase(props.src, useRuntimeConfig().app.baseURL)
-  }
+const id = 'n' + useId()
 
-  return props.src
-})
-
-const lightBoxGallery = ref<HTMLSpanElement | null>(null)
-let lightbox: PhotoSwipe | null = null
+const lightBoxGallery = ref<HTMLDivElement>()
+let lightbox: PhotoSwipeLightbox | null = null
 
 onMounted(() => {
-  lightbox = useLightbox(lightBoxGallery.value?.id as string)
+  lightbox = useLightbox(lightBoxGallery.value?.id.replace(':', '\\:') as string)
 
   lightbox.init()
 })
@@ -62,40 +56,3 @@ onBeforeUnmount(() => {
   lightbox = null
 })
 </script>
-
-<style lang="sass" scoped>
-.prose-img
-  display: flex
-  flex-direction: column
-  align-items: center
-  width: calc(100% + 2 * var(--f-32-8))
-  margin-left: calc(-1 * var(--f-32-8))
-
-.link
-  @include link-reset
-  display: flex
-  justify-content: center
-  width: 100%
-
-.picture
-  display: flex
-  justify-content: center
-  width: 100%
-
-  & :deep(img)
-    width: 100%
-    height: auto
-    max-width: var(--max-width)
-    border: var(--f-1-1) solid var(--invisible-color)
-    border-radius: var(--f-4-4)
-
-.caption
-  display: block
-  box-sizing: border-box
-  color: var(--faded-color)
-  padding-left: var(--f-32-8)
-  padding-right: var(--f-32-8)
-  margin-top: var(--f-16-8)
-  text-align: center
-  white-space: break-spaces
-</style>

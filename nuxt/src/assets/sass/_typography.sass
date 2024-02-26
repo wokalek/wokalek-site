@@ -1,0 +1,66 @@
+:root
+  @apply font-sirius font-light text-22-14 leading-1.5
+  font-variant-emoji: emoji
+
+.lead
+  @apply text-24-18 leading-1.5 tracking-wide font-normal
+
+.nav
+  @apply text-20-14 leading-1.2 tracking-wide font-semibold
+
+.caption
+  @apply text-15-12 leading-1.3 tracking-wide font-normal
+
+.emoji
+  @apply font-emoji font-bold leading-1.3 tracking-normal text-center select-none
+
+h1,
+h2,
+h3,
+h4
+  @apply font-lora font-bold leading-1.3
+
+h1
+  @apply text-48-30
+
+h2
+  @apply text-38-24
+
+h3
+  @apply text-28-18
+
+ul,
+ol
+  @apply pl-1em
+
+  li
+    @apply pl-1em my-1em
+
+ul
+  @apply list-['—']
+
+ol
+  @apply list-decimal
+
+code
+  @apply font-code font-normal
+
+.prose
+  h1
+    @apply mb-1em
+
+  h2,
+  h3
+    @apply my-1em
+
+  p,
+  .codeblock
+    @apply mx-32-8 my-1em
+
+  a:not(.not-prose *)
+    @apply underline decoration-from-font underline-offset-0.35em
+    @apply transition-opacity ease-in-out-quad desktop:hover:opacity-50
+
+  ul,
+  ol
+    @apply my-1em mx-32-8

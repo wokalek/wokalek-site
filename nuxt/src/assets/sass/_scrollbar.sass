@@ -1,0 +1,15 @@
+.isDesktop .scrollbar
+  ::-webkit-scrollbar
+    @apply bg-transparent size-8-8
+
+  ::-webkit-scrollbar-track
+    @apply bg-transparent
+
+  ::-webkit-scrollbar-thumb
+    @apply rounded-full bg-gray-2
+
+    .dark-mode &
+      @apply bg-gray-5
+
+  ::-webkit-scrollbar-thumb:hover
+    @apply bg-gray-3

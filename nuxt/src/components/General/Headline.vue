@@ -1,15 +1,5 @@
 <template>
-  <div class="common-headline">
-    <h1 class="headline">
-      <slot />
-    </h1>
-  </div>
+  <h1 class="mb-1em">
+    <slot />
+  </h1>
 </template>
-
-<style lang="sass" scoped>
-.common-headline
-  margin-bottom: var(--f-64-32)
-
-.headline
-  margin: 0
-</style>

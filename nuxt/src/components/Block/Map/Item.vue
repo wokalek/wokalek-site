@@ -1,21 +1,37 @@
 <template>
   <NuxtLink
-    v-if="!link.isExactActive"
+    v-if="to"
     :to="to"
     :target="isExternalLink ? '_blank' : null"
-    class="block-map-item link"
+    class="item
+      p-16-8
+      relative flex flex-col justify-center items-center select-none text-center
+      border-1-1 border-gray-6 dark:border-gray-2
+    "
     :class="{ 'disabled': isDisabled }"
   >
-    <span class="lead">{{ text }}</span>
+    <span class="lead">{{ hypnenText || props.text }}</span>
     <span v-if="caption" class="caption">{{ caption }}</span>
   </NuxtLink>
-  <button v-else class="block-map-item button" :class="{ 'disabled': isDisabled }" :disabled="isDisabled">
-    <span class="lead">{{ text }}</span>
+  <div
+    v-else
+    class="item
+      p-16-8
+      relative flex flex-col justify-center items-center select-none text-center
+      border-1-1 border-gray-3 dark:border-gray-4
+      text-gray-3 dark:text-gray-4
+    "
+    :class="{ 'disabled': isDisabled }"
+    :disabled="isDisabled"
+  >
+    <span class="lead">{{ hypnenText || props.text }}</span>
     <span v-if="caption" class="caption">{{ caption }}</span>
-  </button>
+  </div>
 </template>
 
 <script setup lang="ts">
+import hyphen from 'hyphen/ru'
+
 import type { MapItemType } from '@/components/Block/Map/Grid.vue'
 
 const props = withDefaults(defineProps<MapItemType>(), {
@@ -23,49 +39,26 @@ const props = withDefaults(defineProps<MapItemType>(), {
   caption: '',
 })
 
-const link = reactive(useLink({ to: props.to }))
+// eslint-disable-next-line import/no-named-as-default-member
+const { hyphenate } = hyphen
+
 const isExternalLink = useIsExternalLink(props.to)
+
+const hypnenText = computedAsync(async () => {
+  return await hyphenate(props.text)
+})
 </script>
 
 <style lang="sass" scoped>
-.link
-  @include link-reset
-
-.button
-  @include button-reset
-
-.block-map-item
-  position: relative
-  display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
-  @include fluid('height', 100px, 70px)
-  border: var(--f-1-1) solid var(--text-color)
-  box-sizing: border-box
-  padding: var(--f-16-8)
-  user-select: none
-  white-space: nowrap
-
+.item
   &::after
-    content: ''
-    position: absolute
-    display: block
-    width: calc(100% + var(--f-16-8))
-    height: calc(100% + var(--f-16-8))
-    box-sizing: border-box
-    border: var(--f-1-1) solid var(--text-color)
-    transition: opacity 300ms easeOutBack, transform 300ms easeOutBack
-    opacity: 0
-    transform: scale(0.95)
-    pointer-events: none
-
-  &.disabled
-    cursor: default
-    border: var(--f-1-1) solid var(--disabled-color)
-    color: var(--disabled-color)
+    @apply content-[''] absolute block box-border pointer-events-none
+    @apply border-1-1 border-gray-6 dark:border-gray-2
+    @apply transition-all duration-300 ease-out-back
+    @apply opacity-0 scale-95
+    width: calc(100% + var(--fluid-16-8))
+    height: calc(100% + var(--fluid-16-8))
 
   .isDesktop &:not(.disabled):hover::after
-    opacity: 1
-    transform: scale(1)
+    @apply opacity-100 scale-100
 </style>

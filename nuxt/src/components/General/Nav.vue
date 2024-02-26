@@ -1,10 +1,8 @@
 <template>
-  <nav v-if="links.length" class="general-nav">
-    <ul class="list">
-      <li v-for="(link, index) in links" :key="index">
-        <GeneralLink v-bind="useOmit(link, ['text'])">{{ link.text }}</GeneralLink>
-      </li>
-    </ul>
+  <nav v-if="links.length" class="select-none">
+    <GeneralLink v-for="(link, index) in links" :key="index" v-bind="useOmit(link, ['text'])">
+      {{ link.text }}
+    </GeneralLink>
   </nav>
 </template>
 
@@ -19,13 +17,3 @@ defineProps<{
   }>
 }>()
 </script>
-
-<style lang="sass" scoped>
-.general-nav
-  user-select: none
-
-.list
-  display: flex
-  align-items: center
-  @include list-reset
-</style>

@@ -1,19 +1,20 @@
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
-
 import manifest from './src/manifest'
 
 const config: ReturnType<typeof defineNuxtConfig> = {
   telemetry: false,
+  devtools: { enabled: true },
   srcDir: 'src',
   app: {
-    rootId: 'app',
+    rootId: 'nuxt',
   },
   extends: [
     'nuxt-umami',
   ],
   modules: [
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/tailwindcss',
     '@nuxtjs/robots',
+    '@nuxtjs/sitemap',
     '@nuxtjs/color-mode',
     '@nuxtjs/fontaine',
     '@nuxtjs/device',
@@ -23,10 +24,21 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     '@vite-pwa/nuxt',
     'nuxt-typed-router',
     'nuxt-svgo',
-    'nuxt-simple-sitemap',
     'nuxt-schema-org',
     'nuxt-lodash',
   ],
+  vite: {
+    build: {
+      target: 'esnext',
+      cssMinify: 'lightningcss',
+    },
+    optimizeDeps: {
+      include: [
+        // https://github.com/cipami/nuxt-lodash/issues/53#issuecomment-1870583442
+        'lodash-es',
+      ],
+    },
+  },
   appConfig: {
     umami: {
       ignoreLocalhost: true,
@@ -47,22 +59,15 @@ const config: ReturnType<typeof defineNuxtConfig> = {
       },
     },
   },
-  vite: {
-    build: {
-      target: 'esnext',
-      cssMinify: 'lightningcss',
-    },
-    css: {
-      preprocessorOptions: {
-        sass: {
-          additionalData: '@use "@/assets/sass/resources/index.sass" as *\n',
-        },
-      },
-    },
+  eslint: {
+    lintOnStart: false,
   },
   css: [
-    '@/assets/sass/global/index.sass',
+    '@/assets/sass/index.sass',
   ],
+  tailwindcss: {
+    cssPath: '~/assets/sass/vendors/tailwind.sass',
+  },
   postcss: {
     plugins: {
       'postcss-easings': {},
@@ -74,31 +79,30 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   device: {
     refreshOnResize: true,
   },
-  image: {
-    densities: [1, 2, 3],
-  },
   content: {
     highlight: {
+      langs: ['css', 'sass', 'bash'],
       theme: {
-        default: 'min-light',
-        'dark-mode': 'min-dark',
+        default: 'github-light',
+        'dark-mode': 'tokyo-night',
       },
     },
     markdown: {
       anchorLinks: {
         exclude: [1, 2, 3, 4, 5, 6],
       },
-      tags: {
-        // remark-math и rehype-katex фикс варнинга «Failed to resolve component»
-        mo: 'empty', mi: 'empty', mn: 'empty', mrow: 'empty', msub: 'empty', mtext: 'empty', frac: 'empty', mfrac: 'empty', semantics: 'empty', annotation: 'empty',
-      },
       remarkPlugins: {
-        'remark-math': { instance: remarkMath },
+        'remark-math': {},
       },
       rehypePlugins: {
-        'rehype-katex': { instance: rehypeKatex },
+        'rehype-katex': {
+          output: 'html',
+        },
       },
     },
+  },
+  image: {
+    format: ['avif'],
   },
   pwa: {
     manifest,

@@ -9,7 +9,11 @@ import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
 const { public: { siteUrl } } = useRuntimeConfig()
 const route = useRoute()
 
-const { data: blogPosts } = await useAsyncData('blogPosts', () => queryContent('/blog').sort({ createdAt: -1, $numeric: false }).find(), { default: () => [] as ParsedContent[] })
+definePageMeta({
+  colorMode: 'dark',
+})
+
+const { data: posts } = await useAsyncData('content__posts', () => queryContent('/blog').sort({ createdAt: -1, $numeric: false }).find(), { default: () => [] as ParsedContent[] })
 
 useSeoMeta({
   title: 'Блог',
@@ -23,7 +27,7 @@ useSchemaOrg([
     name: 'Блог',
     description: 'Блог Александра Вокалька',
     author: { '@id': `${siteUrl}/#${'Author'}` },
-    blogPosts: blogPosts.value.map(post => defineArticle({
+    posts: posts.value.map(post => defineArticle({
       '@type': 'BlogPosting',
       url: `${siteUrl}${post._path}`,
       headline: post.title,
