@@ -30,7 +30,6 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   vite: {
     build: {
       target: 'esnext',
-      cssMinify: 'lightningcss',
     },
     optimizeDeps: {
       include: [
