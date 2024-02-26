@@ -30,7 +30,6 @@
 </template>
 
 <script setup lang="ts">
-// eslint-disable-next-line import/default
 import hyphen from 'hyphen/ru'
 
 import type { MapItemType } from '@/components/Block/Map/Grid.vue'

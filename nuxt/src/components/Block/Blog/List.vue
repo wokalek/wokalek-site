@@ -1,5 +1,5 @@
 <template>
-  <div class="grid gap-64-32 w-full">
+  <div class="grid grid-cols-1 gap-64-32 w-full">
     <template v-for="(post, index) in posts" :key="post._path">
       <BlockBlogItem :post="post" />
       <GeneralHr v-if="posts?.length && posts.length !== index + 1" />

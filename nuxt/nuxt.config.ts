@@ -81,7 +81,7 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   },
   content: {
     highlight: {
-      langs: ['css', 'sass'],
+      langs: ['css', 'sass', 'bash'],
       theme: {
         default: 'github-light',
         'dark-mode': 'tokyo-night',
