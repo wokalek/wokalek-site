@@ -105,6 +105,11 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   },
   pwa: {
     manifest,
+    // https://github.com/vite-pwa/nuxt/issues/53
+    workbox: {
+      globPatterns: ['**/*.{js,css}'],
+      navigateFallback: null,
+    },
   },
   robots: {
     configPath: './src/robots.ts',

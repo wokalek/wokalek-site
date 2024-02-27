@@ -3,7 +3,7 @@
     <Transition name="emoji" mode="out-in">
       <button
         :key="emoji"
-        class="emoji mr-8-4 select-none font-bold translate-y-[5%] scale-100 text-28-18"
+        class="emoji mr-8-4 select-none font-bold translate-y-[3%] scale-100 text-28-18"
         aria-label="Эмодзи логотипа"
         aria-disabled="true"
         @click="onClickEmoji"
@@ -42,10 +42,10 @@ function onMouseLeaveEmoji () {
   transition: transform 300ms easeOutBack
 
 .emoji-enter-from
-  transform: scale(0.5) translateY(0.04em)
+  @apply scale-50 translate-y-[3%]
 
 .emoji-enter-to
-  transform: scale(1) translateY(0.04em)
+  @apply scale-100 translate-y-[3%]
 
 .emoji-leave-active
   transition: opacity 100ms ease
