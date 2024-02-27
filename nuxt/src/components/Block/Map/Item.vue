@@ -5,7 +5,7 @@
     :target="isExternalLink ? '_blank' : null"
     class="item
       p-16-8
-      relative flex flex-col justify-center items-center select-none text-center
+      relative flex flex-col justify-center items-center select-none text-center text-balance
       border-1-1 border-gray-6 dark:border-gray-2
     "
     :class="{ 'disabled': isDisabled }"
