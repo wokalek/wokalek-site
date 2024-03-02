@@ -41,14 +41,14 @@
     "remark-math": "6.0.0",
     "sass": "1.71.1",
     "timeago.js": "4.0.2",
-    "vue": "3.4.20",
+    "vue": "3.4.21",
     "vue-router": "4.3.0"
   },
   "devDependencies": {
     "@nuxt/devtools": "1.0.8",
     "@nuxtjs/eslint-config-typescript": "12.1.0",
     "@types/hyphen": "1.6.7",
-    "@types/node": "20.11.21",
+    "@types/node": "20.11.24",
     "eslint": "8.57.0"
   }
 }
