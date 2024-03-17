@@ -65,7 +65,7 @@ services:
 
   umami:
     container_name: wokalek-umami
-    image: ghcr.io/umami-software/umami:postgresql-v2.10.1
+    image: ghcr.io/umami-software/umami:postgresql-v2.10.2
     restart: always
     env_file: env/umami/.env
     depends_on:
@@ -74,7 +74,7 @@ services:
 
   umami-db:
     container_name: wokalek-umami-db
-    image: postgres:15-alpine
+    image: postgres:15.6-alpine
     restart: always
     env_file: env/umami-db/.env
     ports:
