@@ -66,6 +66,7 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   ],
   tailwindcss: {
     cssPath: '~/assets/sass/vendors/tailwind.sass',
+    viewer: false,
   },
   postcss: {
     plugins: {
