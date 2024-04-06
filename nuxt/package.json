@@ -48,8 +48,8 @@
     "@nuxt/devtools": "1.1.5",
     "@nuxtjs/eslint-config-typescript": "12.1.0",
     "@types/hyphen": "1.6.7",
-    "@types/node": "20.12.4",
-    "eslint": "8.57.0"
+    "@types/node": "20.12.5",
+    "eslint": "9.0.0"
   },
   "packageManager": "pnpm@8.15.5+sha256.4b4efa12490e5055d59b9b9fc9438b7d581a6b7af3b5675eb5c5f447cee1a589"
 }
