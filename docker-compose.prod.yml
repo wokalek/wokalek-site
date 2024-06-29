@@ -38,7 +38,7 @@ services:
     entrypoint: ["bash", "/build.sh"]
     volumes:
       - ./fonts/build.sh:/build.sh
-      - ./nuxt/src/assets/fonts:/fonts
+      - ./nuxt/src/assets/fonts:/app
 
   certbot:
     container_name: wokalek-certbot
