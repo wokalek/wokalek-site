@@ -2,8 +2,8 @@
 
 echo '---'
 
-search_dir="/app"
-output_dir="/app/optimized"
+search_dir="/fonts"
+output_dir="/fonts/optimized"
 
 for entry in `find $search_dir -name "*.ttf"`; do
   file_name=`basename "$entry"`

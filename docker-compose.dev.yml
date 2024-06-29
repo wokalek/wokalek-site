@@ -32,7 +32,7 @@ services:
     entrypoint: ["bash", "/build.sh"]
     volumes:
       - ./fonts/build.sh:/build.sh
-      - ./nuxt/src/assets/fonts:/app
+      - ./nuxt/src/assets/fonts:/fonts
 
 volumes:
   wokalek-nuxt-node_modules:
