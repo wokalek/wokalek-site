@@ -18,6 +18,6 @@ defineProps<{
   value: UseShareOptions,
 }>()
 
-const isServer = ref(process.server)
+const isServer = ref(import.meta.server)
 const { share, isSupported } = useShare()
 </script>

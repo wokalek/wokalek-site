@@ -5,7 +5,7 @@ import plugin from 'tailwindcss/plugin'
 export type RangeType = [number, number]
 
 export interface PluginOptionsType {
-  propertyHandler?: (value: string, property?: string) => any,
+  propertyHandler?: (value: string, property?: string) => string,
   theme?: Record<keyof CustomThemeConfig, RangeType[]>,
   screenMin?: number,
   screenMax?: number,
@@ -24,7 +24,7 @@ export function rangeToVariable (range: RangeType) {
   return `--fluid-${rangeToString(range)}`
 }
 
-export function processPropertyValue (propertyHandler: PluginOptionsType['propertyHandler'], range: RangeType, property?: string): any {
+export function processPropertyValue (propertyHandler: PluginOptionsType['propertyHandler'], range: RangeType, property?: string) {
   const propertyValue = `var(${rangeToVariable(range)})`
 
   if (typeof propertyHandler === 'function') {

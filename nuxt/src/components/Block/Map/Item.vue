@@ -39,7 +39,6 @@ const props = withDefaults(defineProps<MapItemType>(), {
   caption: '',
 })
 
-// eslint-disable-next-line import/no-named-as-default-member
 const { hyphenate } = hyphen
 
 const isExternalLink = useIsExternalLink(props.to)

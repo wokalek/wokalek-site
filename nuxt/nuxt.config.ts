@@ -11,7 +11,7 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     'nuxt-umami',
   ],
   modules: [
-    '@nuxtjs/eslint-module',
+    '@nuxt/eslint',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
@@ -57,9 +57,6 @@ const config: ReturnType<typeof defineNuxtConfig> = {
         githubUrl: 'https://github.com/wokalek',
       },
     },
-  },
-  eslint: {
-    lintOnStart: false,
   },
   css: [
     '@/assets/sass/index.sass',
