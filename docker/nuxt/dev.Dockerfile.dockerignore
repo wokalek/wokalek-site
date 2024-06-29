@@ -1,0 +1,6 @@
+/nuxt/.nuxt
+/nuxt/.output
+/nuxt/node_modules
+/nuxt/.env
+/nuxt/src
+/nuxt/nuxt.config.ts
