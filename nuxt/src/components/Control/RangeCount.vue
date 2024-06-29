@@ -44,17 +44,13 @@ const emits = defineEmits<{
   change: [changeValue: number],
 }>()
 
-let isFocused = ref(false)
 const slider = ref<HTMLDivElement>()
-const { arrowleft, arrowright } = useMagicKeys()
 
-onMounted(() => {
-  const { focused } = useFocus(slider.value)
-  isFocused = focused
-})
+const { arrowleft, arrowright } = useMagicKeys()
+const { focused } = useFocus(slider)
 
 watch(arrowleft, (pressed) => {
-  if (!isFocused.value || !pressed) {
+  if (!focused.value || !pressed) {
     return
   }
 
@@ -62,7 +58,7 @@ watch(arrowleft, (pressed) => {
 })
 
 watch(arrowright, (pressed) => {
-  if (!isFocused.value || !pressed) {
+  if (!focused.value || !pressed) {
     return
   }
 

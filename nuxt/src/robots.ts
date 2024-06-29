@@ -1,6 +1,4 @@
-import type { ModuleOptions } from '@nuxtjs/robots'
-
-const robots: ModuleOptions['rules'] = [
+const robots = [
   { UserAgent: '*' },
   { Allow: '/' },
   { Disallow: '/settings' },
