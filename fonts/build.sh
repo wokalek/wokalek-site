@@ -14,6 +14,11 @@ for entry in `find $search_dir -name "*.ttf"`; do
   fi
 
   glyphhanger --formats=woff2 --output=$output_dir --subset=$file_name &
+
+  echo "$file_name → $file_name_output"
 done
+
+echo 'End'
+echo '---'
 
 wait
