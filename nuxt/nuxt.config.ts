@@ -100,6 +100,7 @@ const config: ReturnType<typeof defineNuxtConfig> = {
         },
       },
     },
+    watch: false,
   },
   image: {
     format: ['avif'],
