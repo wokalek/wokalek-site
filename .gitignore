@@ -7,7 +7,6 @@ volumes
 
 # Статические файлы
 static/*
-nuxt/src/assets/fonts/optimized/*
 
 # Не игнорируем .gitkeep
 !.gitkeep
