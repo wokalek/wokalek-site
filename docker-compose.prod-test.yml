@@ -28,9 +28,9 @@ services:
   fonts:
     container_name: wokalek-fonts
     image: wokalek/glyphhanger:latest
-    entrypoint: ["bash", "/build.sh"]
+    entrypoint: ["bash", "/entrypoint.sh"]
     volumes:
-      - ./fonts/build.sh:/build.sh
+      - ./docker/fonts/entrypoint.sh:/entrypoint.sh
       - ./nuxt/src/assets/fonts:/app
 
 volumes:
