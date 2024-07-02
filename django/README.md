@@ -1,0 +1,18 @@
+# Зависимости
+
+- pyenv — для управления версями python
+- pipx — для изолированной установки пакетов pip
+- poetry — для установки зависимостей, venv, .lock
+
+# Установка
+
+1. Установить pyenv, поставить версию Питона, указанную в .python-version
+2. Установить pipx
+3. Установить poetry через pipx
+4. Активировать venv `poetry shell`
+5. Установить зависимости `poetry install`
+
+# Разработка
+
+1. Активировать venv `poetry shell`
+2. Запустить сервер `python manage.py runserver`
