@@ -8,6 +8,8 @@ django-mdeditor = "^0.1.20"
 pillow = "^10.4.0"
 django-imagefield = "^0.18.0"
 django-cleanup = "^8.1.0"
+strawberry-graphql = {extras = ["debug-server"], version = "^0.235.1"}
+strawberry-graphql-django = "^0.46.1"
 
 [build-system]
 requires = ["poetry-core"]
