@@ -12,3 +12,10 @@ django-cleanup = "^8.1.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+makemigrations = "python manage.py makemigrations"
+migrate = "python manage.py migrate"
+runserver = "python manage.py runserver"
+dev.sequence = ["makemigrations", "migrate", "runserver"]
+check = "python manage.py check"
