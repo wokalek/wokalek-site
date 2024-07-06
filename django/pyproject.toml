@@ -19,6 +19,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poe.tasks]
 format.shell = "find -type f -name '*.py' ! -path '*/migrations/*' -exec autopep8 --in-place --aggressive --aggressive '{}' \\;"
+outdated = "poetry show -o"
 check = "python manage.py check"
 makemigrations = "python manage.py makemigrations"
 migrate = "python manage.py migrate"
