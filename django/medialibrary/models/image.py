@@ -12,8 +12,11 @@ class Image(models.Model):
     update_date = models.DateTimeField('Дата обновления', default=timezone.now)
     image_path = models.URLField('Полный путь до изображения', blank=True,
                                  null=True)
-    section = models.ForeignKey('medialibrary.Section', on_delete=models.CASCADE,
-                                verbose_name='Раздел')
+    section = models.ForeignKey(
+        'medialibrary.Section',
+        on_delete=models.CASCADE,
+        verbose_name='Раздел'
+    )
     image = ImageField('Изображение', upload_to='medialibrary/image',
                        auto_add_fields=True)
     alt = models.CharField('Альтернативный текст', max_length=100)
