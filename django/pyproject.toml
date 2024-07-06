@@ -11,6 +11,7 @@ django-cleanup = "^8.1.0"
 strawberry-graphql = {extras = ["debug-server"], version = "^0.235.1"}
 strawberry-graphql-django = "^0.46.1"
 autopep8 = "^2.3.1"
+django-environ = "^0.11.2"
 
 [build-system]
 requires = ["poetry-core"]
