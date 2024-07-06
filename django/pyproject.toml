@@ -10,14 +10,16 @@ django-imagefield = "^0.18.0"
 django-cleanup = "^8.1.0"
 strawberry-graphql = {extras = ["debug-server"], version = "^0.235.1"}
 strawberry-graphql-django = "^0.46.1"
+autopep8 = "^2.3.1"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poe.tasks]
+format.shell = "find -type f -name '*.py' ! -path '*/migrations/*' -exec autopep8 --in-place --aggressive --aggressive '{}' \\;"
+check = "python manage.py check"
 makemigrations = "python manage.py makemigrations"
 migrate = "python manage.py migrate"
 runserver = "python manage.py runserver"
 dev.sequence = ["makemigrations", "migrate", "runserver"]
-check = "python manage.py check"

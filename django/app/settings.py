@@ -25,14 +25,16 @@ ALLOWED_HOSTS = []
 ROOT_URLCONF = 'app.urls'
 
 INSTALLED_APPS = [
-    'blog.apps.BlogConfig',
+    'api.apps.ApiConfig',
     'medialibrary.apps.MedialibraryConfig',
+    'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'strawberry_django',
     'imagefield',
     'mdeditor',
     'django_cleanup.apps.CleanupConfig',
