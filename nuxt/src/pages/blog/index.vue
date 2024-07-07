@@ -9,7 +9,7 @@ const route = useRoute()
 
 const blogPostsStore = useBlogPostsStore()
 
-await useAsyncData(() => blogPostsStore.fetchBlogPosts())
+await useAsyncData(blogPostsStore.fetchBlogPosts)
 
 definePageMeta({
   colorMode: 'dark',
