@@ -24,6 +24,7 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     '@pinia/nuxt',
     '@vueuse/nuxt',
     '@vite-pwa/nuxt',
+    'nuxt-better-optimize-deps',
     'nuxt-typed-router',
     'nuxt-svgo',
     'nuxt-schema-org',

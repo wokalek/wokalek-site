@@ -29,6 +29,7 @@
     "image-size": "1.1.1",
     "kaokun": "1.1.10",
     "nuxt": "3.12.3",
+    "nuxt-better-optimize-deps": "0.1.0",
     "nuxt-lodash": "2.5.3",
     "nuxt-schema-org": "3.3.8",
     "nuxt-svgo": "4.0.1",
