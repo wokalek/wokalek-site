@@ -1,9 +1,9 @@
 import strawberry
 import strawberry_django
 
-from api.types.blogpost import BlogPost
+from api.types.blogpost import BlogPostType
 
 
 @strawberry.type
 class Query:
-    blogposts: list[BlogPost] = strawberry_django.field()
+    blogPosts: list[BlogPostType] = strawberry_django.field()
