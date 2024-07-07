@@ -1,14 +1,12 @@
 <template>
   <div class="grid grid-cols-1 gap-64-32 w-full">
-    <template v-for="(post, index) in posts" :key="post._path">
+    <template v-for="(post, index) in blogPostsStore.blogPosts" :key="post.id">
       <BlockBlogItem :post="post" />
-      <GeneralHr v-if="posts?.length && posts.length !== index + 1" />
+      <GeneralHr v-if="blogPostsStore.blogPosts.length !== index + 1" />
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { ParsedContent } from '@nuxt/content'
-
-const { data: posts } = useNuxtData<ParsedContent[]>('content__posts')
+const blogPostsStore = useBlogPostsStore()
 </script>

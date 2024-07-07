@@ -12,14 +12,16 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   ],
   modules: [
     '@nuxt/eslint',
+    '@nuxtjs/apollo',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
     '@nuxtjs/color-mode',
     '@nuxtjs/fontaine',
     '@nuxtjs/device',
-    '@nuxt/content',
+    '@nuxtjs/mdc',
     '@nuxt/image',
+    '@pinia/nuxt',
     '@vueuse/nuxt',
     '@vite-pwa/nuxt',
     'nuxt-typed-router',
@@ -35,6 +37,11 @@ const config: ReturnType<typeof defineNuxtConfig> = {
       include: [
         // https://github.com/cipami/nuxt-lodash/issues/53#issuecomment-1870583442
         'lodash-es',
+        'graphql',
+        'graphql-ws',
+        'micromark',
+        'property-information',
+        '@apollo/client',
       ],
     },
   },
@@ -61,6 +68,13 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   css: [
     '@/assets/sass/index.sass',
   ],
+  apollo: {
+    clients: {
+      default: {
+        httpEndpoint: process.env.GRAPHQL_URL as string,
+      },
+    },
+  },
   tailwindcss: {
     cssPath: '~/assets/sass/vendors/tailwind.sass',
     viewer: false,
@@ -76,7 +90,7 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   device: {
     refreshOnResize: true,
   },
-  content: {
+  mdc: {
     highlight: {
       langs: ['css', 'sass', 'bash'],
       theme: {
@@ -84,20 +98,19 @@ const config: ReturnType<typeof defineNuxtConfig> = {
         'dark-mode': 'tokyo-night',
       },
     },
-    markdown: {
-      anchorLinks: {
-        exclude: [1, 2, 3, 4, 5, 6],
-      },
-      remarkPlugins: {
-        'remark-math': {},
-      },
-      rehypePlugins: {
-        'rehype-katex': {
+    headings: {
+      anchorLinks: false,
+    },
+    remarkPlugins: {
+      'remark-math': {},
+    },
+    rehypePlugins: {
+      'rehype-katex': {
+        options: {
           output: 'html',
         },
       },
     },
-    watch: false,
   },
   image: {
     format: ['avif'],
