@@ -10,6 +10,7 @@ class ImageAdmin(admin.ModelAdmin):
 
     list_display = ('id', 'create_date', 'section', 'image', 'image_path')
     list_filter = ('section', 'create_date', 'update_date')
+    ordering=('-create_date',)
 
     def get_readonly_fields(self, request, obj=None):
         if obj:
