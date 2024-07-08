@@ -1,8 +1,8 @@
 import { gql } from '#imports'
 
-export const gqlQueryBlogPosts = gql`
+export const gqlPosts = gql`
   query ($pubDate: Ordering = DESC) {
-    blogPosts(order: { pubDate: $pubDate }) {
+    posts(order: { pubDate: $pubDate }) {
       id
       updateDate
       pubDate
