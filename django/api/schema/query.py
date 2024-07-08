@@ -1,9 +1,9 @@
 import strawberry
 import strawberry_django
 
-from api.types.blogpost import BlogPostType
+from api.types.post import PostType, PostOrder
 
 
 @strawberry.type
 class Query:
-    blogPosts: list[BlogPostType] = strawberry_django.field()
+    posts: list[PostType] = strawberry_django.field(order=PostOrder)

@@ -7,9 +7,9 @@
 const { public: { siteUrl } } = useRuntimeConfig()
 const route = useRoute()
 
-const blogPostsStore = useBlogPostsStore()
+const postsStore = usePostsStore()
 
-await useAsyncData(blogPostsStore.fetchBlogPosts)
+await useAsyncData(postsStore.fetchPosts)
 
 definePageMeta({
   colorMode: 'dark',
@@ -27,7 +27,7 @@ useSchemaOrg([
     name: 'Блог',
     description: 'Блог Александра Вокалька',
     author: { '@id': `${siteUrl}/#${'Author'}` },
-    blogPost: blogPostsStore.blogPosts.map(post => defineArticle({
+    blogPost: postsStore.posts.map(post => defineArticle({
       '@type': 'BlogPosting',
       headline: post.title,
       datePublished: post.pubDate,

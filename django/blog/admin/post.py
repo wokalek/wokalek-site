@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from content.models import Post
+from blog.models import Post
 
 
 class PostAdmin(admin.ModelAdmin):
