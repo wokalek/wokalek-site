@@ -3,7 +3,7 @@ import datetime
 import strawberry
 import strawberry_django
 
-from blog.models import Post
+from content.models import Post
 
 
 @strawberry_django.order(Post)

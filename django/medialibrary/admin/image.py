@@ -8,7 +8,7 @@ class ImageAdmin(admin.ModelAdmin):
               'alt')
     readonly_fields = ('update_date', 'image_path')
 
-    list_display = ('id', 'create_date', 'section', 'image', 'image_path')
+    list_display = ('id', 'image', 'section', 'create_date', 'image_path')
     list_filter = ('section', 'create_date', 'update_date')
     ordering=('-create_date',)
 

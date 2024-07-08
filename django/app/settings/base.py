@@ -19,7 +19,7 @@ ROOT_URLCONF = 'app.urls'
 INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'medialibrary.apps.MedialibraryConfig',
-    'blog.apps.BlogConfig',
+    'content.apps.ContentConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
