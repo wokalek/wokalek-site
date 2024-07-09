@@ -16,6 +16,7 @@ class PostAdmin(admin.ModelAdmin):
 
     list_display = ('id', 'title', 'is_active', 'pub_date', 'create_date')
     list_display_links = ('id', 'title')
+    list_editable = ('is_active',)
     list_filter = ('pub_date', 'create_date', 'update_date')
     ordering = ('-pub_date',)
 
