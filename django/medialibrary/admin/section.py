@@ -8,8 +8,9 @@ class SectionAdmin(admin.ModelAdmin):
     readonly_fields = ('update_date',)
 
     list_display = ('id', 'name', 'create_date')
+    list_display_links = ('id', 'name')
     list_filter = ('create_date',)
-    ordering=('-create_date',)
+    ordering = ('-create_date',)
 
     def get_readonly_fields(self, request, obj=None):
         if obj:
