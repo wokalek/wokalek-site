@@ -10,10 +10,15 @@
 1. Установить pyenv, поставить версию Питона, указанную в .python-version
 2. Установить pipx
 3. Установить poetry через pipx
-4. Активировать venv `poetry shell`
+4. Установить плагин poetry для обновления зависимостей `pipx inject poetry poetry-plugin-up`
 5. Установить зависимости `poetry install`
 
 # Разработка
 
 1. Активировать venv `poetry shell`
 2. Запустить сервер `poe dev`
+
+# Поддержка
+
+- Показать устаревшие зависимости `poetry show -o`
+- Обновить зависимости `poetry up`
