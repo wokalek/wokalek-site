@@ -8,7 +8,8 @@ from blog.models import Post
 @strawberry.type
 class Query:
     @strawberry_django.field
-    def posts(self, order: PostOrder | None = strawberry.UNSET) -> list[PostType]:
+    def posts(self,
+              order: PostOrder | None = strawberry.UNSET) -> list[PostType]:
         qs = Post.objects.filter(is_active=True).order_by('-pub_date')
 
         if order is not strawberry.UNSET:
