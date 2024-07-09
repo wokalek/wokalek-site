@@ -3,7 +3,7 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "v3.12.4"
-django = "^5.0.6"
+django = "^5.0.7"
 django-mdeditor = "^0.1.20"
 pillow = "^10.4.0"
 django-imagefield = "^0.18.0"
@@ -20,7 +20,6 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poe.tasks]
 format.shell = "find -type f -name '*.py' ! -path '*/migrations/*' -exec autopep8 --in-place --aggressive --aggressive '{}' \\;"
-outdated = "poetry show -o"
 check = "python manage.py check"
 makemigrations = "python manage.py makemigrations"
 migrate = "python manage.py migrate"
