@@ -1,9 +1,24 @@
 from django.contrib import admin
+from django.forms import TextInput, ModelForm
 
 from medialibrary.models import Image
 
 
+class ImageAdminForm(ModelForm):
+    class Meta:
+        model = Image
+        widgets = {
+            'title': TextInput(
+                attrs={
+                    'style': 'width: 100%; max-width: 500px;',
+                },
+            ),
+        }
+        fields = '__all__'
+
+
 class ImageAdmin(admin.ModelAdmin):
+    form = ImageAdminForm
     fields = (
         'create_date',
         'update_date',
