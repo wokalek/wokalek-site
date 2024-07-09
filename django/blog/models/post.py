@@ -5,6 +5,7 @@ from mdeditor.fields import MDTextField
 
 
 class Post(models.Model):
+    is_active = models.BooleanField('Активность', default=True)
     create_date = models.DateTimeField('Дата создания', default=timezone.now)
     update_date = models.DateTimeField('Дата обновления', default=timezone.now)
     pub_date = models.DateTimeField(verbose_name='Дата публикации',

@@ -4,12 +4,20 @@ from blog.models import Post
 
 
 class PostAdmin(admin.ModelAdmin):
-    fields = ('create_date', 'update_date', 'pub_date', 'title', 'content')
+    fields = (
+        'is_active',
+        'create_date',
+        'update_date',
+        'pub_date',
+        'title',
+        'content'
+    )
     readonly_fields = ('update_date',)
 
-    list_display = ('id', 'title', 'pub_date', 'create_date')
+    list_display = ('id', 'title', 'is_active', 'pub_date', 'create_date')
+    list_display_links = ('id', 'title')
     list_filter = ('pub_date', 'create_date', 'update_date')
-    ordering=('-pub_date',)
+    ordering = ('-pub_date',)
 
     def get_readonly_fields(self, request, obj=None):
         if obj:

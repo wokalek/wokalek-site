@@ -10,8 +10,6 @@ from imagefield.fields import ImageField
 class Image(models.Model):
     create_date = models.DateTimeField('Дата создания', default=timezone.now)
     update_date = models.DateTimeField('Дата обновления', default=timezone.now)
-    image_path = models.URLField('Полный путь до изображения', blank=True,
-                                 null=True)
     section = models.ForeignKey(
         'medialibrary.Section',
         on_delete=models.CASCADE,
@@ -19,6 +17,14 @@ class Image(models.Model):
     )
     image = ImageField('Изображение', upload_to='medialibrary/image',
                        auto_add_fields=True)
+    image_name = models.CharField('Имя файла', max_length=100, blank=True,
+                                  null=True)
+    image_markdown = models.CharField(
+        'Код markdown',
+        max_length=350,
+        blank=True,
+        null=True
+    )
     alt = models.CharField('Альтернативный текст', max_length=100)
 
     class Meta:
@@ -30,8 +36,14 @@ class Image(models.Model):
 
         super().save(*args, **kwargs)
 
-        self.image_path = settings.MEDIA_URL + self.image.name
-        super().save(update_fields=['image_path'])
+        self.image_name = os.path.basename(self.image.name)
+        self.image_markdown = f'![{
+            self.alt}]({
+            settings.MEDIA_URL +
+            self.image.name}){{width="{
+            self.image_width}" height="{
+                self.image_height}"}}'
+        super().save(update_fields=['image_name', 'image_markdown'])
 
     def __str__(self):
-        return f'[{self.id}] {self.alt} {os.path.basename(self.image.name)}'
+        return f'[{self.id}] {self.alt} {self.image_name}'
