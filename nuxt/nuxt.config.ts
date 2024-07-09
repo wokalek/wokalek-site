@@ -1,6 +1,7 @@
 import manifest from './src/manifest'
 
 const config: ReturnType<typeof defineNuxtConfig> = {
+  compatibilityDate: '2024-07-09',
   telemetry: false,
   devtools: { enabled: true },
   srcDir: 'src',
