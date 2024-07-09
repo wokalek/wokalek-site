@@ -1,9 +1,24 @@
 from django.contrib import admin
+from django.forms import TextInput, ModelForm
 
 from blog.models import Post
 
 
+class PostAdminForm(ModelForm):
+    class Meta:
+        model = Post
+        widgets = {
+            'title': TextInput(
+                attrs={
+                    'style': 'width: 100%; max-width: 500px;',
+                },
+            ),
+        }
+        fields = '__all__'
+
+
 class PostAdmin(admin.ModelAdmin):
+    form = PostAdminForm
     fields = (
         'is_active',
         'create_date',
