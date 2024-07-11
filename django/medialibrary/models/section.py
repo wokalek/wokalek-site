@@ -8,8 +8,8 @@ class Section(models.Model):
     name = models.CharField('Название', max_length=50)
 
     class Meta:
-        verbose_name = 'Раздел'
-        verbose_name_plural = 'Разделы'
+        verbose_name = 'раздел'
+        verbose_name_plural = 'разделы'
 
     def save(self, *args, **kwargs):
         self.update_date = self.create_date if self._state.adding else timezone.now()

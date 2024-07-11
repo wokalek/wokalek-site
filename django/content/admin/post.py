@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.forms import TextInput, ModelForm
 
-from blog.models import Post
+from content.models import Post
 
 
 class PostAdminForm(ModelForm):
@@ -25,7 +25,7 @@ class PostAdmin(admin.ModelAdmin):
         'update_date',
         'pub_date',
         'title',
-        'content'
+        'content',
     )
     readonly_fields = ('update_date',)
 

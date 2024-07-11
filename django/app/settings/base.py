@@ -20,6 +20,8 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'medialibrary.apps.MedialibraryConfig',
     'blog.apps.BlogConfig',
+    'articles.apps.ArticlesConfig',
+    'content.apps.ContentConfig',
     'app.apps.AppConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
