@@ -28,8 +28,8 @@ class Image(models.Model):
     alt = models.CharField('Альтернативный текст', max_length=100)
 
     class Meta:
-        verbose_name = 'Изображение'
-        verbose_name_plural = 'Изображения'
+        verbose_name = 'изображение'
+        verbose_name_plural = 'изображения'
 
     def save(self, *args, **kwargs):
         self.update_date = self.create_date if self._state.adding else timezone.now()
