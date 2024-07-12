@@ -5,8 +5,11 @@
 
 <script setup lang="ts">
 const { public: { siteUrl } } = useRuntimeConfig()
+const router = useRouter()
 
-const { data: articles } = await useAsyncData('content__articles', () => queryContent('/articles').sort({ createdAt: -1, $numeric: false }).find(), { default: () => [] })
+const articlesStore = useArticlesStore()
+
+await useAsyncData(articlesStore.fetchArticles)
 
 useSeoMeta({
   title: 'Статьи',
@@ -15,14 +18,12 @@ useSeoMeta({
 
 useSchemaOrg([
   defineItemList({
-    itemListElement: articles.value.map(article => defineArticle({
-      url: `${siteUrl}${article._path}`,
+    itemListElement: articlesStore.articles.map(article => defineArticle({
+      datePublished: article.pubDate,
+      dateModified: article.updateDate,
+      url: router.resolve({ name: 'articles-slug', params: { slug: article.slug } }).href,
       headline: article.title,
-      description: article.description,
-      datePublished: article.createdAt,
-      dateModified: article.updatedAt || article.createdAt,
       author: { '@id': `${siteUrl}/#${'Author'}` },
-      image: article.image,
     })),
   }),
 ])

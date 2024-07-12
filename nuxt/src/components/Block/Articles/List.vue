@@ -1,11 +1,9 @@
 <template>
   <div class="grid gap-32-32">
-    <BlockArticlesItem v-for="article in articles" :key="article._path" :article="article" />
+    <BlockArticlesItem v-for="article in articlesStore.articles" :key="article.id" :article="article" />
   </div>
 </template>
 
 <script setup lang="ts">
-import type { ParsedContent } from '@nuxt/content'
-
-const { data: articles } = useNuxtData<ParsedContent[]>('content__articles')
+const articlesStore = useArticlesStore()
 </script>
