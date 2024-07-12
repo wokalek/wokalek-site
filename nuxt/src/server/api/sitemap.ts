@@ -1,10 +1,21 @@
-import { serverQueryContent } from '#content/server'
+import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client/core'
 
-export default defineEventHandler(async (event) => {
-  const articleList = await serverQueryContent<{ _path: string, updatedAt: Date, createdAt: Date}>(event, '/articles').find()
+import { gqlArticles } from '~/graphql/query/articles'
 
-  return articleList.map(({ _path, updatedAt, createdAt }) => ({
-    loc: _path,
-    lastmod: updatedAt || createdAt,
+import type { Article } from '~/types/graphql/article'
+
+export default defineEventHandler(async () => {
+  const client = new ApolloClient({
+    link: new HttpLink({ uri: process.env.GRAPHQL_URL, fetch }),
+    cache: new InMemoryCache(),
+  })
+
+  const { data } = await client.query<{ articles: Article[] }>({
+    query: gqlArticles,
+  })
+
+  return data.articles.map(({ slug, updateDate }) => ({
+    loc: `articles/${slug}`,
+    lastmod: updateDate,
   }))
 })

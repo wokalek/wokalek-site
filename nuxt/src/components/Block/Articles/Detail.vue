@@ -1,16 +1,15 @@
 <template>
-  <article class="prose w-full">
-    <GeneralTime class="mb-16-8 text-gray-4 caption" :date="article?.createdAt">
+  <article v-if="article" class="prose w-full">
+    <GeneralTime class="mb-16-8 text-gray-4 caption" :date="article.pubDate">
       <template #before>Опубликовано&nbsp;</template>
     </GeneralTime>
-    <h1>{{ article?.title }}</h1>
-    <ContentRenderer :value="(article as ParsedContent)" />
-    <BlockArticlesShare :value="{ title: article?.title, url: article?._path }" />
+    <h1>{{ article.title }}</h1>
+    <MDC :value="article.content" />
+    <BlockArticlesShare :value="{ title: article.title, url: $router.resolve({ name: 'articles-slug', params: { slug: article.slug } }).href }" />
   </article>
 </template>
 
 <script setup lang="ts">
-import type { ParsedContent } from '@nuxt/content'
-
-const { data: article } = useNuxtData<ParsedContent>('content__article')
+const articlesStore = useArticlesStore()
+const { article } = storeToRefs(articlesStore)
 </script>

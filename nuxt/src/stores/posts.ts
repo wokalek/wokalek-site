@@ -2,23 +2,19 @@ import { gqlPosts } from '~/graphql/query/posts'
 
 import type { Post } from '~/types/graphql/blog'
 
-export interface State {
-  posts: Post[]
-}
-
-export interface PostResult {
+export interface PostsResult {
   posts: Post[]
 }
 
 export const usePostsStore = defineStore('posts', {
-  state: (): State => {
+  state: () => {
     return {
-      posts: [],
+      posts: [] as Post[],
     }
   },
   actions: {
     async fetchPosts() {
-      const { result, load } = useLazyQuery<PostResult>(gqlPosts)
+      const { result, load } = useLazyQuery<PostsResult>(gqlPosts)
 
       await load()
 

@@ -3,28 +3,26 @@
 </template>
 
 <script setup lang="ts">
-import type { ParsedContent } from '@nuxt/content'
-
 const { public: { siteUrl } } = useRuntimeConfig()
+
+const router = useRouter()
 const route = useRoute('articles-slug')
 
-const { data: article } = await useAsyncData('content__article', () => queryContent(route.path).findOne(), { default: () => { return {} as ParsedContent } })
+const articlesStore = useArticlesStore()
 
-if (isEmpty(article.value)) {
+await useAsyncData(() => articlesStore.fetchArticle(route.params.slug))
+
+if (isEmpty(articlesStore.article)) {
   throw createError({ statusCode: 404 })
 }
 
-useContentHead(article)
-
 useSchemaOrg([
   defineArticle({
-    url: `${siteUrl}${article.value._path}`,
-    headline: article.value.title,
-    description: article.value.description,
-    datePublished: article.value.createdAt,
-    dateModified: article.value.updatedAt || article.value.createdAt,
+    url: router.resolve({ name: 'articles-slug', params: { slug: articlesStore.article.slug } }).href,
+    headline: articlesStore.article.title,
+    datePublished: articlesStore.article.pubDate,
+    dateModified: articlesStore.article.updateDate,
     author: { '@id': `${siteUrl}/#${'Author'}` },
-    image: article.value.image,
   }),
 ])
 </script>
