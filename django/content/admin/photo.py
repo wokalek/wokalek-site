@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.forms import TextInput, ModelForm
 
-from medialibrary.models import Image
+from content.models import Photo
 
 
-class ImageAdminForm(ModelForm):
+class PhotoAdminForm(ModelForm):
     class Meta:
-        model = Image
+        model = Photo
         widgets = {
             'title': TextInput(
                 attrs={
@@ -17,23 +17,32 @@ class ImageAdminForm(ModelForm):
         fields = '__all__'
 
 
-class ImageAdmin(admin.ModelAdmin):
-    form = ImageAdminForm
+class PhotoAdmin(admin.ModelAdmin):
+    form = PhotoAdminForm
     fields = (
+        'is_active',
         'create_date',
         'update_date',
-        'image_markdown',
+        'pub_date',
         'section',
         'image',
         'alt',
         'image_name',
     )
-    readonly_fields = ('image_name', 'update_date', 'image_markdown')
+    readonly_fields = ('image_name', 'update_date')
 
-    list_display = ('id', 'image_name', 'section', 'create_date')
+    list_display = (
+        'id',
+        'image_name',
+        'section',
+        'is_active',
+        'pub_date',
+        'create_date'
+    )
     list_display_links = ('id', 'image_name')
-    list_filter = ('section__name', 'create_date', 'update_date')
-    ordering = ('-create_date',)
+    list_editable = ('is_active',)
+    list_filter = ('section__name', 'pub_date', 'create_date')
+    ordering = ('-section__name', '-pub_date')
 
     def get_readonly_fields(self, request, obj=None):
         if obj:
@@ -42,4 +51,4 @@ class ImageAdmin(admin.ModelAdmin):
         return self.readonly_fields
 
 
-admin.site.register(Image, ImageAdmin)
+admin.site.register(Photo, PhotoAdmin)

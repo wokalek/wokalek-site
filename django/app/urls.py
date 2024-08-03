@@ -1,6 +1,3 @@
-"""
-https://docs.djangoproject.com/en/5.0/topics/http/urls/
-"""
 from django.contrib import admin
 from django.urls import path, reverse_lazy
 from django.conf import settings
