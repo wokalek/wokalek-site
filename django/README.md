@@ -11,7 +11,8 @@
 2. Установить pipx
 3. Установить poetry через pipx
 4. Установить плагин poetry для обновления зависимостей `pipx inject poetry poetry-plugin-up`
-5. Установить зависимости `poetry install`
+5. Установить poe через pipx
+6. Установить зависимости `poetry install`
 
 # Разработка
 
