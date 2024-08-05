@@ -6,7 +6,7 @@ from strawberry import scalar
 def serialize(v):
     return {'url': v.url} | {
         f'{format}': getattr(v, format)
-        for format in v.field.formats.keys()
+        for format in sorted(v.field.formats.keys())
     }
 
 

@@ -5,26 +5,52 @@ from django.db import models
 
 from imagefield.fields import ImageField
 
+from app.imagefield.processors import force_jpeg_processor, force_webp_processor, force_avif_processor
+
+
+def prepare_image_formats(sizes):
+    processors = {
+        'jpeg': force_jpeg_processor,
+        'webp': force_webp_processor,
+        'avif': force_avif_processor
+    }
+
+    image_formats = {}
+
+    for format, processor in processors.items():
+        image_formats |= {
+            f'{size}_{format}': processor(['autorotate', 'preserve_icc_profile', ('crop', (size, size))])
+            for size in sizes
+        }
+
+    return image_formats
+
 
 class Photo(models.Model):
     is_active = models.BooleanField('Активность', default=True)
     create_date = models.DateTimeField('Дата создания', default=timezone.now)
     update_date = models.DateTimeField('Дата обновления', default=timezone.now)
-    pub_date = models.DateTimeField(verbose_name='Дата публикации',
-                                    default=timezone.now)
+    pub_date = models.DateTimeField(
+        verbose_name='Дата публикации',
+        default=timezone.now,
+    )
     section = models.ForeignKey(
         'photos.Section',
         verbose_name='Раздел',
         on_delete=models.CASCADE,
     )
     image = ImageField(
-        'Изображение', upload_to='photos', auto_add_fields=True, formats={
-            f's{width}': ['default', ('crop', (width, width))]
-            for width in [144, 204, 226, 274, 320, 370, 450]
-        }
+        'Изображение',
+        upload_to='photos',
+        auto_add_fields=True,
+        formats=prepare_image_formats([144, 204, 226, 274, 320, 370, 450]),
     )
-    image_name = models.CharField('Имя файла', max_length=100, blank=True,
-                                  null=True)
+    image_name = models.CharField(
+        'Имя файла',
+        max_length=100,
+        blank=True,
+        null=True,
+    )
     alt = models.CharField('Альтернативный текст', max_length=100)
 
     class Meta:
