@@ -23,14 +23,14 @@ export const useArticlesStore = defineStore('articles', {
 
       await load()
 
-      return this.articles = result.value?.articles || []
+      return this.articles = result.value?.articles ?? []
     },
     async fetchArticle(slug: string) {
       const { result, load } = useLazyQuery<ArticleResult>(gqlArticle, { slug })
 
       await load()
 
-      return this.article = result.value?.article || undefined
+      return this.article = result.value?.article ?? undefined
     },
   },
 })

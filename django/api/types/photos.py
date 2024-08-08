@@ -25,4 +25,6 @@ class PhotoType:
     pub_date: datetime.datetime
     section: SectionType
     image: ImageField
+    image_width: int
+    image_height: int
     alt: str

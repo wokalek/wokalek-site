@@ -40,7 +40,7 @@ const props = withDefaults(defineProps<{
   height: 0,
 })
 
-const id = 'n' + useId()
+const id = useId()
 
 const lightBoxGallery = ref<HTMLDivElement>()
 let lightbox: PhotoSwipeLightbox | null = null
