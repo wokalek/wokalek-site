@@ -19,7 +19,7 @@ def prepare_image_formats(sizes):
 
     for format, processor in processors.items():
         image_formats |= {
-            f'{size}_{format}': processor(['autorotate', 'preserve_icc_profile', ('crop', (size, size))])
+            f'{size}_{format}': processor(['autorotate', 'preserve_icc_profile', ('cover', (size, size))])
             for size in sizes
         }
 

@@ -6,7 +6,9 @@
 <script setup lang="ts">
 const { public: { siteUrl } } = useRuntimeConfig()
 
-await useFetch('/api/photos', { key: 'photos' })
+const photosStore = usePhotosStore()
+
+await useAsyncData(photosStore.fetchPhotos)
 
 useSeoMeta({
   title: 'Фотографии',

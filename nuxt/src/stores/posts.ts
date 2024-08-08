@@ -18,7 +18,7 @@ export const usePostsStore = defineStore('posts', {
 
       await load()
 
-      return this.posts = result.value?.posts || []
+      return this.posts = result.value?.posts ?? []
     },
   },
 })
