@@ -17,10 +17,7 @@ const items = computed(() => photosStore.photos.reduce((acc, photo) => {
   if (item) {
     item.images.push(image)
   } else {
-    acc.push({
-      title: photo.section.name,
-      images: [image],
-    })
+    acc.push({ title: photo.section.name, images: [image] })
   }
 
   return acc

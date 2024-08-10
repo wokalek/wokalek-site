@@ -8,7 +8,7 @@ from imagefield.fields import ImageField
 from app.helpers.imagefield import prepare_image_formats
 
 
-class Photo(models.Model):
+class Drawing(models.Model):
     is_active = models.BooleanField('Активность', default=True)
     create_date = models.DateTimeField('Дата создания', default=timezone.now)
     update_date = models.DateTimeField('Дата обновления', default=timezone.now)
@@ -17,13 +17,13 @@ class Photo(models.Model):
         default=timezone.now,
     )
     section = models.ForeignKey(
-        'photos.Section',
+        'drawings.Section',
         verbose_name='Раздел',
         on_delete=models.CASCADE,
     )
     image = ImageField(
         'Изображение',
-        upload_to='photos',
+        upload_to='drawings',
         auto_add_fields=True,
         formats=prepare_image_formats([144, 204, 226, 274, 320, 370, 450]),
     )
@@ -36,8 +36,8 @@ class Photo(models.Model):
     alt = models.CharField('Альтернативный текст', max_length=100)
 
     class Meta:
-        verbose_name = 'фото'
-        verbose_name_plural = 'фотографии'
+        verbose_name = 'рисунок'
+        verbose_name_plural = 'рисунки'
 
     def save(self, *args, **kwargs):
         self.update_date = self.create_date if self._state.adding else timezone.now()
