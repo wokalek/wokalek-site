@@ -1,4 +1,4 @@
-from app.imagefield.processors import force_jpeg_processor, force_webp_processor, force_avif_processor
+from main.imagefield.processors import force_jpeg_processor, force_webp_processor, force_avif_processor
 
 
 def prepare_image_formats(sizes):
