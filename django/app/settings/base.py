@@ -19,13 +19,13 @@ ROOT_URLCONF = 'app.urls'
 INSTALLED_APPS = [
     'main.apps.MainConfig',
     'api.apps.ApiConfig',
-    'medialibrary.apps.MedialibraryConfig',
     'blog.apps.BlogConfig',
     'articles.apps.ArticlesConfig',
-    'photos.apps.PhotosConfig',
     'drawings.apps.DrawingsConfig',
+    'photos.apps.PhotosConfig',
+    'medialibrary.apps.MedialibraryConfig',
     'content.apps.ContentConfig',
-    'app.apps.AppConfig',
+    'app.apps.AppConfig',  # Заместо django.contrib.admin должно стоять на этом месте
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -95,8 +95,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = 'static/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 
