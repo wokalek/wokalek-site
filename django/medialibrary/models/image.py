@@ -37,12 +37,10 @@ class Image(models.Model):
         super().save(*args, **kwargs)
 
         self.image_name = os.path.basename(self.image.name)
-        self.image_markdown = f'![{
-            self.alt}]({
-            settings.MEDIA_URL +
-            self.image.name}){{width="{
-            self.image_width}" height="{
-                self.image_height}"}}'
+        self.image_markdown = (
+            f'![{self.alt}]({settings.MEDIA_URL + self.image.name})'
+            f'{{width="{self.image_width}" height="{self.image_height}"}}'
+        )
         super().save(update_fields=['image_name', 'image_markdown'])
 
     def __str__(self):
