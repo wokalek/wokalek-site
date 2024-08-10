@@ -2,11 +2,11 @@
 env/**/*.env
 !env/**/example*
 
+# Статические файлы
+static
+
 # Docker volumes
 volumes
-
-# Статические файлы
-static/*
 
 # Не игнорируем .gitkeep
 !.gitkeep
