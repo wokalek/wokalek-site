@@ -1,7 +1,7 @@
 import os
-from pathlib import Path
-
 import environ
+from pathlib import Path
+from collections import OrderedDict
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -17,6 +17,7 @@ ALLOWED_HOSTS = []
 ROOT_URLCONF = 'app.urls'
 
 INSTALLED_APPS = [
+    'main.apps.MainConfig',
     'api.apps.ApiConfig',
     'medialibrary.apps.MedialibraryConfig',
     'blog.apps.BlogConfig',
@@ -101,3 +102,9 @@ MEDIA_URL = 'media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+APP_ORDER = OrderedDict([
+    ('content', ['Post', 'Article', 'Drawing', 'Photo']),
+    ('drawings', []),
+    ('photos', []),
+])

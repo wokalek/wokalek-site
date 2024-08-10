@@ -5,7 +5,7 @@ from django.db import models
 
 from imagefield.fields import ImageField
 
-from app.helpers.imagefield import prepare_image_formats
+from main.helpers.imagefield import prepare_image_formats
 
 
 class Drawing(models.Model):
