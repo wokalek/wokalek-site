@@ -1,11 +1,25 @@
 <template>
   <div class="w-full">
-    <GeneralGallery :data="data" />
+    <GalleryGrid :items="items" />
   </div>
 </template>
 
 <script setup lang="ts">
-import type { DataItemType } from '~/server/utils/galleryFolderFetcher'
+import type { ItemType } from '@/components/Gallery/Grid.vue'
 
-const { data } = useNuxtData<DataItemType[]>('drawings')
+const drawingsStore = useDrawingsStore()
+
+const items = computed(() => drawingsStore.drawings.reduce((acc, drawing) => {
+  const item = acc.find(item => item.title === drawing.section.name)
+
+  const image = usePick(drawing, ['image', 'imageWidth', 'imageHeight', 'alt'])
+
+  if (item) {
+    item.images.push(image)
+  } else {
+    acc.push({ title: drawing.section.name, images: [image] })
+  }
+
+  return acc
+}, [] as ItemType[]).sort((a, b) => +b.title - +a.title))
 </script>
