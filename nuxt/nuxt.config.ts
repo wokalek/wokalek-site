@@ -25,7 +25,6 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     '@pinia/nuxt',
     '@vueuse/nuxt',
     '@vite-pwa/nuxt',
-    'nuxt-better-optimize-deps',
     'nuxt-typed-router',
     'nuxt-svgo',
     'nuxt-schema-org',
@@ -131,7 +130,10 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     },
   },
   robots: {
-    configPath: './src/robots.ts',
+    credits: false,
+    allow: ['/'],
+    disallow: ['/settings'],
+    sitemap: [`https://${process.env.DOMAIN}/sitemap.xml`],
   },
   sitemap: {
     credits: false,
