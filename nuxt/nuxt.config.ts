@@ -12,7 +12,6 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     'nuxt-umami',
   ],
   modules: [
-    '@nuxt/eslint',
     '@nuxtjs/apollo',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/robots',
@@ -145,6 +144,10 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   site: {
     url: `https://${process.env.DOMAIN}`,
   },
+}
+
+if (process.env.NODE_ENV === 'development') {
+  config.modules?.push('@nuxt/eslint')
 }
 
 export default defineNuxtConfig(config)

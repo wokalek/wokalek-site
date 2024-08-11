@@ -1,21 +1,29 @@
+include:
+  - path:
+    - docker/services/fonts.yml
+    - docker/services/umami.yml
+    - docker/services/certbot.yml
+    project_directory: .
+
 services:
   nuxt:
     container_name: wokalek-nuxt
     build:
       dockerfile: docker/nuxt/prod.Dockerfile
+      args:
+        - NODE_VERSION=${NUXT_NODE_VERSION}
     restart: always
     env_file: env/nuxt/.env
     depends_on:
       fonts:
         condition: service_completed_successfully
     volumes:
-      - nuxt-devfolder:/nuxt/.nuxt
+      - nuxt-node_modules:/nuxt/node_modules
       - ./nuxt/src:/nuxt/src
-      - ./static:/nuxt/.output/public/static
 
   nginx:
     container_name: wokalek-nginx
-    image: wokalek/nginx-brotli:1.25.2
+    image: wokalek/nginx-brotli:${NGINX_VERSION}
     restart: always
     depends_on:
       - nuxt
@@ -32,57 +40,5 @@ services:
       - ./volumes/certbot/conf/live/wokalek.ru/fullchain.pem:/certbot/certs/fullchain.pem
       - ./volumes/certbot/conf/live/wokalek.ru/privkey.pem:/certbot/certs/privkey.pem
 
-  fonts:
-    container_name: wokalek-fonts
-    image: wokalek/glyphhanger:latest
-    entrypoint: ["bash", "/entrypoint.sh"]
-    volumes:
-      - ./docker/fonts/entrypoint.sh:/entrypoint.sh
-      - ./nuxt/src/assets/fonts:/app
-
-  certbot:
-    container_name: wokalek-certbot
-    image: certbot/certbot:latest
-    depends_on:
-      - nginx
-    command: >-
-      certonly
-        --non-interactive
-        --agree-tos
-        --expand
-        --webroot
-        --webroot-path /var/www/certbot
-        --email wokalek@wokalek.ru
-        -d wokalek.ru -d statistic.wokalek.ru
-        -d wokalek.com -d statistic.wokalek.com
-    volumes:
-      - ./volumes/certbot/www:/var/www/certbot
-      - ./volumes/certbot/conf:/etc/letsencrypt
-      - ./volumes/certbot/webroot:/var/lib/letsencrypt
-
-  umami:
-    container_name: wokalek-umami
-    image: ghcr.io/umami-software/umami:postgresql-v2.11.0
-    restart: always
-    env_file: env/umami/.env
-    depends_on:
-      umami-db:
-        condition: service_healthy
-
-  umami-db:
-    container_name: wokalek-umami-db
-    image: postgres:15.6-alpine
-    restart: always
-    env_file: env/umami-db/.env
-    ports:
-      - 5432:5432
-    volumes:
-      - ./volumes/umami-db/data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-
 volumes:
-  nuxt-devfolder:
+  nuxt-node_modules:

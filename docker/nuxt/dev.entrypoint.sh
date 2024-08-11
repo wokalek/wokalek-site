@@ -2,5 +2,4 @@
 
 rm -rf /tmp/nitro
 
-cd /nuxt
-pnpm run dev
+pnpm dev

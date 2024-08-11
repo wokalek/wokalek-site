@@ -1,22 +1,28 @@
+include:
+  - path:
+    - docker/services/fonts.yml
+    project_directory: .
+
 services:
   nuxt:
     container_name: wokalek-nuxt
     build:
       dockerfile: docker/nuxt/dev.Dockerfile
+      args:
+        - NODE_VERSION=${NUXT_NODE_VERSION}
     env_file: env/nuxt/.env
     depends_on:
       fonts:
         condition: service_completed_successfully
     volumes:
-      - wokalek-nuxt-node_modules:/nuxt/node_modules
+      - nuxt-node_modules:/nuxt/node_modules
       - ./nuxt/src:/nuxt/src
       - ./nuxt/nuxt.config.ts:/nuxt/nuxt.config.ts
-      - ./static:/nuxt/src/public/static
 
   nginx:
     container_name: wokalek-nginx
     user: root
-    image: wokalek/nginx-brotli:1.25.2
+    image: wokalek/nginx-brotli:${NGINX_VERSION}
     depends_on:
       - nuxt
     ports:
@@ -26,13 +32,5 @@ services:
       - ./nginx/snippets:/etc/nginx/snippets
       - ./static:/usr/share/nginx/html/static
 
-  fonts:
-    container_name: wokalek-fonts
-    image: wokalek/glyphhanger:latest
-    entrypoint: ["bash", "/entrypoint.sh"]
-    volumes:
-      - ./docker/fonts/entrypoint.sh:/entrypoint.sh
-      - ./nuxt/src/assets/fonts:/app
-
 volumes:
-  wokalek-nuxt-node_modules:
+  nuxt-node_modules:
