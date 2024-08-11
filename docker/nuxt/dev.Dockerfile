@@ -1,11 +1,21 @@
-FROM node:20.15.0-alpine
+ARG NODE_VERSION
 
-RUN apk update && apk upgrade && npm i -g pnpm
+FROM node:${NODE_VERSION}-alpine AS base
 
-COPY ./nuxt /nuxt
-COPY ./docker/nuxt/dev.entrypoint.sh /
+RUN npm i -g pnpm
 
 WORKDIR /nuxt
-RUN pnpm install --frozen-lockfile
+
+FROM base AS deps
+
+COPY --link ./nuxt/package.json ./nuxt/pnpm-lock.yaml ./nuxt/.npmrc ./
+
+RUN pnpm i --frozen-lockfile
+
+FROM base AS entry
+
+COPY --link ./nuxt .
+COPY --from=deps /nuxt/node_modules node_modules
+COPY ./docker/nuxt/dev.entrypoint.sh /
 
 ENTRYPOINT ["sh", "/dev.entrypoint.sh"]

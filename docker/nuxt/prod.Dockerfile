@@ -1,16 +1,21 @@
-FROM node:20.11.1-alpine
+ARG NODE_VERSION
 
-WORKDIR /nuxt
-
-RUN apk update && apk upgrade
+FROM node:${NODE_VERSION}-alpine AS base
 
 RUN npm i -g pnpm
 
-COPY ./nuxt/package.json ./nuxt/pnpm-lock.yaml ./nuxt/.npmrc ./nuxt/.eslintrc ./nuxt/tailwind.config.ts ./
-RUN pnpm install --prod --frozen-lockfile
+WORKDIR /nuxt
 
-COPY ./nuxt/nuxt.config.ts ./nuxt/tsconfig.json ./env/nuxt/.env ./
-COPY ./nuxt/src ./src
-RUN pnpm run build
+FROM base AS build
 
-ENTRYPOINT [ "node", ".output/server/index.mjs" ]
+COPY --link ./nuxt/package.json ./nuxt/pnpm-lock.yaml ./nuxt/.npmrc ./
+RUN pnpm i --prod --frozen-lockfile
+
+COPY --link ./nuxt .
+RUN pnpm build
+
+FROM base AS entry
+
+COPY --from=build /nuxt/.output .output
+
+ENTRYPOINT ["node", ".output/server/index.mjs"]
