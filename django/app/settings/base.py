@@ -31,11 +31,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cleanup.apps.CleanupConfig',
     'corsheaders',
     'strawberry_django',
     'imagefield',
     'mdeditor',
-    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
