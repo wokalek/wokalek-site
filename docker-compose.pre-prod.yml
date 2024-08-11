@@ -30,6 +30,8 @@ services:
       - ./nginx/conf/dev.conf:/etc/nginx/nginx.conf
       - ./nginx/snippets:/etc/nginx/snippets
       - ./static:/usr/share/nginx/html/static
+      - ./volumes/nginx/cache:/data/nginx/cache
+      - ./volumes/nginx/log:/var/log/nginx
 
 volumes:
   nuxt-node_modules:
