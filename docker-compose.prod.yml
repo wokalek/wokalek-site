@@ -6,21 +6,6 @@ include:
     project_directory: .
 
 services:
-  nuxt:
-    container_name: wokalek-nuxt
-    build:
-      dockerfile: docker/nuxt/prod.Dockerfile
-      args:
-        - NODE_VERSION=${NUXT_NODE_VERSION}
-    restart: always
-    env_file: env/nuxt/.env
-    depends_on:
-      fonts:
-        condition: service_completed_successfully
-    volumes:
-      - nuxt-node_modules:/nuxt/node_modules
-      - ./nuxt/src:/nuxt/src
-
   nginx:
     container_name: wokalek-nginx
     image: wokalek/nginx-brotli:${NGINX_VERSION}
@@ -39,6 +24,21 @@ services:
       - ./volumes/certbot/www:/certbot/www
       - ./volumes/certbot/conf/live/wokalek.ru/fullchain.pem:/certbot/certs/fullchain.pem
       - ./volumes/certbot/conf/live/wokalek.ru/privkey.pem:/certbot/certs/privkey.pem
+
+  nuxt:
+    container_name: wokalek-nuxt
+    build:
+      dockerfile: docker/nuxt/prod.Dockerfile
+      args:
+        - NODE_VERSION=${NUXT_NODE_VERSION}
+    restart: always
+    env_file: env/nuxt/.env
+    depends_on:
+      fonts:
+        condition: service_completed_successfully
+    volumes:
+      - nuxt-node_modules:/nuxt/node_modules
+      - ./nuxt/src:/nuxt/src
 
 volumes:
   nuxt-node_modules:

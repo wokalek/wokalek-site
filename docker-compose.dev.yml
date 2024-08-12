@@ -4,6 +4,20 @@ include:
     project_directory: .
 
 services:
+  nginx:
+    container_name: wokalek-nginx
+    user: root
+    image: wokalek/nginx-brotli:${NGINX_VERSION}
+    depends_on:
+      - nuxt
+      - django
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/conf/dev.conf:/etc/nginx/nginx.conf
+      - ./nginx/snippets:/etc/nginx/snippets
+      - ./static:/usr/share/nginx/html/static
+
   nuxt:
     container_name: wokalek-nuxt
     build:
@@ -19,18 +33,17 @@ services:
       - ./nuxt/src:/nuxt/src
       - ./nuxt/nuxt.config.ts:/nuxt/nuxt.config.ts
 
-  nginx:
-    container_name: wokalek-nginx
-    user: root
-    image: wokalek/nginx-brotli:${NGINX_VERSION}
-    depends_on:
-      - nuxt
+  django:
+    container_name: wokalek-django
+    build:
+      dockerfile: docker/django/dev.Dockerfile
+      args:
+        - PYTHON_VERSION=${DJANGO_PYTHON_VERSION}
+    env_file: env/django/.env
     ports:
-      - 80:80
+      - 8000:8000
     volumes:
-      - ./nginx/conf/dev.conf:/etc/nginx/nginx.conf
-      - ./nginx/snippets:/etc/nginx/snippets
-      - ./static:/usr/share/nginx/html/static
+      - ./django:/django
 
 volumes:
   nuxt-node_modules:

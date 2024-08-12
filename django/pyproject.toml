@@ -26,6 +26,6 @@ out = "poetry show -o"
 check = "python manage.py check"
 makemigrations = "python manage.py makemigrations"
 migrate = "python manage.py migrate"
-runserver = "python manage.py runserver"
+runserver = "python manage.py runserver 0.0.0.0:8000"
 dev.sequence = ["makemigrations", "migrate", "runserver"]
 process_imagefields = "python manage.py process_imagefields --all"
