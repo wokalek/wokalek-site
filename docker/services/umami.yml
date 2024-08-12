@@ -10,7 +10,7 @@ services:
 
   umami-db:
     container_name: wokalek-umami-db
-    image: postgres:${UMAMI_DB_VERSION}-alpine
+    image: postgres:${UMAMI_POSTGRES_VERSION}-alpine
     restart: always
     env_file: env/umami-db/.env
     ports:
