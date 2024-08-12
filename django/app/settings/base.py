@@ -6,7 +6,12 @@ from collections import OrderedDict
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR.parent, 'env/django/.env'))
+
+environ.Env.read_env((
+    BASE_DIR / '.env'
+    if env.bool('DJANGO_INSIDE_DOCKER', False)
+    else BASE_DIR.parent / 'env/django/.env'
+))
 
 SECRET_KEY = env.str('SECRET_KEY')
 DEBUG = env.bool('DEBUG', False)

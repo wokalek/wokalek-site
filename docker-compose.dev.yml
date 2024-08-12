@@ -7,7 +7,7 @@ services:
   nginx:
     container_name: wokalek-nginx
     user: root
-    image: wokalek/nginx-brotli:${NGINX_VERSION}
+    image: wokalek/nginx-brotli:${NGINX_VERSION:?error}
     depends_on:
       - nuxt
       - django
@@ -23,7 +23,7 @@ services:
     build:
       dockerfile: docker/nuxt/dev.Dockerfile
       args:
-        - NODE_VERSION=${NUXT_NODE_VERSION}
+        - NODE_VERSION=${NUXT_NODE_VERSION:?error}
     env_file: env/nuxt/.env
     depends_on:
       fonts:
@@ -38,7 +38,7 @@ services:
     build:
       dockerfile: docker/django/dev.Dockerfile
       args:
-        - PYTHON_VERSION=${DJANGO_PYTHON_VERSION}
+        - PYTHON_VERSION=${DJANGO_PYTHON_VERSION:?error}
     env_file: env/django/.env
     ports:
       - 8000:8000

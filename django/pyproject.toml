@@ -10,10 +10,18 @@ django-imagefield = "^0.19.0"
 django-cleanup = "^8.1.0"
 strawberry-graphql = "^0.237.3"
 strawberry-graphql-django = "^0.47.1"
-autopep8 = "^2.3.1"
 django-environ = "^0.11.2"
 django-cors-headers = "^4.4.0"
 pillow-avif-plugin = "^1.4.6"
+
+[tool.poetry.group.dev]
+optional = true
+[tool.poetry.group.dev.dependencies]
+autopep8 = "^2.3.1"
+
+[tool.poetry.group.prod]
+optional = true
+[tool.poetry.group.prod.dependencies]
 hypercorn = "^0.17.3"
 
 [build-system]
@@ -21,8 +29,13 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poe.tasks]
+install = "poetry install --with dev"
+lock = "poetry lock"
+outdated = "poetry show -o"
+export.shell = "poetry export -o dev.requirements.txt --with dev && poetry export -o prod.requirements.txt --with prod"
+
 format.shell = "find -type f -name '*.py' ! -path '*/migrations/*' -exec autopep8 -i -a '{}' \\;"
-out = "poetry show -o"
+
 check = "python manage.py check"
 makemigrations = "python manage.py makemigrations"
 migrate = "python manage.py migrate"
