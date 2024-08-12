@@ -2,11 +2,11 @@ ARG NODE_VERSION
 
 FROM node:${NODE_VERSION}-alpine AS base
 
-RUN npm i -g pnpm
-
 WORKDIR /nuxt
 
 FROM base AS build
+
+RUN npm i -g pnpm
 
 COPY --link ./nuxt/package.json ./nuxt/pnpm-lock.yaml ./nuxt/.npmrc ./
 RUN pnpm i --prod --frozen-lockfile
