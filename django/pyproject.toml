@@ -37,8 +37,10 @@ export.shell = "poetry export -o dev.requirements.txt --with dev && poetry expor
 format.shell = "find -type f -name '*.py' ! -path '*/migrations/*' -exec autopep8 -i -a '{}' \\;"
 
 check = "python manage.py check"
+check-deploy = "python manage.py check --deploy"
+collectstatic = "python manage.py collectstatic"
 makemigrations = "python manage.py makemigrations"
 migrate = "python manage.py migrate"
-runserver = "python manage.py runserver 0.0.0.0:8000"
+runserver = "python manage.py runserver"
 dev.sequence = ["makemigrations", "migrate", "runserver"]
 process_imagefields = "python manage.py process_imagefields --all"
