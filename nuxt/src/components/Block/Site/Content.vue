@@ -30,28 +30,28 @@
     <p>Используются:</p>
     <ul>
       <li>
-        <div class="flex">
-          <SvgoLogoNuxt :filled="true" class="mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
-          <NuxtLink :to="('https://nuxt.com' as string)" target="_blank">Nuxt.js</NuxtLink>, фронтенд.
-        </div>
+        <SvgoLogoNuxt :filled="true" class="inline mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
+        <NuxtLink :to="('https://nuxt.com' as string)" target="_blank">Nuxt</NuxtLink>, фронтенд.
       </li>
       <li>
-        <div class="flex">
-          <SvgoLogoUmami :filled="true" class="mr-16-8 fluid-[width,40-30] h-auto umami stroke-black fill-black dark:stroke-white dark:fill-white" aria-disabled="true" :font-controlled="false" />
-          <NuxtLink :to="('https://umami.is' as string)" target="_blank">Umami</NuxtLink>, статистика.
-        </div>
+        <SvgoLogoDjango :filled="true" class="inline mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
+        <NuxtLink :to="('https://www.djangoproject.com' as string)" target="_blank">Django</NuxtLink>, бэкенд.
       </li>
       <li>
-        <div class="flex">
-          <SvgoLogoNginx :filled="true" class="mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
-          <NuxtLink :to="('https://nginx.org' as string)" target="_blank">Nginx</NuxtLink>, сервер.
-        </div>
+        <SvgoLogoGraphql :filled="true" class="inline mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
+        <NuxtLink :to="('https://graphql.org' as string)" target="_blank">GraphQL</NuxtLink>, обмен данными.
       </li>
       <li>
-        <div class="flex">
-          <SvgoLogoDocker :filled="true" class="mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
-          <NuxtLink :to="('https://docker.com' as string)" target="_blank">Docker</NuxtLink>.
-        </div>
+        <SvgoLogoUmami :filled="true" class="inline mr-16-8 fluid-[width,40-30] h-auto umami stroke-black fill-black dark:stroke-white dark:fill-white" aria-disabled="true" :font-controlled="false" />
+        <NuxtLink :to="('https://umami.is' as string)" target="_blank">Umami</NuxtLink>, статистика.
+      </li>
+      <li>
+        <SvgoLogoNginx :filled="true" class="inline mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
+        <NuxtLink :to="('https://nginx.org' as string)" target="_blank">Nginx</NuxtLink>, сервер.
+      </li>
+      <li>
+        <SvgoLogoDocker :filled="true" class="inline mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
+        <NuxtLink :to="('https://docker.com' as string)" target="_blank">Docker</NuxtLink>, оркестрация.
       </li>
     </ul>
     <p>
@@ -81,7 +81,7 @@
       <li>✓ Заселфхостить twitch bot.</li>
       <li>✓ Сделать опенсорсное расширение для браузера.</li>
       <li>✓ Переписать фронт на tailwind</li>
-      <li>Сделать бэкенд. Сейчас для публикации материалов сайт необходимо пересобирать.</li>
+      <li>✓ Сделать бэкенд. Сейчас для публикации материалов сайт необходимо пересобирать.</li>
       <li>Сделать RSS.</li>
       <li>Комментарии к&nbsp;статьям и&nbsp;блогу.</li>
       <li>Реализовать новый фронтенд. Данный дизайн намеренно крайне прост и&nbsp;изначально задумывался более сложным 3D-шным. Возможно это будет смесь текущего и&nbsp;нового видения.</li>
