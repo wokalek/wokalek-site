@@ -8,7 +8,7 @@ const { public: { siteUrl } } = useRuntimeConfig()
 
 const photosStore = usePhotosStore()
 
-await useAsyncData(photosStore.fetchPhotos)
+await photosStore.fetchPhotos()
 
 useSeoMeta({
   title: 'Фотографии',

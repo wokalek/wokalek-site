@@ -9,7 +9,7 @@ const router = useRouter()
 
 const articlesStore = useArticlesStore()
 
-await useAsyncData(articlesStore.fetchArticles)
+await articlesStore.fetchArticles()
 
 useSeoMeta({
   title: 'Статьи',
