@@ -9,13 +9,13 @@ env = environ.Env()
 
 environ.Env.read_env((
     BASE_DIR / '.env'
-    if env.bool('DJANGO_INSIDE_DOCKER', False)
+    if env.bool('RUNNING_IN_DOCKER', False)
     else BASE_DIR.parent / 'env/django/.env'
 ))
 
 SECRET_KEY = env.str('SECRET_KEY')
 DEBUG = env.bool('DEBUG', False)
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [x.strip() for x in env.list('ALLOWED_HOSTS', None, '')]
 
 # Application definition
 
@@ -108,10 +108,24 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Default primary key field type
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+X_FRAME_OPTIONS = 'SAMEORIGIN'  # Для работы django-mdeditor
 
 APP_ORDER = OrderedDict([
     ('content', ['Post', 'Article', 'Drawing', 'Photo']),
     ('drawings', []),
     ('photos', []),
 ])
+
+# Production settings
+SECURE_HSTS_SECONDS = env.int('SECURE_HSTS_SECONDS', 0)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
+    'SECURE_HSTS_INCLUDE_SUBDOMAINS',
+    False
+)
+SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', False)
+SECURE_HSTS_PRELOAD = env.bool('SECURE_HSTS_PRELOAD', False)
+SECURE_PROXY_SSL_HEADER = tuple(x.strip() for x in env.list('SECURE_PROXY_SSL_HEADER', None, ''))
+CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', False)
+CSRF_USE_SESSIONS = env.bool('SECURE_HSTS_PRELOAD', False)
+CSRF_TRUSTED_ORIGINS = [x.strip() for x in env.list('CSRF_TRUSTED_ORIGINS', None, '')]
+SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', False)

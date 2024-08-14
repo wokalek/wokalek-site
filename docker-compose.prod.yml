@@ -8,37 +8,49 @@ include:
 services:
   nginx:
     container_name: wokalek-nginx
-    image: wokalek/nginx-brotli:${NGINX_VERSION}
+    image: wokalek/nginx-brotli:${NGINX_VERSION:?error}
     restart: always
     depends_on:
       - nuxt
+      - django
     ports:
       - 80:80
       - 443:443
     volumes:
-      - ./nginx/conf/prod.conf:/etc/nginx/nginx.conf
-      - ./nginx/snippets:/etc/nginx/snippets
-      - ./static:/usr/share/nginx/html/static
       - ./volumes/nginx/cache:/data/nginx/cache
       - ./volumes/nginx/log:/var/log/nginx
       - ./volumes/certbot/www:/certbot/www
       - ./volumes/certbot/conf/live/wokalek.ru/fullchain.pem:/certbot/certs/fullchain.pem
       - ./volumes/certbot/conf/live/wokalek.ru/privkey.pem:/certbot/certs/privkey.pem
+      - ./nginx/conf/prod.conf:/etc/nginx/nginx.conf
+      - ./nginx/snippets:/etc/nginx/snippets
+      - django-static:/django/static
+      - ./django/media:/django/media
 
   nuxt:
     container_name: wokalek-nuxt
     build:
       dockerfile: docker/nuxt/prod.Dockerfile
       args:
-        - NODE_VERSION=${NUXT_NODE_VERSION}
+        - NODE_VERSION=${NUXT_NODE_VERSION:?error}
     restart: always
     env_file: env/nuxt/.env
     depends_on:
       fonts:
         condition: service_completed_successfully
     volumes:
-      - nuxt-node_modules:/nuxt/node_modules
-      - ./nuxt/src:/nuxt/src
+      - ./django/media:/nuxt/.output/public/media
+
+  django:
+    container_name: wokalek-django
+    build:
+      dockerfile: docker/django/prod.Dockerfile
+      args:
+        - PYTHON_VERSION=${DJANGO_PYTHON_VERSION:?error}
+    env_file: env/django/.env
+    volumes:
+      - django-static:/static
+      - ./django:/django
 
 volumes:
-  nuxt-node_modules:
+  django-static:

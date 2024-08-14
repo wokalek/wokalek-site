@@ -1,3 +1,5 @@
+import { set } from 'lodash'
+
 import manifest from './src/manifest'
 
 const config: ReturnType<typeof defineNuxtConfig> = {
@@ -45,6 +47,12 @@ const config: ReturnType<typeof defineNuxtConfig> = {
       ],
     },
   },
+  nitro: {
+    devProxy: {
+      '/graphql': `http://${process.env.RUNNING_IN_DOCKER ? 'django' : 'localhost'}:8000/graphql`,
+      '/media': `http://${process.env.RUNNING_IN_DOCKER ? 'nginx' : 'localhost'}:8000/media`,
+    },
+  },
   appConfig: {
     umami: {
       ignoreLocalhost: true,
@@ -71,7 +79,8 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   apollo: {
     clients: {
       default: {
-        httpEndpoint: process.env.GRAPHQL_URL as string,
+        httpEndpoint: `http://${process.env.RUNNING_IN_DOCKER ? 'django' : 'localhost'}:8000/graphql`,
+        browserHttpEndpoint: '/graphql',
       },
     },
   },
@@ -148,6 +157,10 @@ const config: ReturnType<typeof defineNuxtConfig> = {
 
 if (process.env.NODE_ENV === 'development') {
   config.modules?.push('@nuxt/eslint')
+
+  if (!process.env.RUNNING_IN_DOCKER) {
+    set(config, 'image.ipx.fs.dir', '../../../django')
+  }
 }
 
 export default defineNuxtConfig(config)
