@@ -1,7 +1,7 @@
 services:
   certbot:
     container_name: wokalek-certbot
-    image: certbot/certbot:${CERTBOT_VERSION}
+    image: certbot/certbot:${CERTBOT_VERSION:?error}
     depends_on:
       - nginx
     command: >-
@@ -12,8 +12,8 @@ services:
         --webroot
         --webroot-path /var/www/certbot
         --email wokalek@wokalek.ru
-        -d wokalek.ru -d statistic.wokalek.ru
-        -d wokalek.com -d statistic.wokalek.com
+        -d wokalek.ru -d statistic.wokalek.ru -d admin.wokalek.ru
+        -d wokalek.com -d statistic.wokalek.com -d admin.wokalek.com
     volumes:
       - ./volumes/certbot/www:/var/www/certbot
       - ./volumes/certbot/conf:/etc/letsencrypt

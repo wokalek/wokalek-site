@@ -1,7 +1,7 @@
 services:
   fonts:
     container_name: wokalek-fonts
-    image: wokalek/glyphhanger:${FONTS_VERSION}
+    image: wokalek/glyphhanger:${FONTS_VERSION:?error}
     entrypoint: ['bash', '/entrypoint.sh']
     volumes:
       - ./docker/fonts/entrypoint.sh:/entrypoint.sh

@@ -5,8 +5,8 @@ env/**/*.env
 # Статические файлы
 static
 
-# Docker volumes
+# Docker
 volumes
 
-# Не игнорируем .gitkeep
+# Сохраняем .gitkeep
 !.gitkeep

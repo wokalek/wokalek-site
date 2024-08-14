@@ -6,17 +6,18 @@ include:
 services:
   nginx:
     container_name: wokalek-nginx
-    user: root
     image: wokalek/nginx-brotli:${NGINX_VERSION:?error}
     depends_on:
       - nuxt
       - django
     ports:
       - 80:80
+      - 8000:8000
     volumes:
       - ./nginx/conf/dev.conf:/etc/nginx/nginx.conf
       - ./nginx/snippets:/etc/nginx/snippets
-      - ./static:/usr/share/nginx/html/static
+      - django-static:/django/static
+      - ./django/media:/django/media
 
   nuxt:
     container_name: wokalek-nuxt
@@ -32,6 +33,7 @@ services:
       - nuxt-node_modules:/nuxt/node_modules
       - ./nuxt/src:/nuxt/src
       - ./nuxt/nuxt.config.ts:/nuxt/nuxt.config.ts
+      - ./django/media:/nuxt/src/public/media
 
   django:
     container_name: wokalek-django
@@ -40,10 +42,10 @@ services:
       args:
         - PYTHON_VERSION=${DJANGO_PYTHON_VERSION:?error}
     env_file: env/django/.env
-    ports:
-      - 8000:8000
     volumes:
+      - django-static:/static
       - ./django:/django
 
 volumes:
   nuxt-node_modules:
+  django-static:
