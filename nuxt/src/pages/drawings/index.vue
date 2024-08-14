@@ -8,7 +8,7 @@ const { public: { siteUrl } } = useRuntimeConfig()
 
 const drawingsStore = useDrawingsStore()
 
-await useAsyncData(drawingsStore.fetchDrawings)
+await drawingsStore.fetchDrawings()
 
 useSeoMeta({
   title: 'Рисунки',

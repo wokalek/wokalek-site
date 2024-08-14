@@ -19,18 +19,14 @@ export const useArticlesStore = defineStore('articles', {
   },
   actions: {
     async fetchArticles() {
-      const { result, load } = useLazyQuery<ArticlesResult>(gqlArticles)
+      const { data } = await useAsyncQuery<ArticlesResult>(gqlArticles)
 
-      await load()
-
-      return this.articles = result.value?.articles ?? []
+      return this.articles = data.value?.articles ?? []
     },
     async fetchArticle(slug: string) {
-      const { result, load } = useLazyQuery<ArticleResult>(gqlArticle, { slug })
+      const { data } = await useAsyncQuery<ArticleResult>(gqlArticle, { slug })
 
-      await load()
-
-      return this.article = result.value?.article ?? undefined
+      return this.article = data.value?.article ?? undefined
     },
   },
 })

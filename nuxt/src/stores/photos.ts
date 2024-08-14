@@ -14,11 +14,9 @@ export const usePhotosStore = defineStore('photos', {
   },
   actions: {
     async fetchPhotos() {
-      const { result, load } = useLazyQuery<PhotosResult>(gqlPhotos)
+      const { data } = await useAsyncQuery<PhotosResult>(gqlPhotos)
 
-      await load()
-
-      return this.photos = result.value?.photos ?? []
+      return this.photos = data.value?.photos ?? []
     },
   },
 })

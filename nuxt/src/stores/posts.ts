@@ -14,11 +14,9 @@ export const usePostsStore = defineStore('posts', {
   },
   actions: {
     async fetchPosts() {
-      const { result, load } = useLazyQuery<PostsResult>(gqlPosts)
+      const { data } = await useAsyncQuery<PostsResult>(gqlPosts)
 
-      await load()
-
-      return this.posts = result.value?.posts ?? []
+      return this.posts = data.value?.posts ?? []
     },
   },
 })

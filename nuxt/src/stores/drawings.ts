@@ -14,11 +14,9 @@ export const useDrawingsStore = defineStore('drawings', {
   },
   actions: {
     async fetchDrawings() {
-      const { result, load } = useLazyQuery<DrawingsResult>(gqlDrawings)
+      const { data } = await useAsyncQuery<DrawingsResult>(gqlDrawings)
 
-      await load()
-
-      return this.drawings = result.value?.drawings ?? []
+      return this.drawings = data.value?.drawings ?? []
     },
   },
 })

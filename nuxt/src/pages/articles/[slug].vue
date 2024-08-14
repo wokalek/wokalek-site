@@ -10,11 +10,13 @@ const route = useRoute('articles-slug')
 
 const articlesStore = useArticlesStore()
 
-await useAsyncData(() => articlesStore.fetchArticle(route.params.slug))
+await articlesStore.fetchArticle(route.params.slug)
 
 if (isEmpty(articlesStore.article)) {
   throw createError({ statusCode: 404 })
 }
+
+useHead({ title: articlesStore.article.title })
 
 useSchemaOrg([
   defineArticle({
