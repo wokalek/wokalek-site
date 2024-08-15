@@ -7,6 +7,11 @@ services:
     depends_on:
       umami-db:
         condition: service_healthy
+    healthcheck:
+      test: ['CMD-SHELL', 'curl http://localhost:3000/api/heartbeat']
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   umami-db:
     container_name: wokalek-umami-db
@@ -18,7 +23,7 @@ services:
     volumes:
       - ./volumes/umami-db/data:/var/lib/postgresql/data
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}']
+      test: ['CMD-SHELL', 'pg_isready']
       interval: 5s
       timeout: 5s
       retries: 5
