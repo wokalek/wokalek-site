@@ -1,4 +1,3 @@
-import os
 import environ
 from pathlib import Path
 from collections import OrderedDict
@@ -114,6 +113,7 @@ APP_ORDER = OrderedDict([
 ])
 
 # Production settings
+
 SECURE_HSTS_SECONDS = env.int('SECURE_HSTS_SECONDS', 0)
 SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
     'SECURE_HSTS_INCLUDE_SUBDOMAINS',
@@ -121,8 +121,14 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
 )
 SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', False)
 SECURE_HSTS_PRELOAD = env.bool('SECURE_HSTS_PRELOAD', False)
-SECURE_PROXY_SSL_HEADER = tuple(x.strip() for x in env.list('SECURE_PROXY_SSL_HEADER', None, ''))
+SECURE_PROXY_SSL_HEADER = tuple(
+    x.strip()
+    for x in env.list('SECURE_PROXY_SSL_HEADER', None, '')
+)
 CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', False)
 CSRF_USE_SESSIONS = env.bool('SECURE_HSTS_PRELOAD', False)
-CSRF_TRUSTED_ORIGINS = [x.strip() for x in env.list('CSRF_TRUSTED_ORIGINS', None, '')]
+CSRF_TRUSTED_ORIGINS = [
+    x.strip()
+    for x in env.list('CSRF_TRUSTED_ORIGINS', None, '')
+]
 SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', False)

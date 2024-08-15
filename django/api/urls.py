@@ -1,4 +1,5 @@
 from django.urls import path
+from django.conf import settings
 
 import strawberry
 from strawberry.django.views import AsyncGraphQLView
@@ -14,5 +15,6 @@ urlpatterns = [
                 DjangoOptimizerExtension,
             ],
         ),
+        graphql_ide='graphiql' if settings.DEBUG else None
     )),
 ]
