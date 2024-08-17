@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/ash
 
-echo '---'
+echo '// Starting fonts optimization'
 
-search_dir="/app"
-output_dir="/app/optimized"
+search_dir='/app'
+output_dir='/app/optimized'
 
 for entry in `find $search_dir -name "*.ttf"`; do
   file_name=`basename "$entry"`
@@ -18,7 +18,6 @@ for entry in `find $search_dir -name "*.ttf"`; do
   echo "$file_name → $file_name_output"
 done
 
-echo 'End'
-echo '---'
+echo '// Ending fonts optimization'
 
 wait
