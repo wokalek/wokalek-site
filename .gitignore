@@ -1,12 +1,12 @@
 # .env
-env/**/*.env
-!env/**/example*
+/env/**/*.env
+/!env/**/example*
 
 # Статические файлы
-static
+/static
 
 # Docker
-volumes
+/volumes
 
 # Сохраняем .gitkeep
 !.gitkeep

@@ -1,0 +1,21 @@
+.theme-toggle,
+body.login #header {
+  display: none;
+}
+
+body.login {
+  display: flex;
+  min-height: 100dvh;
+  justify-content: center;
+  align-items: center;
+}
+
+body.login #container {
+  margin: 30px auto;
+}
+
+@media (max-width: 1024px) {
+  #branding {
+    display: none;
+  }
+}
