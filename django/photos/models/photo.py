@@ -33,7 +33,7 @@ class Photo(models.Model):
         blank=True,
         null=True,
     )
-    alt = models.CharField('Альтернативный текст', max_length=100)
+    alt = models.CharField('Альтернативный текст', max_length=500)
 
     class Meta:
         verbose_name = 'фото'

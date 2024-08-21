@@ -21,11 +21,11 @@ class Image(models.Model):
                                   null=True)
     image_markdown = models.CharField(
         'Код markdown',
-        max_length=350,
+        max_length=750,
         blank=True,
         null=True
     )
-    alt = models.CharField('Альтернативный текст', max_length=100)
+    alt = models.CharField('Альтернативный текст', max_length=500)
 
     class Meta:
         verbose_name = 'изображение'
