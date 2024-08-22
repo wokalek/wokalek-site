@@ -14,13 +14,15 @@
 5. Установить плагин poetry для экспорта зависимостей в requirements.txt `pipx inject poetry poetry-plugin-export`
 6. Установить poe через pipx `pipx install poe`
 7. Установить зависимости `poe install`
+8. vscode, выполнить команду `> Python: Select Interpreter`, указать путь до venv из команды `poetry env info`
+9. Скачать `./volumes/database` для БД
 
 # Разработка
 
-1. Запустить сервер `poe dev`
+1. Запускать через файл docker compose в корне сайта
 
 # Поддержка
 
-- Показать устаревшие зависимости `poetry show -o`
+- Показать устаревшие зависимости `poe outdated`
 - Обновить зависимости `poetry up`
-- Экспортировать зависимости для Docker `poetry export -o requirements.txt`
+- Экспортировать зависимости для Docker `poe export`
