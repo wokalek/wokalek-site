@@ -3,7 +3,7 @@ import { set } from 'lodash'
 import manifest from './src/manifest'
 
 const config: ReturnType<typeof defineNuxtConfig> = {
-  compatibilityDate: '2024-08-14',
+  compatibilityDate: '2024-08-22',
   telemetry: false,
   devtools: { enabled: true },
   srcDir: 'src',
