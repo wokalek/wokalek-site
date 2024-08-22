@@ -32,7 +32,7 @@ class ImageAdmin(admin.ModelAdmin):
 
     list_display = ('id', 'image_name', 'section', 'create_date')
     list_display_links = ('id', 'image_name')
-    list_filter = ('section__name', 'create_date', 'update_date')
+    list_filter = ('section', 'create_date', 'update_date')
     ordering = ('-create_date',)
 
     def get_readonly_fields(self, request, obj=None):

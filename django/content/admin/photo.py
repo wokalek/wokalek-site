@@ -41,8 +41,8 @@ class PhotoAdmin(admin.ModelAdmin):
     )
     list_display_links = ('id', 'image_name')
     list_editable = ('is_active',)
-    list_filter = ('section__name', 'pub_date', 'create_date')
-    ordering = ('-section__name', '-pub_date')
+    list_filter = ('section', 'pub_date', 'create_date')
+    ordering = ('-section', '-pub_date')
 
     def get_readonly_fields(self, request, obj=None):
         if obj:

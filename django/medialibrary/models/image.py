@@ -44,4 +44,4 @@ class Image(models.Model):
         super().save(update_fields=['image_name', 'image_markdown'])
 
     def __str__(self):
-        return f'[{self.id}] {self.alt} {self.image_name}'
+        return self.image_name

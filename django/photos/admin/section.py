@@ -10,7 +10,7 @@ class SectionAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'create_date')
     list_display_links = ('id', 'name')
     list_filter = ('create_date',)
-    ordering = ('-create_date',)
+    ordering = ('-name',)
 
     def get_readonly_fields(self, request, obj=None):
         if obj:
