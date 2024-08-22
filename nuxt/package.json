@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "postinstall": "nuxt prepare",
+    "postinstall": "NODE_ENV=development nuxt prepare",
     "dev": "nuxt dev --dotenv=../env/nuxt/.env",
     "build": "nuxt build",
     "preview": "nuxt preview",
