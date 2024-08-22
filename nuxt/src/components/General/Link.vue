@@ -1,6 +1,9 @@
 <template>
+  <span v-if="link.isExactActive" :class="{ 'opacity-50': link.isExactActive }" :aria-label="ariaLabel">
+    <slot />
+  </span>
   <NuxtLink
-    v-if="!link.isExactActive"
+    v-else
     v-bind="$props"
     :target="isExternalLink ? '_blank' : target"
     class="transition-opacity ease-in-out-quad desktop:hover:opacity-50"
@@ -13,9 +16,6 @@
     <template v-if="isExternalLink && !isHideExternal">&nbsp;↗</template>
     <slot name="after" />
   </NuxtLink>
-  <span v-else :class="{ 'opacity-50': link.isExactActive }" :aria-label="ariaLabel">
-    <slot />
-  </span>
 </template>
 
 <script setup lang="ts">
