@@ -13,9 +13,9 @@ django-cors-headers==4.4.0 ; python_full_version == "3.12.5" \
 django-environ==0.11.2 ; python_full_version == "3.12.5" \
     --hash=sha256:0ff95ab4344bfeff693836aa978e6840abef2e2f1145adff7735892711590c05 \
     --hash=sha256:f32a87aa0899894c27d4e1776fa6b477e8164ed7f6b3e410a62a6d72caaf64be
-django-imagefield==0.19.0 ; python_full_version == "3.12.5" \
-    --hash=sha256:6cf4dfdc9dcf350225071fcdff3b0073dd1775a44f7e013237521d6995bea400 \
-    --hash=sha256:9bf76c320ac964e7cc03e741cea9d173f464ecb344d94af72684590597dad9c8
+django-imagefield==0.19.1 ; python_full_version == "3.12.5" \
+    --hash=sha256:4fae17df52dcc6c7a472ca24ac397eff302de6fbf667570a55e2f55c4d5d6b11 \
+    --hash=sha256:b6aa4aab220a2f1fdefa8c8bdb321aab36ff79e899237d08486a3f678701edbf
 django-mdeditor==0.1.20 ; python_full_version == "3.12.5" \
     --hash=sha256:d1f3b735b6202b8820f10e024a5aa28c5b948897ee7a8dbb84558df75339827e
 django==5.1 ; python_full_version == "3.12.5" \
