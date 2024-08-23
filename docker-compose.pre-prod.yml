@@ -25,10 +25,10 @@ services:
       dockerfile: docker/nuxt/prod.Dockerfile
       args:
         - NODE_VERSION=${NUXT_NODE_VERSION:?error}
-    env_file: env/nuxt/.env
     depends_on:
       fonts:
         condition: service_completed_successfully
+    env_file: env/nuxt/.env
     volumes:
       - ./django/media:/nuxt/.output/public/media
 
@@ -38,10 +38,10 @@ services:
       dockerfile: docker/django/prod.Dockerfile
       args:
         - PYTHON_VERSION=${DJANGO_PYTHON_VERSION:?error}
-    env_file: env/django/.env
     depends_on:
       database:
         condition: service_healthy
+    env_file: env/django/.env
     volumes:
       - django-static:/static
       - ./django:/django
