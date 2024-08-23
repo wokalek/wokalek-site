@@ -8,7 +8,7 @@ include:
 services:
   nginx:
     container_name: wokalek-nginx
-    image: wokalek/nginx-brotli:${NGINX_VERSION:?error}
+    image: wokalek/nginx-brotli:${NGINX_VERSION:?error}-server
     restart: always
     depends_on:
       - nuxt

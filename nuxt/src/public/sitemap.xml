@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/__sitemap__/style.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://localhost:3000/</loc>
+    </url>
+    <url>
+        <loc>http://localhost:3000/age</loc>
+    </url>
+    <url>
+        <loc>http://localhost:3000/articles</loc>
+    </url>
+    <url>
+        <loc>http://localhost:3000/blog</loc>
+    </url>
+    <url>
+        <loc>http://localhost:3000/contacts</loc>
+    </url>
+    <url>
+        <loc>http://localhost:3000/drawings</loc>
+    </url>
+    <url>
+        <loc>http://localhost:3000/map</loc>
+    </url>
+    <url>
+        <loc>http://localhost:3000/other</loc>
+    </url>
+    <url>
+        <loc>http://localhost:3000/photos</loc>
+    </url>
+    <url>
+        <loc>http://localhost:3000/site</loc>
+    </url>
+    <url>
+        <loc>http://localhost:3000/articles/adaptive-design</loc>
+        <lastmod>2024-08-21T06:54:49Z</lastmod>
+    </url>
+    <url>
+        <loc>http://localhost:3000/articles/faith-and-religion</loc>
+        <lastmod>2024-08-17T17:02:26Z</lastmod>
+    </url>
+</urlset>

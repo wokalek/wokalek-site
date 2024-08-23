@@ -10,11 +10,8 @@ FROM base AS build
 
 RUN npm i -g pnpm
 
-COPY --link ./nuxt/package.json ./nuxt/pnpm-lock.yaml ./nuxt/.npmrc ./
-RUN pnpm i --prod --frozen-lockfile
-
-COPY --link ./nuxt .
-RUN pnpm build
+COPY --link ./nuxt ./env/nuxt/.env ./
+RUN pnpm i --prod --frozen-lockfile && pnpm build
 
 FROM base AS entry
 

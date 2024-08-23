@@ -17,7 +17,7 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     '@nuxtjs/apollo',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/robots',
-    '@nuxtjs/sitemap',
+    // '@nuxtjs/sitemap',
     '@nuxtjs/color-mode',
     '@nuxtjs/fontaine',
     '@nuxtjs/device',
@@ -79,8 +79,13 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   apollo: {
     clients: {
       default: {
-        httpEndpoint: `http://${process.env.RUNNING_IN_DOCKER ? 'django' : 'localhost'}:8000/graphql`,
+        httpEndpoint: `http://django:8000/graphql`,
         browserHttpEndpoint: '/graphql',
+        httpLinkOptions: {
+          headers: {
+            'X-Forwarded-Proto': 'https',
+          },
+        },
       },
     },
   },
@@ -143,15 +148,18 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     disallow: ['/settings'],
     sitemap: [`https://${process.env.DOMAIN}/sitemap.xml`],
   },
-  sitemap: {
-    credits: false,
-    dynamicUrlsApiEndpoint: '/api/sitemap',
-    exclude: [
-      '/settings',
-    ],
-  },
+  // sitemap: {
+  //   credits: false,
+  //   sources: [
+  //     '/api/__sitemap__/urls',
+  //   ],
+  //   exclude: [
+  //     '/settings',
+  //   ],
+  // },
   site: {
     url: `https://${process.env.DOMAIN}`,
+    name: 'wokalek.ru',
   },
 }
 
