@@ -6,11 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 env = environ.Env()
 
-environ.Env.read_env((
-    BASE_DIR / '.env'
-    if env.bool('RUNNING_IN_DOCKER', False)
-    else BASE_DIR.parent / 'env/django/.env'
-))
+environ.Env.read_env(BASE_DIR / '.env')
 
 SECRET_KEY = env.str('SECRET_KEY')
 DEBUG = env.bool('DEBUG', False)

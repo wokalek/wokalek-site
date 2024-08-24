@@ -2,8 +2,6 @@ ARG NODE_VERSION
 
 FROM node:${NODE_VERSION}-alpine AS base
 
-ENV RUNNING_IN_DOCKER=true
-
 WORKDIR /nuxt
 
 FROM base AS build

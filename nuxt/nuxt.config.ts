@@ -14,14 +14,14 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     'nuxt-umami',
   ],
   modules: [
-    '@nuxtjs/apollo',
+    '@nuxtjs/fontaine',
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/device',
+    '@nuxtjs/apollo',
+    '@nuxtjs/mdc',
+    '@nuxtjs/color-mode',
     '@nuxtjs/robots',
     // '@nuxtjs/sitemap',
-    '@nuxtjs/color-mode',
-    '@nuxtjs/fontaine',
-    '@nuxtjs/device',
-    '@nuxtjs/mdc',
     '@nuxt/image',
     '@pinia/nuxt',
     '@vueuse/nuxt',
@@ -45,18 +45,6 @@ const config: ReturnType<typeof defineNuxtConfig> = {
         'property-information',
         '@apollo/client',
       ],
-    },
-  },
-  nitro: {
-    devProxy: {
-      '/graphql': `http://${process.env.RUNNING_IN_DOCKER ? 'django' : 'localhost'}:8000/graphql`,
-      '/media': `http://${process.env.RUNNING_IN_DOCKER ? 'nginx' : 'localhost'}:8000/media`,
-    },
-  },
-  appConfig: {
-    umami: {
-      ignoreLocalhost: true,
-      version: 2,
     },
   },
   runtimeConfig: {
@@ -165,10 +153,6 @@ const config: ReturnType<typeof defineNuxtConfig> = {
 
 if (process.env.NODE_ENV === 'development') {
   config.modules?.push('@nuxt/eslint')
-
-  if (!process.env.RUNNING_IN_DOCKER) {
-    set(config, 'image.ipx.fs.dir', '../../../django')
-  }
 }
 
 export default defineNuxtConfig(config)

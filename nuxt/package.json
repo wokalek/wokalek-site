@@ -4,9 +4,8 @@
   "type": "module",
   "scripts": {
     "postinstall": "nuxt prepare",
-    "dev": "nuxt dev --dotenv=../env/nuxt/.env",
+    "dev": "nuxt dev",
     "build": "nuxt build",
-    "preview": "nuxt preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },

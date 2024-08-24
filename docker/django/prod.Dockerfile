@@ -2,8 +2,6 @@ ARG PYTHON_VERSION
 
 FROM python:${PYTHON_VERSION}-alpine AS base
 
-ENV RUNNING_IN_DOCKER=True
-
 WORKDIR /django
 
 COPY --link ./django/prod.requirements.txt .
