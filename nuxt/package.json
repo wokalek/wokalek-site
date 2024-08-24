@@ -49,6 +49,6 @@
     "@nuxt/eslint": "0.5.2",
     "@types/hyphen": "1.6.7",
     "@types/node": "22.5.0",
-    "eslint": "9.9.0"
+    "eslint": "9.9.1"
   }
 }
