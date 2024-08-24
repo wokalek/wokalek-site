@@ -1,5 +1,5 @@
 <template>
-  <div :id="id" ref="lightBoxGallery" class="-mx-32-8 not-prose flex flex-col items-center">
+  <span :id="id" ref="lightBoxGallery" class="-mx-32-8 not-prose flex flex-col items-center">
     <a
       class="flex justify-center w-full"
       :style="{ maxWidth: width + 'px' }"
@@ -22,7 +22,7 @@
     <span v-if="alt" class="caption mt-16-8 px-32-8 block box-border text-center text-balance text-gray-4">
       {{ alt }}
     </span>
-  </div>
+  </span>
 </template>
 
 <script setup lang="ts">
