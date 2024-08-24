@@ -4,5 +4,5 @@
     "config:recommended"
   ],
   "timezone": "Europe/Moscow",
-  "schedule": ["8am on sunday"]
+  "schedule": ["after 8am on sunday"]
 }
