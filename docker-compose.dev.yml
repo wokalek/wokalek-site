@@ -44,6 +44,8 @@ services:
     depends_on:
       database:
         condition: service_healthy
+    ports:
+      - 5678:5678
     env_file: env/django/.env
     volumes:
       - django-static:/static
@@ -52,6 +54,8 @@ services:
   database:
     container_name: wokalek-database
     image: postgres:${DATABASE_POSTGRES_VERSION:?error}
+    ports:
+      - 5432:5432
     shm_size: 256mb
     env_file: env/database/.env
     volumes:

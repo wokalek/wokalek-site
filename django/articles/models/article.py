@@ -1,5 +1,6 @@
 from django.utils import timezone
 from django.db import models
+from django.utils.text import normalize_newlines
 
 from mdeditor.fields import MDTextField
 
@@ -21,6 +22,7 @@ class Article(models.Model):
 
     def save(self, *args, **kwargs):
         self.update_date = self.create_date if self._state.adding else timezone.now()
+        self.content = normalize_newlines(self.content)
 
         super().save(*args, **kwargs)
 
