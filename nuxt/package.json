@@ -21,7 +21,7 @@
     "@nuxtjs/tailwindcss": "6.12.1",
     "@pinia/nuxt": "0.5.4",
     "@vite-pwa/nuxt": "0.10.0",
-    "@vueuse/core": "11.0.1",
+    "@vueuse/core": "11.1.0",
     "@vueuse/nuxt": "11.0.1",
     "dayjs": "1.11.13",
     "hyphen": "1.10.4",
