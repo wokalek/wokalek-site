@@ -1,18 +1,13 @@
-import { set } from 'lodash'
-
 import manifest from './src/manifest'
 
 const config: ReturnType<typeof defineNuxtConfig> = {
-  compatibilityDate: '2024-08-22',
+  compatibilityDate: '2024-10-02',
   telemetry: false,
   devtools: { enabled: true },
   srcDir: 'src',
   app: {
     rootId: 'nuxt',
   },
-  extends: [
-    'nuxt-umami',
-  ],
   modules: [
     '@nuxtjs/fontaine',
     '@nuxtjs/tailwindcss',
@@ -21,11 +16,12 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     '@nuxtjs/mdc',
     '@nuxtjs/color-mode',
     '@nuxtjs/robots',
-    // '@nuxtjs/sitemap',
+    '@nuxtjs/sitemap',
     '@nuxt/image',
     '@pinia/nuxt',
     '@vueuse/nuxt',
     '@vite-pwa/nuxt',
+    'nuxt-umami',
     'nuxt-typed-router',
     'nuxt-svgo',
     'nuxt-schema-org',
@@ -89,9 +85,6 @@ const config: ReturnType<typeof defineNuxtConfig> = {
   colorMode: {
     preference: 'light',
   },
-  device: {
-    refreshOnResize: true,
-  },
   mdc: {
     highlight: {
       langs: ['css', 'sass', 'bash'],
@@ -130,21 +123,24 @@ const config: ReturnType<typeof defineNuxtConfig> = {
       navigateFallback: null,
     },
   },
+  umami: {
+    ignoreLocalhost: true,
+  },
   robots: {
     credits: false,
     allow: ['/'],
     disallow: ['/settings'],
     sitemap: [`https://${process.env.DOMAIN}/sitemap.xml`],
   },
-  // sitemap: {
-  //   credits: false,
-  //   sources: [
-  //     '/api/__sitemap__/urls',
-  //   ],
-  //   exclude: [
-  //     '/settings',
-  //   ],
-  // },
+  sitemap: {
+    credits: false,
+    sources: [
+      '/api/__sitemap__/urls',
+    ],
+    exclude: [
+      '/settings',
+    ],
+  },
   site: {
     url: `https://${process.env.DOMAIN}`,
     name: 'wokalek.ru',
