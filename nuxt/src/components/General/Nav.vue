@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="links.length" class="select-none">
+  <nav v-if="links.length" class="nav select-none">
     <GeneralLink v-for="(link, index) in links" :key="index" v-bind="useOmit(link, ['text'])">
       {{ link.text }}
     </GeneralLink>
