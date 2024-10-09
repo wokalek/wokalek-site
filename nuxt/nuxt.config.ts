@@ -9,6 +9,7 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     rootId: 'nuxt',
   },
   modules: [
+    '@nuxt/eslint',
     '@nuxtjs/fontaine',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/device',
@@ -145,10 +146,6 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     url: `https://${process.env.DOMAIN}`,
     name: 'wokalek.ru',
   },
-}
-
-if (process.env.NODE_ENV === 'development') {
-  config.modules?.push('@nuxt/eslint')
 }
 
 export default defineNuxtConfig(config)
