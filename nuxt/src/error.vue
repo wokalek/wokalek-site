@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import { sad } from 'kaokun'
 
-const { data: kaomoji } = useAsyncData(() => Promise.resolve(sad()))
+const { data: kaomoji } = useAsyncData(async () => sad())
 
 defineProps<{
   error: {
