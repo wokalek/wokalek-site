@@ -11,6 +11,7 @@ export const spacingRanges: RangeType = [
   [16, 0],
   [8, 8],
   [8, 4],
+  [6, 3],
   [4, 4],
   [4, 2],
 ]

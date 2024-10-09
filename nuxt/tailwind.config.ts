@@ -52,6 +52,7 @@ export default <Partial<Config>>{
       0: '0px',
       '1em': '1em',
       '2em': '2em',
+      '3em': '3em',
     },
     borderWidth: {},
     borderRadius: {
