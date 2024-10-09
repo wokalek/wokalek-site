@@ -9,7 +9,7 @@
         <label for="deathAge" class="lead text-center sm:text-left place-self-center sm:place-self-end mt-16-8 sm:mt-0">Возраст смерти</label>
         <input id="deathAge" ref="deathAgeInput" v-model="deathAge" required min="18" max="150" class="lead input-number-buttons-reset w-3em bg-transparent text-center select-none focus-within:outline-none ring-1 ring-gray-6 dark:ring-gray-3 sm:ml-1em place-self-center sm:place-self-start" type="number">
       </div>
-      <button class="lead mt-32-32 select-none transition-colors" :class="{ 'text-gray-3 dark:text-gray-4': isFormButtonDisabled }" type="submit">
+      <button class="lead mt-32-32 select-none transition-colors" :class="{ 'text-gray-3 dark:text-gray-4': isFormButtonDisabled, 'hover:text-gray-3' :!isFormButtonDisabled }" type="submit">
         Показать
       </button>
     </form>
