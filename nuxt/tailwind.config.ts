@@ -51,6 +51,7 @@ export default <Partial<Config>>{
     spacing: {
       0: '0px',
       '1em': '1em',
+      '1.5em': '1.5em',
       '2em': '2em',
       '3em': '3em',
     },

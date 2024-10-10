@@ -4,10 +4,10 @@
     <form v-show="view === 'form'" ref="form" class="flex flex-col items-center" @submit.prevent="submitForm" @input="checkFormValidity">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-16-8">
         <label for="birthDate" class="lead text-center sm:text-left place-self-center sm:place-self-end">Дата рождения</label>
-        <input id="birthDate" ref="birthDateInput" v-model="birthDate" required min="1900-01-01" max="2200-01-01" class="lead input-date-icon-reset px-8-4 bg-transparent text-center select-none focus-within:outline-none ring-1 ring-gray-6 dark:ring-gray-3 sm:ml-1em place-self-center sm:place-self-start" type="date">
+        <input id="birthDate" ref="birthDateInput" v-model="birthDate" required min="1900-01-01" max="2200-01-01" class="lead input-date-icon-reset min-w-full min-h-1.5em sm:min-w-0 sm:min-h-0 px-8-4 bg-transparent text-center select-none focus-within:outline-none ring-1 ring-gray-6 dark:ring-gray-3 sm:ml-1em place-self-center sm:place-self-start" type="date">
 
         <label for="deathAge" class="lead text-center sm:text-left place-self-center sm:place-self-end mt-16-8 sm:mt-0">Возраст смерти</label>
-        <input id="deathAge" ref="deathAgeInput" v-model="deathAge" required min="18" max="150" class="lead input-number-buttons-reset w-3em bg-transparent text-center select-none focus-within:outline-none ring-1 ring-gray-6 dark:ring-gray-3 sm:ml-1em place-self-center sm:place-self-start" type="number">
+        <input id="deathAge" ref="deathAgeInput" v-model="deathAge" required min="18" max="150" class="lead input-number-buttons-reset min-w-3em bg-transparent text-center select-none focus-within:outline-none ring-1 ring-gray-6 dark:ring-gray-3 sm:ml-1em place-self-center sm:place-self-start" type="number">
       </div>
       <button class="lead mt-32-32 select-none transition-colors" :class="{ 'text-gray-3 dark:text-gray-4': isFormButtonDisabled, 'hover:text-gray-3' :!isFormButtonDisabled }" type="submit">
         Показать
