@@ -3,6 +3,7 @@
   "extends": [
     "config:recommended"
   ],
+  "dependencyDashboard": true,
   "timezone": "Europe/Moscow",
-  "schedule": ["after 8am on sunday"]
+  "schedule": ["after 8am on saturday"]
 }
