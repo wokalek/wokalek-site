@@ -81,9 +81,9 @@ const view = ref<'form' | 'table'>(birthDate.value && deathAge.value ? 'table' :
 const isFormButtonDisabled = ref(true)
 const tableMode = ref<'years' | 'calendar'>(route.query.mode as 'years' | 'calendar' ?? 'years')
 
-const lifeWeeks = computed(() => Math.ceil($dayjs(birthDate.value).add(deathAge.value, 'year').diff(birthDate.value, 'week', true)))
-const wastedWeeks = computed(() => Math.floor($dayjs(new Date()).diff(birthDate.value, 'week', true)))
-const lifeProgress = computed(() => ((wastedWeeks.value / lifeWeeks.value) * 100).toFixed(2))
+const lifeDays = computed(() => Math.ceil($dayjs(birthDate.value).add(deathAge.value, 'year').diff(birthDate.value, 'day', true)))
+const wastedDays = computed(() => Math.floor($dayjs(new Date()).diff(birthDate.value, 'day', true)))
+const lifeProgress = computed(() => (wastedDays.value / lifeDays.value * 100).toFixed(2))
 const birthYear = computed(() => $dayjs(birthDate.value).year())
 
 const weekGrid = computed(() => {
