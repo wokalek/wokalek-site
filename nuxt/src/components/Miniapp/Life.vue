@@ -115,6 +115,8 @@ function submitForm() {
   urlParams.age = deathAge.value.toString()
 
   view.value = 'table'
+
+  umTrackEvent('Life Calendar View', { date: birthDate.value, age: deathAge.value })
 }
 
 function switchTableMode() {
@@ -147,6 +149,8 @@ onMounted(() => {
 
   if (isFormButtonDisabled.value) {
     view.value = 'form'
+  } else {
+    umTrackEvent('Life Calendar View', { date: birthDate.value, age: deathAge.value })
   }
 })
 </script>
