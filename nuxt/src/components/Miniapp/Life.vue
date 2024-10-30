@@ -52,7 +52,7 @@
           </div>
         </div>
       </div>
-      <div class="flex mt-32-16 select-none">
+      <div class="flex mt-32-16 cursor-pointer select-none" @click="copy(`${lifeProgress}%`)">
         <div>
           <span class="text-gray-3">Прогресс жизни</span> <span class="text-nowrap">{{ lifeProgress }}%</span>
         </div>
@@ -63,6 +63,7 @@
 
 <script setup lang="ts">
 import type { LocationQueryValue } from 'vue-router'
+const { copy } = useClipboard()
 
 const { $dayjs } = useNuxtApp()
 const route = useRoute()
