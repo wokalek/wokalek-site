@@ -8,10 +8,6 @@
     @click="colorMode.preference = $event"
   />
   <h3 class="font-lora font-bold leading-1.3 text-28-18 my-1em">
-    Размер текста
-  </h3>
-  <BlockSettingsPropertyRangeCount property="font-scale" label="Размер текста" />
-  <h3 class="font-lora font-bold leading-1.3 text-28-18 my-1em">
     Масштаб сайта
   </h3>
   <BlockSettingsPropertyRangeCount property="site-scale" label="Масштаб сайта" />

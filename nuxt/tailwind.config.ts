@@ -11,7 +11,7 @@ import * as fluidConfig from './src/vendors/tailwind/fluidConfig'
 export default <Partial<Config>>{
   plugins: [
     fluidSystemPlugin({
-      propertyHandler: (value, property) => property === 'fontSize' ? `calc(${value} * var(--site-scale, 1) * var(--font-scale, 1))` : `calc(${value} * var(--site-scale, 1))`,
+      propertyHandler: (value) => `calc(${value} * var(--site-scale, 1))`,
       theme: {
         spacing: fluidConfig.spacingRanges,
         fontSize: fluidConfig.typographyRanges,

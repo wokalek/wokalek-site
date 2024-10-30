@@ -11,10 +11,9 @@ const { isDesktop, isMobile, isMobileOrTablet } = useDevice()
 const colorMode = useColorMode()
 
 const siteScale = useLocalStorage('site-scale', 100)
-const fontScale = useLocalStorage('font-scale', 100)
 
 const siteSettingsStyles = computed(() => {
-  return Object.entries({ siteScale, fontScale })
+  return Object.entries({ siteScale })
     .map(([key, { value }]) => `--${useKebabCase(key)}: ${value / 100};`)
     .join('')
 })
