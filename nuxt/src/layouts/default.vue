@@ -1,5 +1,6 @@
 <template>
-  <div class="layout flex flex-col flex-grow mx-auto fluid-[width,1000-320] max-w-[100vw]">
+  <LayoutSnowflakes />
+  <div class="relative flex flex-col flex-grow mx-auto fluid-[width,1000-320] max-w-[100vw]">
     <TheHeader />
     <main class="flex flex-col justify-center items-center flex-grow py-32-16 px-64-16">
       <slot />
@@ -7,19 +8,6 @@
     <TheFooter />
   </div>
 </template>
-
-<script setup lang="ts">
-import Snowflakes from 'magic-snowflakes'
-
-onMounted(() => {
-  new Snowflakes({
-    container: document.querySelector<HTMLDivElement>('.snowflakes-container') as HTMLDivElement,
-    color: '#808080',
-    minOpacity: 0.2,
-    minSize: 1,
-  })
-})
-</script>
 
 <style lang="sass" scoped>
 :global(html),
