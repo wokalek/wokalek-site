@@ -3,7 +3,7 @@
     Оформление
   </h3>
   <ControlRadioButtons
-    :set="[{ value: 'light', label: 'светлое', icon: '☀️' }, { value: 'dark', label: 'тёмное', icon: '🌙' }, { value: 'system', label: 'авто', icon: '⏰' }]"
+    :set="[{ value: 'light', label: 'светлое', icon: '☀︎' }, { value: 'dark', label: 'тёмное', icon: '🌙' }, { value: 'system', label: 'авто', icon: '⏰' }]"
     :value="!colorMode.unknown ? colorMode.preference : undefined"
     @click="colorMode.preference = $event"
   />

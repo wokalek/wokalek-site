@@ -13,8 +13,6 @@
         </GeneralLink>!
       </p>
     </article>
-    <div class="emoji fluid-[font-size,200-64] hidden sm:block" aria-disabled="true">
-      🙋
-    </div>
+    <div class="emoji fluid-[font-size,200-64] hidden sm:block" aria-disabled="true">🙋</div>
   </div>
 </template>

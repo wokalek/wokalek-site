@@ -5,7 +5,7 @@
       class="general-nav nav flex gap-32-16 items-center text-right"
       :links="[
         { to: { name: 'map' }, text: 'Карта сайта', },
-        { to: { name: 'settings' }, text: '⚙️', class: ['text-28-18', 'emoji'], ariaLabel: 'Настройки сайта', rel: 'nofollow' },
+        { to: { name: 'settings' }, text: '⚙︎', class: ['text-28-18', 'emoji'], ariaLabel: 'Настройки сайта', rel: 'nofollow' },
       ]"
     />
   </header>
