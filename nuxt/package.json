@@ -27,6 +27,7 @@
     "dayjs": "1.11.13",
     "hyphen": "1.10.6",
     "kaokun": "1.1.10",
+    "magic-snowflakes": "7.0.1",
     "nuxt": "3.13.2",
     "nuxt-lodash": "2.5.3",
     "nuxt-schema-org": "3.4.1",

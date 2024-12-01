@@ -8,6 +8,19 @@
   </div>
 </template>
 
+<script setup lang="ts">
+import Snowflakes from 'magic-snowflakes'
+
+onMounted(() => {
+  new Snowflakes({
+    container: document.querySelector<HTMLDivElement>('.snowflakes-container') as HTMLDivElement,
+    color: '#808080',
+    minOpacity: 0.2,
+    minSize: 1,
+  })
+})
+</script>
+
 <style lang="sass" scoped>
 :global(html),
 :global(body),
