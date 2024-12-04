@@ -49,7 +49,7 @@
   "devDependencies": {
     "@nuxt/devtools": "1.6.0",
     "@types/hyphen": "1.6.7",
-    "@types/node": "22.8.4",
+    "@types/node": "22.10.1",
     "eslint": "9.13.0"
   }
 }
