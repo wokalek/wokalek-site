@@ -5,7 +5,7 @@
   </p>
   <div class="lead flex flex-wrap justify-center select-none mt-32-16 gap-16-16">
     <div class="flex items-center">
-      <GeneralLink :to="`mailto:${socials.email}`" class="flex items-center" is-hide-external>
+      <GeneralLink :to="`mailto:${socials.email}`" class="flex items-center" is-hide-external @click="umTrackEvent('contacts: mailto click')">
         <template #before>
           <VIcon class="size-32-32 mr-8-4" name="md-alternateemail" />
         </template>
@@ -13,7 +13,7 @@
       </GeneralLink>
     </div>
     <div class="flex items-center">
-      <GeneralLink :to="socials.tgUrl" class="flex items-center" is-hide-external>
+      <GeneralLink :to="socials.tgUrl" class="flex items-center" is-hide-external @click="umTrackEvent('contacts: tg click')">
         <template #before>
           <VIcon class="size-32-32 mr-8-4" name="fa-telegram-plane" />
         </template>
@@ -21,7 +21,7 @@
       </GeneralLink>
     </div>
     <div class="flex items-center">
-      <GeneralLink :to="socials.githubUrl" class="flex items-center" is-hide-external>
+      <GeneralLink :to="socials.githubUrl" class="flex items-center" is-hide-external @click="umTrackEvent('contacts: github click')">
         <template #before>
           <VIcon class="size-32-32 mr-8-4" name="bi-github" />
         </template>
@@ -29,7 +29,7 @@
       </GeneralLink>
     </div>
     <div class="flex items-center">
-      <GeneralLink :to="socials.discordUrl" class="flex items-center" is-hide-external>
+      <GeneralLink :to="socials.discordUrl" class="flex items-center" is-hide-external @click="umTrackEvent('contacts: discord click')">
         <template #before>
           <VIcon class="size-32-32 mr-8-4" name="fa-discord" />
         </template>
