@@ -1,5 +1,5 @@
 <template>
-  <LayoutSnowflakes />
+  <LazyLayoutSnowflakes v-if="isWinter" hydrate-on-idle />
   <div class="relative flex flex-col flex-grow mx-auto fluid-[width,1000-320] max-w-[100vw]">
     <TheHeader />
     <main class="flex flex-col justify-center items-center flex-grow py-32-16 px-64-16">
@@ -8,6 +8,10 @@
     <TheFooter />
   </div>
 </template>
+
+<script setup lang="ts">
+const { isWinter } = useSnowflakes()
+</script>
 
 <style lang="sass" scoped>
 :global(html),
