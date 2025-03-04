@@ -21,8 +21,8 @@ dependencies:
     specifier: 3.2.4
     version: 3.2.4
   '@nuxtjs/fontaine':
-    specifier: 0.4.3
-    version: 0.4.3
+    specifier: 0.5.0
+    version: 0.5.0
   '@nuxtjs/mdc':
     specifier: 0.9.2
     version: 0.9.2
@@ -2960,13 +2960,13 @@ packages:
       defu: 6.1.4
     dev: false
 
-  /@nuxtjs/fontaine@0.4.3:
-    resolution: {integrity: sha512-2bERBEzJgyKSjUGnQoj4kEFiAQErrG9rpBqzVLVMNTB59Fmep/j77CqT7j7yIKKfsr2W+n5nC7WPjp2bHi994Q==}
+  /@nuxtjs/fontaine@0.5.0:
+    resolution: {integrity: sha512-68po45LJW1bMrlxPiI96L4lH/8Hom8LDKsUSmIZtgPrtI1HvFvg9Kcj2329DkWIH379hyffT2Qt7/1RgRPVV+A==}
     dependencies:
       '@nuxt/kit': 3.15.4(magicast@0.3.5)
       fontaine: 0.5.0
       magic-string: 0.30.17
-      pathe: 1.1.2
+      pathe: 2.0.3
       ufo: 1.5.4
     transitivePeerDependencies:
       - encoding
