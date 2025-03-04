@@ -109,7 +109,6 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     },
   },
   image: {
-    format: ['webp', 'avif'],
     providers: {
       imageField: {
         provider: '~/providers/imageField.ts',
