@@ -1,6 +1,8 @@
 <template>
-  <GeneralHeadline>Контакты</GeneralHeadline>
-  <BlockContactsDescription />
+  <div>
+    <GeneralHeadline>Контакты</GeneralHeadline>
+    <BlockContactsDescription />
+  </div>
 </template>
 
 <script setup lang="ts">

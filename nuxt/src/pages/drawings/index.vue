@@ -1,6 +1,8 @@
 <template>
-  <GeneralHeadline>Рисунки</GeneralHeadline>
-  <BlockDrawingsGrid />
+  <div class="w-full">
+    <GeneralHeadline>Рисунки</GeneralHeadline>
+    <BlockDrawingsGrid />
+  </div>
 </template>
 
 <script setup lang="ts">

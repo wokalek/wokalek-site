@@ -1,6 +1,8 @@
 <template>
-  <GeneralHeadline>Блог</GeneralHeadline>
-  <BlockBlogList />
+  <div>
+    <GeneralHeadline>Блог</GeneralHeadline>
+    <BlockBlogList />
+  </div>
 </template>
 
 <script setup lang="ts">

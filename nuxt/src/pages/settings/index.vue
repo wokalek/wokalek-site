@@ -1,6 +1,8 @@
 <template>
-  <GeneralHeadline>Настройки</GeneralHeadline>
-  <BlockSettingsContent />
+  <div>
+    <GeneralHeadline>Настройки</GeneralHeadline>
+    <BlockSettingsContent />
+  </div>
 </template>
 
 <script setup lang="ts">

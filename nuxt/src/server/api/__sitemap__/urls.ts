@@ -1,5 +1,3 @@
-import { asSitemapUrl, defineSitemapEventHandler } from '#imports'
-
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client/core'
 
 import { gqlArticles } from '~/graphql/query/articles'

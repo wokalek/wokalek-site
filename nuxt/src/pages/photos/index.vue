@@ -1,6 +1,8 @@
 <template>
-  <GeneralHeadline>Фотографии</GeneralHeadline>
-  <BlockPhotosGrid />
+  <div class="w-full">
+    <GeneralHeadline>Фотографии</GeneralHeadline>
+    <BlockPhotosGrid />
+  </div>
 </template>
 
 <script setup lang="ts">

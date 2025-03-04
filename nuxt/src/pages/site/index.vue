@@ -1,6 +1,8 @@
 <template>
-  <GeneralHeadline>О сайте</GeneralHeadline>
-  <BlockSiteContent />
+  <div>
+    <GeneralHeadline>О сайте</GeneralHeadline>
+    <BlockSiteContent />
+  </div>
 </template>
 
 <script setup lang="ts">

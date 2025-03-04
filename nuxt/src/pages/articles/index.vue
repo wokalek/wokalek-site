@@ -1,6 +1,8 @@
 <template>
-  <GeneralHeadline>Статьи</GeneralHeadline>
-  <BlockArticlesList />
+  <div>
+    <GeneralHeadline>Статьи</GeneralHeadline>
+    <BlockArticlesList />
+  </div>
 </template>
 
 <script setup lang="ts">
