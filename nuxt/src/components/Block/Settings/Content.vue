@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center">
-    <h3 class="font-lora font-bold leading-1.3 text-28-18 mb-1em text-center">
+    <h3 class="font-bold leading-1.3 text-28-18 mb-1em text-center">
       Оформление
     </h3>
     <ControlRadioButtons
@@ -8,7 +8,7 @@
       :value="!colorMode.unknown ? colorMode.preference : undefined"
       @click="colorMode.preference = $event"
     />
-    <h3 class="font-lora font-bold leading-1.3 text-28-18 my-1em text-center">
+    <h3 class="font-bold leading-1.3 text-28-18 my-1em text-center">
       Масштаб сайта
     </h3>
     <BlockSettingsPropertyRangeCount property="site-scale" label="Масштаб сайта" />

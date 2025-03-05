@@ -1,6 +1,6 @@
 import manifest from './src/manifest'
 
-const config: ReturnType<typeof defineNuxtConfig> = {
+export default defineNuxtConfig({
   compatibilityDate: '2024-10-02',
   telemetry: false,
   devtools: { enabled: true },
@@ -145,6 +145,4 @@ const config: ReturnType<typeof defineNuxtConfig> = {
     url: `https://${process.env.DOMAIN}`,
     name: 'wokalek.ru',
   },
-}
-
-export default defineNuxtConfig(config)
+})
