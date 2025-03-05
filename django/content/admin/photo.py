@@ -29,19 +29,21 @@ class PhotoAdmin(admin.ModelAdmin):
         'alt',
         'image_name',
     )
-    readonly_fields = ('image_name', 'update_date')
+    readonly_fields = ('image_name', 'update_date', 'image_preview')
 
     list_display = (
         'id',
+        'image_preview',
         'image_name',
         'section',
         'is_active',
         'pub_date',
         'create_date'
     )
-    list_display_links = ('id', 'image_name')
+    list_display_links = ('id', 'image_preview', 'image_name')
     list_editable = ('is_active',)
     list_filter = ('section', 'pub_date', 'create_date')
+    list_per_page = 30
     ordering = ('-section', '-pub_date')
 
     def get_readonly_fields(self, request, obj=None):

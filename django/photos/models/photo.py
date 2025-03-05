@@ -2,6 +2,7 @@ import os
 
 from django.utils import timezone
 from django.db import models
+from django.utils.safestring import mark_safe
 
 from imagefield.fields import ImageField
 
@@ -34,6 +35,11 @@ class Photo(models.Model):
         null=True,
     )
     alt = models.CharField('Альтернативный текст', max_length=500)
+
+    def image_preview(self):
+        return mark_safe('<img src="%s" width="150" height="auto" loading="lazy" />' % (self.image.url))
+
+    image_preview.short_description = 'Изображение'
 
     class Meta:
         verbose_name = 'фото'
