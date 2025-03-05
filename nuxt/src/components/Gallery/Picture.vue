@@ -26,5 +26,5 @@ defineProps<{
 }>()
 
 const format = ['webp', 'avif', 'jpeg']
-const sizes = 'xs:144px sm:204px md:226px lg:274px xl:320px xxl:370px 2xl:450px'
+const sizes = 'xs:144px sm:204px md:226px lg:144px xl:160px xxl:184px 2xl:226px'
 </script>

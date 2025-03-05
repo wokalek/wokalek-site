@@ -26,7 +26,7 @@ class Drawing(models.Model):
         'Изображение',
         upload_to='drawings',
         auto_add_fields=True,
-        formats=prepare_image_formats([144, 204, 226, 274, 320, 370, 450]),
+        formats=prepare_image_formats([144, 204, 226, 160, 184]),
     )
     image_name = models.CharField(
         'Имя файла',
