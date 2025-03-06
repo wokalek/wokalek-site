@@ -41,7 +41,6 @@ services:
     env_file: env/nuxt/.env
     volumes:
       - ./django/media:/nuxt/.output/public/media
-      - ./nuxt/src/public/fonts:/nuxt/.output/public/fonts
 
   django:
     container_name: wokalek-django
