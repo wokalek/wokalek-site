@@ -3,7 +3,7 @@
 echo '// Starting fonts optimization'
 
 search_dir='/app'
-output_dir='/app/optimized'
+output_dir='/optimized'
 
 for entry in `find $search_dir -name "*.ttf"`; do
   file_name=`basename "$entry"`

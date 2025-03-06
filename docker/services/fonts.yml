@@ -6,3 +6,4 @@ services:
     volumes:
       - ./docker/fonts/entrypoint.sh:/entrypoint.sh
       - ./nuxt/src/assets/fonts:/app
+      - ./nuxt/src/public/fonts:/optimized

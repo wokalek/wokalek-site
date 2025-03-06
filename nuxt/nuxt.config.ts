@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxt/eslint',
+    '@nuxt/image',
     '@nuxtjs/fontaine',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/device',
@@ -18,7 +19,6 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
-    '@nuxt/image',
     '@pinia/nuxt',
     '@vueuse/nuxt',
     '@vite-pwa/nuxt',
