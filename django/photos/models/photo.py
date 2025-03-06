@@ -26,7 +26,8 @@ class Photo(models.Model):
         'Изображение',
         upload_to='photos',
         auto_add_fields=True,
-        formats=prepare_image_formats([144, 204, 226, 160, 184]),
+        formats=prepare_image_formats([144, 204, 226, 160, 184]) | {
+            'preview_list': ['default', ('cover', (100, 100))]},
     )
     image_name = models.CharField(
         'Имя файла',
@@ -37,7 +38,8 @@ class Photo(models.Model):
     alt = models.CharField('Альтернативный текст', max_length=500)
 
     def image_preview(self):
-        return mark_safe('<img src="%s" width="150" height="auto" loading="lazy" />' % (self.image.url))
+        return mark_safe(
+            '<img src="%s" width="100" height="auto" loading="lazy" />' % (self.image.preview_list))
 
     image_preview.short_description = 'Изображение'
 

@@ -16,8 +16,12 @@ class Image(models.Model):
         verbose_name='Раздел',
         on_delete=models.CASCADE,
     )
-    image = ImageField('Изображение', upload_to='medialibrary/image',
-                       auto_add_fields=True)
+    image = ImageField(
+        'Изображение',
+        upload_to='medialibrary/image',
+        auto_add_fields=True,
+        formats={'preview_list': ['default', ('cover', (100, 100))]},
+    )
     image_name = models.CharField('Имя файла', max_length=100, blank=True,
                                   null=True)
     image_markdown = models.CharField(
@@ -29,7 +33,8 @@ class Image(models.Model):
     alt = models.CharField('Альтернативный текст', max_length=500)
 
     def image_preview(self):
-        return mark_safe('<img src="%s" width="150" height="auto" loading="lazy" />' % (self.image.url))
+        return mark_safe(
+            '<img src="%s" width="100" height="auto" loading="lazy" />' % (self.image.preview_list))
 
     image_preview.short_description = 'Изображение'
 
