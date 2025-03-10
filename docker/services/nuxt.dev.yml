@@ -1,0 +1,19 @@
+services:
+  nuxt:
+    container_name: wokalek-nuxt
+    build:
+      dockerfile: docker/nuxt/dev.Dockerfile
+      args:
+        - NODE_VERSION=${NUXT_NODE_VERSION:?error}
+    depends_on:
+      fonts:
+        condition: service_completed_successfully
+    env_file: env/nuxt/.env
+    volumes:
+      - nuxt-node_modules:/nuxt/node_modules
+      - ./nuxt/src:/nuxt/src
+      - ./nuxt/nuxt.config.ts:/nuxt/nuxt.config.ts
+      - ./django/media:/nuxt/src/public/media
+
+volumes:
+  nuxt-node_modules:

@@ -1,0 +1,32 @@
+services:
+  django:
+    container_name: wokalek-django
+    build:
+      dockerfile: docker/django/prod.Dockerfile
+      args:
+        - PYTHON_VERSION=${DJANGO_PYTHON_VERSION:?error}
+    restart: always
+    depends_on:
+      database:
+        condition: service_healthy
+    env_file: env/django/.env
+    volumes:
+      - django-static:/static
+      - ./django:/django
+
+  database:
+    container_name: wokalek-database
+    image: postgres:${DATABASE_POSTGRES_VERSION:?error}
+    restart: always
+    shm_size: 256mb
+    env_file: env/database/.env
+    volumes:
+      - ./volumes/database/data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  django-static:

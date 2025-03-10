@@ -1,0 +1,22 @@
+services:
+  nginx:
+    container_name: wokalek-nginx
+    image: wokalek/nginx-brotli:${NGINX_VERSION:?error}
+    restart: always
+    depends_on:
+      - nuxt
+      - django
+      - umami
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./volumes/nginx/cache:/data/nginx/cache
+      - ./volumes/nginx/log:/var/log/nginx
+      - ./volumes/certbot/www:/certbot/www
+      - ./volumes/certbot/conf/live/wokalek.ru/fullchain.pem:/certbot/certs/fullchain.pem
+      - ./volumes/certbot/conf/live/wokalek.ru/privkey.pem:/certbot/certs/privkey.pem
+      - ./nginx/conf/prod.conf:/etc/nginx/nginx.conf
+      - ./nginx/snippets:/etc/nginx/snippets
+      - django-static:/django/static
+      - ./django/media:/django/media

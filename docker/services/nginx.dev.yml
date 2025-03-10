@@ -1,0 +1,15 @@
+services:
+  nginx:
+    container_name: wokalek-nginx
+    image: wokalek/nginx-brotli:${NGINX_VERSION:?error}
+    depends_on:
+      - nuxt
+      - django
+    ports:
+      - 80:80
+      - 8000:8000
+    volumes:
+      - ./nginx/conf/dev.conf:/etc/nginx/nginx.conf
+      - ./nginx/snippets:/etc/nginx/snippets
+      - django-static:/django/static
+      - ./django/media:/django/media
