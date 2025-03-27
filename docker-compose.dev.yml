@@ -3,5 +3,4 @@ include:
     - docker/services/nginx.dev.yml
     - docker/services/nuxt.dev.yml
     - docker/services/django.dev.yml
-    - docker/services/fonts.yml
     project_directory: .

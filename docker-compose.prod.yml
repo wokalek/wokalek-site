@@ -3,7 +3,7 @@ include:
     - docker/services/nginx.prod.yml
     - docker/services/nuxt.prod.yml
     - docker/services/django.prod.yml
-    - docker/services/fonts.yml
     - docker/services/umami.yml
     - docker/services/certbot.yml
+    - docker/services/backrest.yml
     project_directory: .

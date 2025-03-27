@@ -1,9 +1,0 @@
-services:
-  fonts:
-    container_name: wokalek-fonts
-    image: wokalek/glyphhanger:${FONTS_VERSION:?error}
-    entrypoint: ['ash', '/entrypoint.sh']
-    volumes:
-      - ./docker/fonts/entrypoint.sh:/entrypoint.sh
-      - ./nuxt/src/assets/fonts:/app
-      - ./nuxt/src/public/fonts:/optimized

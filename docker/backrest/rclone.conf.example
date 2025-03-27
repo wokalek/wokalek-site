@@ -1,0 +1,5 @@
+[ftp]
+type = ftp
+host = ___
+user = ___
+pass = ___

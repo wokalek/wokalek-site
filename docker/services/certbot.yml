@@ -8,12 +8,14 @@ services:
       certonly
         --non-interactive
         --agree-tos
+        --no-eff-email
         --expand
+        --cert-name wokalek.ru
         --webroot
         --webroot-path /var/www/certbot
         --email wokalek@wokalek.ru
-        -d wokalek.ru -d statistic.wokalek.ru -d admin.wokalek.ru
-        -d wokalek.com -d statistic.wokalek.com -d admin.wokalek.com
+        -d wokalek.ru -d statistic.wokalek.ru -d admin.wokalek.ru -d backrest.wokalek.ru
+        -d wokalek.com -d statistic.wokalek.com -d admin.wokalek.com -d backrest.wokalek.com
     volumes:
       - ./volumes/certbot/www:/var/www/certbot
       - ./volumes/certbot/conf:/etc/letsencrypt

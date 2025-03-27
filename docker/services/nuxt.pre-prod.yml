@@ -5,9 +5,6 @@ services:
       dockerfile: docker/nuxt/prod.Dockerfile
       args:
         - NODE_VERSION=${NUXT_NODE_VERSION:?error}
-    depends_on:
-      fonts:
-        condition: service_completed_successfully
     env_file: env/nuxt/.env
     volumes:
       - ./django/media:/nuxt/.output/public/media

@@ -1,0 +1,19 @@
+services:
+  backrest:
+    container_name: wokalek-backrest
+    image: garethgeorge/backrest:${BACKREST_VERSION:?error}
+    hostname: backrest
+    volumes:
+      - ./docker/backrest/rclone.conf:/root/.config/rclone/rclone.conf
+      - ./volumes/backrest/data:/data
+      - ./volumes/backrest/config:/config
+      - ./volumes/backrest/cache:/cache
+      - ./volumes/database:/backup/volumes/database:ro
+      - ./volumes/umami-db:/backup/volumes/umami-db:ro
+      - ./volumes/certbot:/backup/volumes/certbot:ro
+      - ./django/media:/backup/django/media:ro
+      - ./env:/backup/env:ro
+    env_file: env/backrest/.env
+    restart: unless-stopped
+    ports:
+      - 9898:9898

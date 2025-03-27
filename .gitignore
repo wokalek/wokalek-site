@@ -1,12 +1,7 @@
-# .env
-/env/**/*.env
-/!env/**/example*
+/env/**/.env
 
-# Статические файлы
-/static
+/docker/backrest/rclone.conf
 
-# Docker
 /volumes
 
-# Сохраняем .gitkeep
 !.gitkeep
