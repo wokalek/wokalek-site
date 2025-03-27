@@ -11,6 +11,7 @@ services:
       - ./volumes/database:/backup/volumes/database:ro
       - ./volumes/umami-db:/backup/volumes/umami-db:ro
       - ./volumes/certbot:/backup/volumes/certbot:ro
+      - ./volumes/backrest:/backup/volumes/backrest:ro
       - ./django/media:/backup/django/media:ro
       - ./env:/backup/env:ro
     env_file: env/backrest/.env
