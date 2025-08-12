@@ -39,8 +39,8 @@ dependencies:
     specifier: 0.5.5
     version: 0.5.5(typescript@5.8.2)(vue@3.5.12)
   '@vite-pwa/nuxt':
-    specifier: 0.10.5
-    version: 0.10.5(vite@5.4.14)(workbox-build@7.3.0)(workbox-window@7.3.0)
+    specifier: 0.10.8
+    version: 0.10.8(vite@5.4.14)(workbox-build@7.3.0)(workbox-window@7.3.0)
   '@vueuse/core':
     specifier: 11.1.0
     version: 11.1.0(vue@3.5.12)
@@ -4057,8 +4057,8 @@ packages:
       - supports-color
     dev: false
 
-  /@vite-pwa/nuxt@0.10.5(vite@5.4.14)(workbox-build@7.3.0)(workbox-window@7.3.0):
-    resolution: {integrity: sha512-I+qTkgQB2lvpoKQGgARgszsV/rBDys2xstczmTIgYoaNPALz2+zkhN/O8Fl8QI2ZHBL+ZnfpSOCOm/77ugrFHg==}
+  /@vite-pwa/nuxt@0.10.8(vite@5.4.14)(workbox-build@7.3.0)(workbox-window@7.3.0):
+    resolution: {integrity: sha512-nC7Zv13AbUHXg7JgPZEILi4sQ9I7KwFsUm3M82PKApW5q3nIRI8q6djQ2+3ep3HIk+RtbL6hhmGcnqmtSmPMBA==}
     peerDependencies:
       '@vite-pwa/assets-generator': ^0.2.6
     peerDependenciesMeta:
@@ -4068,7 +4068,7 @@ packages:
       '@nuxt/kit': 3.15.4(magicast@0.3.5)
       pathe: 1.1.2
       ufo: 1.5.4
-      vite-plugin-pwa: 0.21.1(vite@5.4.14)(workbox-build@7.3.0)(workbox-window@7.3.0)
+      vite-plugin-pwa: 0.21.2(vite@5.4.14)(workbox-build@7.3.0)(workbox-window@7.3.0)
     transitivePeerDependencies:
       - magicast
       - supports-color
@@ -11052,6 +11052,7 @@ packages:
   /source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
     dependencies:
       whatwg-url: 7.1.0
     dev: false
@@ -12330,8 +12331,8 @@ packages:
       - rollup
       - supports-color
 
-  /vite-plugin-pwa@0.21.1(vite@5.4.14)(workbox-build@7.3.0)(workbox-window@7.3.0):
-    resolution: {integrity: sha512-rkTbKFbd232WdiRJ9R3u+hZmf5SfQljX1b45NF6oLA6DSktEKpYllgTo1l2lkiZWMWV78pABJtFjNXfBef3/3Q==}
+  /vite-plugin-pwa@0.21.2(vite@5.4.14)(workbox-build@7.3.0)(workbox-window@7.3.0):
+    resolution: {integrity: sha512-vFhH6Waw8itNu37hWUJxL50q+CBbNcMVzsKaYHQVrfxTt3ihk3PeLO22SbiP1UNWzcEPaTQv+YVxe4G0KOjAkg==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       '@vite-pwa/assets-generator': ^0.2.6
