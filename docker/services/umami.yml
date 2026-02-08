@@ -1,7 +1,7 @@
 services:
   umami:
     container_name: wokalek-umami
-    image: ghcr.io/umami-software/umami:postgresql-v${UMAMI_VERSION:?error}
+    image: ghcr.io/umami-software/umami:postgresql-v${UMAMI:?error}
     restart: always
     env_file: env/umami/.env
     depends_on:
@@ -15,11 +15,11 @@ services:
 
   umami-db:
     container_name: wokalek-umami-db
-    image: postgres:${UMAMI_POSTGRES_VERSION}-alpine
+    image: postgres:${UMAMI_POSTGRES:?error}-alpine
     restart: always
     env_file: env/umami-db/.env
-    ports:
-      - 5432:5432
+    # ports:
+    #   - 5432:5432
     volumes:
       - ./volumes/umami-db/data:/var/lib/postgresql/data
     healthcheck:

@@ -1,6 +1,0 @@
-include:
-  - path:
-    - docker/services/nginx.dev.yml
-    - docker/services/nuxt.pre-prod.yml
-    - docker/services/django.pre-prod.yml
-    project_directory: .

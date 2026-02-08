@@ -1,0 +1,23 @@
+services:
+  django:
+    build:
+      dockerfile: docker/django/Dockerfile
+      args:
+        - PYTHON_IMAGE=${DJANGO_PYTHON:?error}-alpine
+        - UV_IMAGE=${DJANGO_UV:?error}-alpine
+    depends_on:
+      django-db:
+        condition: service_healthy
+    env_file: ../../env/django/.env
+
+  django-db:
+    image: postgres:${DJANGO_POSTGRES:?error}-alpine
+    shm_size: 256mb
+    env_file: ../../env/django-db/.env
+    volumes:
+      - ../../volumes/django-db/data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready']
+      interval: 5s
+      timeout: 5s
+      retries: 5

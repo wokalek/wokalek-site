@@ -1,7 +1,4 @@
 /env/**/.env
-
-/docker/backrest/rclone.conf
-
 /volumes
-
-!.gitkeep
+/*.log
+/docker/backrest/rclone.conf

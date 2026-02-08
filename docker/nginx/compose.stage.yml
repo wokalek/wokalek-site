@@ -1,0 +1,14 @@
+services:
+  nginx:
+    extends:
+      file: docker/nginx/compose.common.yml
+      service: nginx
+    depends_on:
+      - nuxt
+      - django
+    ports:
+      - 80:80
+      - 8000:8000
+    volumes:
+      - django_static:/django/static:ro
+      - ./nginx/conf/stage.conf:/etc/nginx/nginx.conf:ro

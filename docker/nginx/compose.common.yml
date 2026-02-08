@@ -1,0 +1,6 @@
+services:
+  nginx:
+    image: wokalek/nginx-brotli:${NGINX:?error}
+    volumes:
+      - ../../django/media:/django/media:ro
+      - ../../nginx/snippets:/etc/nginx/snippets:ro

@@ -1,0 +1,9 @@
+services:
+  nuxt:
+    build:
+      dockerfile: docker/nuxt/Dockerfile
+      target: develop
+      args:
+        - NODE_IMAGE=${NUXT_NODE:?error}-alpine
+        - PNPM_VERSION=${NUXT_PNPM:?error}
+    env_file: ../../env/nuxt/.env

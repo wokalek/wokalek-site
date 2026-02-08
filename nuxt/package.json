@@ -1,8 +1,9 @@
 {
-  "name": "wokalek",
-  "private": true,
   "type": "module",
-  "packageManager": "pnpm@8.15.5+sha256.4b4efa12490e5055d59b9b9fc9438b7d581a6b7af3b5675eb5c5f447cee1a589",
+  "packageManager": "pnpm@10.28.2",
+  "engines": {
+    "node": "22.11.0"
+  },
   "scripts": {
     "postinstall": "nuxt prepare",
     "dev": "nuxt dev",

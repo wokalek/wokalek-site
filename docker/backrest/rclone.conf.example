@@ -1,5 +1,5 @@
-[ftp]
+[servicename-ftp]
 type = ftp
-host = ___
-user = ___
-pass = ___
+host = hostname.com
+user = username
+pass = password

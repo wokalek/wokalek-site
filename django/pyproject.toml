@@ -1,48 +1,38 @@
-[tool.poetry]
-package-mode = false
+[project]
+name = "wokalek-site-django"
+version = "1.0.0"
+requires-python = "==3.12.5"
+dependencies = [
+    "django==6.0.2",
+    "django-cleanup==8.1.0",
+    "django-cors-headers==4.4.0",
+    "django-environ==0.11.2",
+    "django-imagefield==0.19.1",
+    "django-mdeditor==0.1.20",
+    "pillow==10.4.0",
+    "pillow-avif-plugin==1.4.6",
+    "psycopg[binary,pool]==3.2.1",
+    "strawberry-graphql==0.237.3",
+    "strawberry-graphql-django==0.47.1",
+]
 
-[tool.poetry.dependencies]
-python = "3.12.5"
-django = "^5.1"
-django-mdeditor = "^0.1.20"
-pillow = "^10.4.0"
-django-imagefield = "^0.19.1"
-django-cleanup = "^8.1.0"
-strawberry-graphql = "^0.237.3"
-strawberry-graphql-django = "^0.47.1"
-django-environ = "^0.11.2"
-django-cors-headers = "^4.4.0"
-pillow-avif-plugin = "^1.4.6"
-psycopg = {extras = ["binary"], version = "^3.2.1"}
-
-[tool.poetry.group.dev]
-optional = true
-[tool.poetry.group.dev.dependencies]
-autopep8 = "^2.3.1"
-debugpy = "^1.8.5"
-
-[tool.poetry.group.prod]
-optional = true
-[tool.poetry.group.prod.dependencies]
-hypercorn = "^0.17.3"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = [
+    "autopep8==2.3.1",
+    "debugpy==1.8.5",
+]
+prod = [
+    "hypercorn==0.17.3",
+]
 
 [tool.poe.tasks]
-install = "poetry install --with dev"
-lock = "poetry lock"
-outdated = "poetry show -o"
-export.shell = "poetry export -o dev.requirements.txt --with dev && poetry export -o prod.requirements.txt --with prod"
-
 format.shell = "find -type f -name '*.py' ! -path '*/migrations/*' -exec autopep8 -i -a '{}' \\;"
-
-check = "python manage.py check"
-check-deploy = "python manage.py check --deploy"
-collectstatic = "python manage.py collectstatic"
-makemigrations = "python manage.py makemigrations"
-migrate = "python manage.py migrate"
-runserver = "python manage.py runserver"
+outdated = "uv pip list --outdated"
+check = "./manage.py check"
+check-deploy = "./manage.py check --deploy"
+collectstatic = "./manage.py collectstatic"
+makemigrations = "./manage.py makemigrations"
+migrate = "./manage.py migrate"
+runserver = "./manage.py runserver"
 dev.sequence = ["makemigrations", "migrate", "runserver"]
-process_imagefields = "python manage.py process_imagefields --all"
+process_imagefields = "./manage.py process_imagefields --all"

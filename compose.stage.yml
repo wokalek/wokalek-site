@@ -1,0 +1,6 @@
+include:
+  - path:
+    - docker/nginx/compose.stage.yml
+    - docker/nuxt/compose.prod.yml
+    - docker/django/compose.prod.yml
+    project_directory: .

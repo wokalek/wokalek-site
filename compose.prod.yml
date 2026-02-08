@@ -1,8 +1,8 @@
 include:
   - path:
-    - docker/services/nginx.prod.yml
-    - docker/services/nuxt.prod.yml
-    - docker/services/django.prod.yml
+    - docker/nginx/compose.prod.yml
+    - docker/nuxt/compose.prod.yml
+    - docker/django/compose.prod.yml
     - docker/services/umami.yml
     - docker/services/certbot.yml
     - docker/services/backrest.yml

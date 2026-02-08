@@ -1,18 +1,17 @@
-import environ
 from pathlib import Path
 from collections import OrderedDict
+import environ
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 env = environ.Env()
+env.read_env(BASE_DIR / '.env')
 
-environ.Env.read_env(BASE_DIR / '.env')
+# Application definition
 
 SECRET_KEY = env.str('SECRET_KEY')
 DEBUG = env.bool('DEBUG', False)
 ALLOWED_HOSTS = [x.strip() for x in env.list('ALLOWED_HOSTS', None, '')]
-
-# Application definition
 
 ROOT_URLCONF = 'app.urls'
 
@@ -37,6 +36,12 @@ INSTALLED_APPS = [
     'imagefield',
     'mdeditor',
 ]
+
+APP_ORDER = OrderedDict([
+    ('content', ['Post', 'Article', 'Drawing', 'Photo']),
+    ('drawings', []),
+    ('photos', []),
+])
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -67,6 +72,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
+if DEBUG:
+    CORS_ALLOW_ALL_ORIGINS = True
+
 # Database
 
 DATABASES = {
@@ -96,17 +104,6 @@ STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [BASE_DIR / 'staticfiles']
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-
-# Default primary key field type
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-X_FRAME_OPTIONS = 'SAMEORIGIN'  # Для работы django-mdeditor
-
-APP_ORDER = OrderedDict([
-    ('content', ['Post', 'Article', 'Drawing', 'Photo']),
-    ('drawings', []),
-    ('photos', []),
-])
 
 # Production settings
 

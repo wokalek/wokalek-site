@@ -1,0 +1,12 @@
+services:
+  nuxt:
+    extends:
+      file: docker/nuxt/compose.common.yml
+      service: nuxt
+    build:
+      target: production
+      args:
+        - BUILD_TARGET=production
+    volumes:
+      - ./django/media:/app/.output/public/media:ro
+    restart: always

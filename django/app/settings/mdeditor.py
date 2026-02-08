@@ -5,3 +5,5 @@ MDEDITOR_CONFIGS = {
         'lineWrapping': True,
     },
 }
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'

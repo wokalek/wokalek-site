@@ -1,0 +1,21 @@
+services:
+  django:
+    extends:
+      file: docker/django/compose.common.yml
+      service: django
+    build:
+      target: production
+      args:
+        - BUILD_TARGET=production
+    restart: always
+    volumes:
+      - django_static:/app/static:ro
+
+  django-db:
+    extends:
+      file: docker/django/compose.common.yml
+      service: django-db
+    restart: always
+
+volumes:
+  django_static:

@@ -1,0 +1,13 @@
+/django/.venv
+/django/media
+/django/static
+/django/.env
+/django/.gitignore
+/django/*.md
+
+/nuxt/node_modules
+/nuxt/src/public/media
+/nuxt/dist
+/nuxt/.nuxt
+/nuxt/.gitignore
+/nuxt/*.md

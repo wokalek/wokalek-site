@@ -1,10 +1,11 @@
-# Собственные исключения
 /media
 /static
 
+# https://github.com/github/gitignore/blob/main/Python.gitignore
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
+*.py[codz]
 *$py.class
 
 # C extensions
@@ -31,8 +32,8 @@ share/python-wheels/
 MANIFEST
 
 # PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+#   Usually these files are written by a python script from a template
+#   before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
 
@@ -50,7 +51,7 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *.cover
-*.py,cover
+*.py.cover
 .hypothesis/
 .pytest_cache/
 cover/
@@ -70,6 +71,7 @@ __pypackages__/
 
 # Environments
 .env
+.envrc
 .venv
 env/
 venv/

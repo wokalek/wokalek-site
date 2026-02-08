@@ -1,0 +1,28 @@
+services:
+  django:
+    extends:
+      file: docker/django/compose.common.yml
+      service: django
+    build:
+      target: develop
+    ports:
+      - 5678:5678
+    volumes:
+      - ./django/api:/app/api:ro
+      - ./django/app:/app/app:ro
+      - ./django/articles:/app/articles:ro
+      - ./django/blog:/app/blog:ro
+      - ./django/content:/app/content:ro
+      - ./django/drawings:/app/drawings:ro
+      - ./django/main:/app/main:ro
+      - ./django/media:/app/media:ro
+      - ./django/medialibrary:/app/medialibrary:ro
+      - ./django/photos:/app/photos:ro
+      - ./django/staticfiles:/app/staticfiles:ro
+
+  django-db:
+    extends:
+      file: docker/django/compose.common.yml
+      service: django-db
+    ports:
+      - 5432:5432
