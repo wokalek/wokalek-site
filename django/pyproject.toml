@@ -1,28 +1,29 @@
 [project]
 name = "wokalek-site-django"
 version = "1.0.0"
-requires-python = "==3.12.5"
+requires-python = "==3.14.3"
 dependencies = [
     "django==6.0.2",
-    "django-cleanup==8.1.0",
-    "django-cors-headers==4.4.0",
-    "django-environ==0.11.2",
-    "django-imagefield==0.19.1",
+    "django-cleanup==9.0.0",
+    "django-cors-headers==4.9.0",
+    "django-environ==0.12.0",
+    "django-imagefield==0.22.0",
     "django-mdeditor==0.1.20",
-    "pillow==10.4.0",
-    "pillow-avif-plugin==1.4.6",
-    "psycopg[binary,pool]==3.2.1",
-    "strawberry-graphql==0.237.3",
-    "strawberry-graphql-django==0.47.1",
+    "pillow==12.1.0",
+    "pillow-avif-plugin==1.5.5",
+    "psycopg-binary==3.3.2",
+    "psycopg[binary,pool]==3.3.2",
+    "strawberry-graphql[cli]==0.291.3",
+    "strawberry-graphql-django==0.75.0",
 ]
 
 [dependency-groups]
 dev = [
-    "autopep8==2.3.1",
-    "debugpy==1.8.5",
+    "autopep8==2.3.2",
+    "debugpy==1.8.20",
 ]
 prod = [
-    "hypercorn==0.17.3",
+    "hypercorn==0.18.0",
 ]
 
 [tool.poe.tasks]
