@@ -13,7 +13,7 @@ class DrawingSectionType:
     name: str
 
 
-@strawberry_django.order(Drawing)
+@strawberry_django.order_type(Drawing)
 class DrawingOrder:
     pub_date: strawberry.auto
 

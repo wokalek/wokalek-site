@@ -19,21 +19,27 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "autopep8==2.3.2",
     "debugpy==1.8.20",
+    "ruff==0.15.0",
 ]
 prod = [
     "hypercorn==0.18.0",
 ]
 
 [tool.poe.tasks]
-format.shell = "find -type f -name '*.py' ! -path '*/migrations/*' -exec autopep8 -i -a '{}' \\;"
+lint = "ruff check"
+format = "ruff format"
 outdated = "uv pip list --outdated"
 check = "./manage.py check"
 check-deploy = "./manage.py check --deploy"
-collectstatic = "./manage.py collectstatic"
-makemigrations = "./manage.py makemigrations"
-migrate = "./manage.py migrate"
-runserver = "./manage.py runserver"
-dev.sequence = ["makemigrations", "migrate", "runserver"]
+export-schema = "./manage.py export_schema api.schema --path schema.graphql"
 process_imagefields = "./manage.py process_imagefields --all"
+
+[tool.ruff]
+extend-exclude = ["migrations"]
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.ruff.lint.per-file-ignores]
+"app/settings/__init__.py" = ["F403"]

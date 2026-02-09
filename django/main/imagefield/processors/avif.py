@@ -1,5 +1,4 @@
 from imagefield.processing import register
-import pillow_avif
 
 
 @register

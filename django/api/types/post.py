@@ -6,7 +6,7 @@ import strawberry_django
 from blog.models import Post
 
 
-@strawberry_django.order(Post)
+@strawberry_django.order_type(Post)
 class PostOrder:
     pub_date: strawberry.auto
 

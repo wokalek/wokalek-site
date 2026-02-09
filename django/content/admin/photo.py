@@ -38,7 +38,7 @@ class PhotoAdmin(admin.ModelAdmin):
         'section',
         'is_active',
         'pub_date',
-        'create_date'
+        'create_date',
     )
     list_display_links = ('id', 'image_preview', 'image_name')
     list_editable = ('is_active',)

@@ -6,7 +6,7 @@ import strawberry_django
 from articles.models import Article
 
 
-@strawberry_django.order(Article)
+@strawberry_django.order_type(Article)
 class ArticleOrder:
     pub_date: strawberry.auto
 

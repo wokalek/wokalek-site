@@ -4,6 +4,7 @@
 /django/.env
 /django/.gitignore
 /django/*.md
+/django/schema.graphql
 
 /nuxt/node_modules
 /nuxt/src/public/media

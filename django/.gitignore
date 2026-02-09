@@ -1,5 +1,6 @@
 /media
 /static
+/schema.graphql
 
 # https://github.com/github/gitignore/blob/main/Python.gitignore
 

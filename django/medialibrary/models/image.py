@@ -22,19 +22,17 @@ class Image(models.Model):
         auto_add_fields=True,
         formats={'preview_list': ['default', ('cover', (100, 100))]},
     )
-    image_name = models.CharField('Имя файла', max_length=100, blank=True,
-                                  null=True)
+    image_name = models.CharField('Имя файла', max_length=100, blank=True, null=True)
     image_markdown = models.CharField(
-        'Код markdown',
-        max_length=750,
-        blank=True,
-        null=True
+        'Код markdown', max_length=750, blank=True, null=True
     )
     alt = models.CharField('Альтернативный текст', max_length=500)
 
     def image_preview(self):
         return mark_safe(
-            '<img src="%s" width="100" height="auto" loading="lazy" />' % (self.image.preview_list))
+            '<img src="%s" width="100" height="auto" loading="lazy" />'
+            % (self.image.preview_list)
+        )
 
     image_preview.short_description = 'Изображение'
 

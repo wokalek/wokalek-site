@@ -13,7 +13,7 @@ class PhotoSectionType:
     name: str
 
 
-@strawberry_django.order(Photo)
+@strawberry_django.order_type(Photo)
 class PhotoOrder:
     pub_date: strawberry.auto
 

@@ -37,11 +37,13 @@ INSTALLED_APPS = [
     'mdeditor',
 ]
 
-APP_ORDER = OrderedDict([
-    ('content', ['Post', 'Article', 'Drawing', 'Photo']),
-    ('drawings', []),
-    ('photos', []),
-])
+APP_ORDER = OrderedDict(
+    [
+        ('content', ['Post', 'Article', 'Drawing', 'Photo']),
+        ('drawings', []),
+        ('photos', []),
+    ]
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -77,14 +79,14 @@ if DEBUG:
 
 # Database
 
-DATABASES = {
-    'default': env.db_url('DATABASE_URL')
-}
+DATABASES = {'default': env.db_url('DATABASE_URL')}
 
 # Password validation
 
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'
+    },
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
@@ -108,20 +110,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Production settings
 
 SECURE_HSTS_SECONDS = env.int('SECURE_HSTS_SECONDS', 0)
-SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
-    'SECURE_HSTS_INCLUDE_SUBDOMAINS',
-    False
-)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool('SECURE_HSTS_INCLUDE_SUBDOMAINS', False)
 SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', False)
 SECURE_HSTS_PRELOAD = env.bool('SECURE_HSTS_PRELOAD', False)
 SECURE_PROXY_SSL_HEADER = tuple(
-    x.strip()
-    for x in env.list('SECURE_PROXY_SSL_HEADER', None, '')
+    x.strip() for x in env.list('SECURE_PROXY_SSL_HEADER', None, '')
 )
 CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', False)
 CSRF_USE_SESSIONS = env.bool('SECURE_HSTS_PRELOAD', False)
-CSRF_TRUSTED_ORIGINS = [
-    x.strip()
-    for x in env.list('CSRF_TRUSTED_ORIGINS', None, '')
-]
+CSRF_TRUSTED_ORIGINS = [x.strip() for x in env.list('CSRF_TRUSTED_ORIGINS', None, '')]
 SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', False)
