@@ -5,20 +5,28 @@ from articles.models import Article
 
 
 @strawberry_django.order_type(Article)
-class ArticleOrder:
+class ArticleListOrder:
     pub_date: auto
 
 
-@strawberry_django.type(Article, order=ArticleOrder)
-class ArticleType:
+@strawberry_django.type(Article, order=ArticleListOrder)
+class ArticleListType:
     id: auto
     update_date: auto
     pub_date: auto
     slug: auto
     title: auto
     content: auto
-    meta_keywords: auto
 
     @classmethod
     def get_queryset(cls, queryset, info, **kwargs):
         return queryset.filter(is_active=True).order_by('-pub_date')
+
+
+@strawberry_django.type(Article)
+class ArticleDetailType:
+    update_date: auto
+    pub_date: auto
+    title: auto
+    content: auto
+    meta_keywords: auto

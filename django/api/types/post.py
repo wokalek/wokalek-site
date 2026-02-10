@@ -5,12 +5,12 @@ from blog.models import Post
 
 
 @strawberry_django.order_type(Post)
-class PostOrder:
+class PostListOrder:
     pub_date: auto
 
 
-@strawberry_django.type(Post, order=PostOrder)
-class PostType:
+@strawberry_django.type(Post, order=PostListOrder)
+class PostListType:
     id: auto
     update_date: auto
     pub_date: auto

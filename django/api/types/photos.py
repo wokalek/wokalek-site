@@ -1,7 +1,8 @@
 from strawberry import auto
 import strawberry_django
 
-from photos.models import Section, Photo
+from photos.models import Photo
+from photos.models import Section
 
 
 @strawberry_django.type(Section, fields=['id', 'name'])
@@ -10,12 +11,12 @@ class PhotoSectionType:
 
 
 @strawberry_django.order_type(Photo)
-class PhotoOrder:
+class PhotoListOrder:
     pub_date: auto
 
 
-@strawberry_django.type(Photo, order=PhotoOrder)
-class PhotoType:
+@strawberry_django.type(Photo, order=PhotoListOrder)
+class PhotoListType:
     id: auto
     update_date: auto
     pub_date: auto

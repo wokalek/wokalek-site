@@ -10,12 +10,12 @@ class DrawingSectionType:
 
 
 @strawberry_django.order_type(Drawing)
-class DrawingOrder:
+class DrawingListOrder:
     pub_date: auto
 
 
-@strawberry_django.type(Drawing, order=DrawingOrder)
-class DrawingType:
+@strawberry_django.type(Drawing, order=DrawingListOrder)
+class DrawingListType:
     id: auto
     update_date: auto
     pub_date: auto

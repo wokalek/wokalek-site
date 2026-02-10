@@ -20,6 +20,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "debugpy==1.8.20",
+    "django-debug-toolbar==6.2.0",
     "ruff==0.15.0",
 ]
 prod = [
@@ -27,13 +28,14 @@ prod = [
 ]
 
 [tool.poe.tasks]
-lint = "ruff check"
-format = "ruff format"
-outdated = "uv pip list --outdated"
-check = "./manage.py check"
-check-deploy = "./manage.py check --deploy"
-export-schema = "./manage.py export_schema api.schema --path schema.graphql"
-process_imagefields = "./manage.py process_imagefields --all"
+"check" = "ruff check"
+"format" = "ruff format"
+"uv:out" = "uv pip list --outdated"
+"uv:add" = "uv add --bounds exact"
+"m:check" = "./manage.py check"
+"m:check:deploy" = "./manage.py check --deploy"
+"m:schema" = "./manage.py export_schema api.schema --path schema.graphql"
+"m:process_imagefields" = "./manage.py process_imagefields --all"
 
 [tool.ruff]
 extend-exclude = ["migrations"]

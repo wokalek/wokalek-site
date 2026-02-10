@@ -7,75 +7,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 env = environ.Env()
 env.read_env(BASE_DIR / '.env')
 
-# Application definition
-
-SECRET_KEY = env.str('SECRET_KEY')
 DEBUG = env.bool('DEBUG', False)
+SECRET_KEY = env.str('SECRET_KEY')
 ALLOWED_HOSTS = [x.strip() for x in env.list('ALLOWED_HOSTS', None, '')]
-
 ROOT_URLCONF = 'app.urls'
-
-INSTALLED_APPS = [
-    'main.apps.MainConfig',
-    'api.apps.ApiConfig',
-    'blog.apps.BlogConfig',
-    'articles.apps.ArticlesConfig',
-    'drawings.apps.DrawingsConfig',
-    'photos.apps.PhotosConfig',
-    'medialibrary.apps.MedialibraryConfig',
-    'content.apps.ContentConfig',
-    'app.apps.AppConfig',  # Заместо django.contrib.admin должно стоять на этом месте
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django_cleanup.apps.CleanupConfig',
-    'corsheaders',
-    'strawberry_django',
-    'imagefield',
-    'mdeditor',
-]
-
-APP_ORDER = OrderedDict(
-    [
-        ('content', ['Post', 'Article', 'Drawing', 'Photo']),
-        ('drawings', []),
-        ('photos', []),
-    ]
-)
-
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
 WSGI_APPLICATION = 'app.wsgi.application'
-
-if DEBUG:
-    CORS_ALLOW_ALL_ORIGINS = True
 
 # Database
 
@@ -120,3 +56,67 @@ CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', False)
 CSRF_USE_SESSIONS = env.bool('SECURE_HSTS_PRELOAD', False)
 CSRF_TRUSTED_ORIGINS = [x.strip() for x in env.list('CSRF_TRUSTED_ORIGINS', None, '')]
 SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', False)
+
+# Application definition
+
+INSTALLED_APPS = [
+    # Django
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    # Third-party
+    'django_cleanup.apps.CleanupConfig',
+    'corsheaders',
+    'strawberry_django',
+    'imagefield',
+    'mdeditor',
+
+    # Apps
+    'main.apps.MainConfig',
+    'api.apps.ApiConfig',
+    'blog.apps.BlogConfig',
+    'articles.apps.ArticlesConfig',
+    'drawings.apps.DrawingsConfig',
+    'photos.apps.PhotosConfig',
+    'medialibrary.apps.MedialibraryConfig',
+    'content.apps.ContentConfig',
+    'app.apps.AppConfig',
+]
+
+APP_ORDER = OrderedDict(
+    [
+        ('content', ['Post', 'Article', 'Drawing', 'Photo']),
+        ('drawings', []),
+        ('photos', []),
+    ]
+)
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
