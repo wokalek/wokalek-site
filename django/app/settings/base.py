@@ -66,14 +66,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     # Third-party
     'django_cleanup.apps.CleanupConfig',
     'corsheaders',
     'strawberry_django',
     'imagefield',
     'mdeditor',
-
     # Apps
     'main.apps.MainConfig',
     'api.apps.ApiConfig',

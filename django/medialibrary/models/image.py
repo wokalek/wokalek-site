@@ -12,9 +12,7 @@ class Image(models.Model):
     create_date = models.DateTimeField('Дата создания', default=timezone.now)
     update_date = models.DateTimeField('Дата обновления', default=timezone.now)
     section = models.ForeignKey(
-        'medialibrary.Section',
-        verbose_name='Раздел',
-        on_delete=models.CASCADE,
+        'medialibrary.Section', verbose_name='Раздел', on_delete=models.CASCADE
     )
     image = ImageField(
         'Изображение',

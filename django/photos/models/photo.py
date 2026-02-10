@@ -14,13 +14,10 @@ class Photo(models.Model):
     create_date = models.DateTimeField('Дата создания', default=timezone.now)
     update_date = models.DateTimeField('Дата обновления', default=timezone.now)
     pub_date = models.DateTimeField(
-        verbose_name='Дата публикации',
-        default=timezone.now,
+        verbose_name='Дата публикации', default=timezone.now
     )
     section = models.ForeignKey(
-        'photos.Section',
-        verbose_name='Раздел',
-        on_delete=models.CASCADE,
+        'photos.Section', verbose_name='Раздел', on_delete=models.CASCADE
     )
     image = ImageField(
         'Изображение',
@@ -53,7 +50,6 @@ class Photo(models.Model):
         self.update_date = self.create_date if self._state.adding else timezone.now()
 
         super().save(*args, **kwargs)
-
         self.image_name = os.path.basename(self.image.name)
         super().save(update_fields=['image_name'])
 
