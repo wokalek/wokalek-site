@@ -32,6 +32,7 @@ prod = [
 "format" = "ruff format"
 "uv:out" = "uv pip list --outdated"
 "uv:add" = "uv add --bounds exact"
+"uv:up" = "uv sync --upgrade"
 "m:check" = "./manage.py check"
 "m:check:deploy" = "./manage.py check --deploy"
 "m:schema" = "./manage.py export_schema api.schema --path schema.graphql"
