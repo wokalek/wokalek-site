@@ -1,6 +1,4 @@
-import datetime
-
-import strawberry
+from strawberry import auto
 import strawberry_django
 
 from blog.models import Post
@@ -8,13 +6,17 @@ from blog.models import Post
 
 @strawberry_django.order_type(Post)
 class PostOrder:
-    pub_date: strawberry.auto
+    pub_date: auto
 
 
-@strawberry_django.type(Post)
+@strawberry_django.type(Post, order=PostOrder)
 class PostType:
-    id: int
-    update_date: datetime.datetime
-    pub_date: datetime.datetime
-    title: str
-    content: str
+    id: auto
+    update_date: auto
+    pub_date: auto
+    title: auto
+    content: auto
+
+    @classmethod
+    def get_queryset(cls, queryset, info, **kwargs):
+        return queryset.filter(is_active=True).order_by('-pub_date')

@@ -1,30 +1,30 @@
-import datetime
-
-import strawberry
+from strawberry import auto
 import strawberry_django
 
 from photos.models import Section, Photo
-from api.scalars import ImageField
 
 
-@strawberry_django.type(Section)
+@strawberry_django.type(Section, fields=['id', 'name'])
 class PhotoSectionType:
-    id: int
-    name: str
+    pass
 
 
 @strawberry_django.order_type(Photo)
 class PhotoOrder:
-    pub_date: strawberry.auto
+    pub_date: auto
 
 
-@strawberry_django.type(Photo)
+@strawberry_django.type(Photo, order=PhotoOrder)
 class PhotoType:
-    id: int
-    update_date: datetime.datetime
-    pub_date: datetime.datetime
+    id: auto
+    update_date: auto
+    pub_date: auto
     section: PhotoSectionType
-    image: ImageField
-    image_width: int
-    image_height: int
-    alt: str
+    image: auto
+    image_width: auto
+    image_height: auto
+    alt: auto
+
+    @classmethod
+    def get_queryset(cls, queryset, info, **kwargs):
+        return queryset.filter(is_active=True).order_by('-pub_date')
