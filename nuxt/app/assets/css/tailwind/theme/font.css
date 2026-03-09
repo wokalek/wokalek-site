@@ -1,0 +1,8 @@
+@theme {
+  --font-sirius: "Sirius", var(--font-sans);
+  --font-lora: "Lora", var(--font-serif);
+  --font-code: "Fira Code", var(--font-serif);
+  --font-emoji: "Noto Emoji";
+
+  --default-font-family: var(--font-sirius), var(--font-emoji);
+}

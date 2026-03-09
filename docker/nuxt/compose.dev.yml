@@ -6,11 +6,11 @@ services:
     build:
       target: develop
     volumes:
-      - ./nuxt/src:/app/src:ro
-      - ./django/media:/app/src/public/media:ro
-      - ./nuxt/eslint.config.mjs:/app/eslint.config.mjs:ro
+      - ./nuxt/app:/app/app:ro
+      - ./nuxt/public:/app/public:ro
+      - ./django/media:/app/public/media:ro
+      - ./nuxt/eslint.config.ts:/app/eslint.config.ts:ro
       - ./nuxt/nuxt.config.ts:/app/nuxt.config.ts:ro
-      - ./nuxt/tailwind.config.ts:/app/tailwind.config.ts:ro
       - ./nuxt/tsconfig.json:/app/tsconfig.json:ro
     tmpfs:
       - /tmp

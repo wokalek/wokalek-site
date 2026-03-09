@@ -7,8 +7,9 @@
 /django/schema.graphql
 
 /nuxt/node_modules
-/nuxt/src/public/media
+/nuxt/public/media
 /nuxt/dist
+/nuxt/scripts
 /nuxt/.nuxt
 /nuxt/.gitignore
 /nuxt/*.md
