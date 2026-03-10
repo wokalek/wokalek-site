@@ -9,11 +9,13 @@ try {
   await $`which woff2_compress`
 }
 catch {
-  console.error(chalk.red('Ошибка: woff2_compress не установлен. Установите его через apt или скомпилируйте из google/woff2.'))
+  console.error(chalk.red('Ошибка: woff2_compress не установлен. Установите его через apt или скомпилируйте из google/woff2'))
   process.exit(1)
 }
 
-const toMB = (bytes: string) => (parseInt(bytes) / (1024 * 1024)).toFixed(2)
+function toMB(bytes: string) {
+  return (parseInt(bytes) / (1024 * 1024)).toFixed(2)
+}
 
 const fonts = await glob(`${srcDir}/*.ttf`)
 
@@ -39,7 +41,7 @@ await Promise.all(fonts.map(async (fontPath) => {
       const [_, oldSize, newSize] = match
       const diff = (parseInt(oldSize) - parseInt(newSize))
 
-      const info = chalk.gray(`[${toMB(oldSize)}MB -> ${toMB(newSize)}MB], saved ${toMB(diff.toString())}MB`)
+      const info = chalk.grey(`[${toMB(oldSize)}MB -> ${toMB(newSize)}MB], разница ${toMB(diff.toString())}MB`)
 
       console.log(chalk.green(`✓ ${fileName} ${info}`))
     }

@@ -6,11 +6,11 @@
       <p>Люблю программирование, фотографию, природу и&nbsp;искусство. На&nbsp;данный момент живу в&nbsp;Краснодаре.</p>
       <p>
         Если вы&nbsp;хотите связаться со&nbsp;мной, узнайте как это сделать на страничке
-        <GeneralLink :to="{ name: 'contacts' }" underline>
+        <!-- <GeneralLink :to="{ name: 'contacts' }" underline>
           <template #before>&laquo;</template>
           <template #default>Контакты</template>
           <template #after>&raquo;</template>
-        </GeneralLink>!
+        </GeneralLink>! -->
       </p>
     </article>
     <div class="emoji fluid-[font-size,200-64] hidden sm:block" aria-disabled="true">🙋</div>

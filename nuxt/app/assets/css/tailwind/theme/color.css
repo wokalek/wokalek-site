@@ -1,19 +1,22 @@
 @theme {
   --color-*: initial;
 
-  --color-black: black;
+  /* Базовые */
   --color-white: white;
+  --color-black: black;
   --color-transparent: transparent;
 
   /* Акцентные */
-  --color-accent: oklch(0.5659 0.2264 16.33), /* Pantone 199 XGC */
-  --color-blue: oklch(0.4836 0.1452 252.23), /* Pantone 300 XGC */
+  --color-void: oklch(0.2356 0.0153 89.92); /* Pantone Process Black C */
+  --color-accent: oklch(0.5659 0.2264 16.33); /* Pantone 199 XGC */
+  --color-blue: oklch(0.4836 0.1452 252.23); /* Pantone 300 XGC */
+  --color-cloud: oklch(0.9149 0.016 233.04); /* PANTONE 649 XGC */
 
   /* Оттенки серого */
-  --color-gray-1: oklch(0.9591 0.0034 67.78), /* Pantone P 179-1 C */
-  --color-gray-2: oklch(0.9296 0.0041 301.42), /* Pantone 663 XGC */
-  --color-gray-3: oklch(0.7426 0.0084 216.64), /* Pantone 429 XGC */
-  --color-gray-4: oklch(0.5045 0.0177 242.04), /* Pantone 431 XGC */
-  --color-gray-5: oklch(0.3825 0.0196 233.6), /* Pantone 432 XGC */
-  --color-gray-6: oklch(0.2627 0.0206 242.7), /* Pantone 433 XGC */
+  --color-grey-1: oklch(0.9591 0.0034 67.78); /* Pantone P 179-1 C */
+  --color-grey-2: oklch(0.9296 0.0041 301.42); /* Pantone 663 XGC */
+  --color-grey-3: oklch(0.7426 0.0084 216.64); /* Pantone 429 XGC */
+  --color-grey-4: oklch(0.5045 0.0177 242.04); /* Pantone 431 XGC */
+  --color-grey-5: oklch(0.3825 0.0196 233.6); /* Pantone 432 XGC */
+  --color-grey-6: oklch(0.2627 0.0206 242.7); /* Pantone 433 XGC */
 }

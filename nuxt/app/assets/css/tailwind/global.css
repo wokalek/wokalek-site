@@ -1,0 +1,5 @@
+@layer base {
+  :root {
+    @apply text-grey-6 bg-white dark:text-grey-2 dark:bg-grey-6;
+  }
+}

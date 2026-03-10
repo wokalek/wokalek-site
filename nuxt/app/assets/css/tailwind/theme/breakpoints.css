@@ -1,0 +1,13 @@
+@theme {
+  --breakpoint-*: initial;
+
+  --breakpoint-640: 40rem;
+  --breakpoint-768: 48rem;
+  --breakpoint-1024: 64rem;
+  --breakpoint-1280: 80rem;
+  --breakpoint-1536: 96rem;
+  --breakpoint-1920: 120rem;
+
+  --breakpoint-tablet: 48rem; /* Брейкпоинт переключения на планшет */
+  --breakpoint-desktop: 80rem; /* Брейкпоинт переключения на десктоп */
+}

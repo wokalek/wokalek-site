@@ -1,43 +1,19 @@
-import tailwindcss from '@tailwindcss/vite'
+import { modules, imports, css, runtimeConfig, vite, typescript } from './config'
+import { eslint, icon, image, umami } from './config/modules/index'
 
 export default defineNuxtConfig({
-  modules: [
-    '@nuxt/eslint',
-    '@nuxt/fonts',
-    '@nuxt/image',
-    '@nuxtjs/color-mode',
-    '@nuxtjs/mdc',
-    '@nuxtjs/robots',
-    '@nuxtjs/sitemap',
-    '@pinia/nuxt',
-    '@pinia/colada-nuxt',
-    '@vueuse/nuxt',
-    'nuxt-schema-org',
-    'nuxt-umami',
-  ],
-  imports: {
-    presets: [
-      { from: '@urql/vue', imports: ['gql', ...['useQuery', 'useMutation', 'useSubscription'].map(name => ({ name, as: name.replace('use', 'useUrql') }))] },
-      // { from: 'lodash-es', imports: ['get', 'filter', 'mapValues', 'every', 'omit', 'xor'].map(name => ({ name, as: `use${upperFirst(name)}` })) },
-    ],
-  },
-  css: ['~/assets/css/index.css'],
-  runtimeConfig: {
-    public: {
-      apiUrl: '',
-      siteUrl: '',
-      // domain: process.env.DOMAIN,
-      // statisticUrl: `https://statistic.${process.env.DOMAIN}/share/NzChi1xQn1FB7AEB/wokalek`,
-    },
-  },
+  modules,
+  imports,
+  css,
+  runtimeConfig,
   compatibilityDate: '2024-10-02',
-  vite: { plugins: [tailwindcss() as never] },
+  vite,
+  typescript,
   telemetry: false,
-  eslint: { config: { stylistic: true } },
-  image: {
-    densities: [1],
-    providers: { imageField: { provider: '~/providers/image-field.ts' } },
-  },
+  eslint,
+  icon,
+  image,
+  umami,
   // colorMode: {
   //   preference: 'light',
   // },

@@ -2,7 +2,7 @@
   --font-sirius: "Sirius", var(--font-sans);
   --font-lora: "Lora", var(--font-serif);
   --font-code: "Fira Code", var(--font-serif);
-  --font-emoji: "Noto Emoji";
+  --font-emoji: "Noto Emoji", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-  --default-font-family: var(--font-sirius), var(--font-emoji);
+  --default-font-family: "Sirius", var(--font-emoji);
 }

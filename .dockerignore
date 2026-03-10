@@ -11,5 +11,6 @@
 /nuxt/dist
 /nuxt/scripts
 /nuxt/.nuxt
+/nuxt/.env
 /nuxt/.gitignore
 /nuxt/*.md

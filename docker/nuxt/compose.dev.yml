@@ -7,6 +7,7 @@ services:
       target: develop
     volumes:
       - ./nuxt/app:/app/app:ro
+      - ./nuxt/config:/app/config:ro
       - ./nuxt/public:/app/public:ro
       - ./django/media:/app/public/media:ro
       - ./nuxt/eslint.config.ts:/app/eslint.config.ts:ro
