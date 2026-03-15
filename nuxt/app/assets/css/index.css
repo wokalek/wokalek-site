@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@import "./fonts.css";
+
 @import "./tailwind/theme.css";
 @import "./tailwind/utility.css";
 @import "./tailwind/global.css";
+@import "./tailwind/components.css";

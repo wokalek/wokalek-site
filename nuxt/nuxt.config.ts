@@ -1,5 +1,5 @@
 import { modules, imports, css, runtimeConfig, vite, typescript } from './config'
-import { eslint, icon, image, umami } from './config/modules/index'
+import { eslint, icon, image, primevue, umami } from './config/modules/index'
 
 export default defineNuxtConfig({
   modules,
@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   eslint,
   icon,
   image,
+  primevue,
   umami,
   // colorMode: {
   //   preference: 'light',

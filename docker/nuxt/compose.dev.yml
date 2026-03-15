@@ -6,7 +6,7 @@ services:
     build:
       target: develop
     volumes:
-      - ./nuxt/app:/app/app:ro
+      - ./nuxt/app:/app/app
       - ./nuxt/config:/app/config:ro
       - ./nuxt/public:/app/public:ro
       - ./django/media:/app/public/media:ro

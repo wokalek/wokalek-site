@@ -1,0 +1,33 @@
+@layer base {
+  body { @apply font-light f-text-[1.125]/[1.375] leading-[1.5]; }
+
+  h1 { @apply f-heading-1 leading-[1.05]; }
+  h2 { @apply f-heading-2 leading-[1.117]; }
+  h3 { @apply f-heading-3 leading-[1.183]; }
+  h4 { @apply f-heading-4 leading-[1.25]; }
+
+  ul, ol { @apply pl-em; }
+  ul { @apply list-['—']; }
+  ol { @apply list-decimal; }
+  li { @apply pl-em my-em; }
+  code { @apply font-code; }
+}
+
+@layer components {
+  .lead { @apply f-text-[1.125]/[1.5] leading-[1.4] font-[550] tracking-[2%]; }
+  .nav { @apply f-text-[.875]/[1.25] leading-[1.2] font-[550] tracking-[2%]; }
+  .caption { @apply text-[.875rem]/[1.3] leading-[1.2] font-normal tracking-[2%]; }
+  .emoji { @apply font-emoji leading-[1.3] font-bold tracking-normal; }
+
+  .prose {
+    h1 { @apply mb-em; }
+    h2, h3, h4 { @apply my-em; }
+    p, .codeblock { @apply my-em mx-8 tablet:mx-32; }
+    ul, ol { @apply my-em mx-8 tablet:mx-32; }
+
+    a:not(.not-prose *) {
+      @apply underline decoration-from-font underline-offset-[0.35em];
+      @apply transition-opacity ease-in-out desktop:hover:opacity-50;
+    }
+  }
+}

@@ -7,7 +7,10 @@ export default withNuxt({
     eslintPluginBetterTailwindcss.configs.recommended,
   ],
   settings: {
-    'better-tailwindcss': { entryPoint: 'app/assets/css/index.css' },
+    'better-tailwindcss': {
+      entryPoint: 'app/assets/css/index.css',
+      detectComponentClasses: true,
+    },
   },
   rules: {
     'require-await': 'error',

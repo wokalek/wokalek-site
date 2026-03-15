@@ -1,21 +1,23 @@
+import { shuffle } from 'lodash-es'
+
 import headerEmojiMap from '~/data/header-emoji'
 
-function* generator(): Generator<string, void, unknown> {
-  const map = useShuffle(headerEmojiMap)
+const gen = generator()
+const emoji = shallowRef<string>(gen.next().value!)
+
+function* generator() {
+  const map = shuffle(headerEmojiMap)
 
   let index = 0
   while (map.length > 0) {
-    yield map[index % map.length]
+    yield map[index % map.length] as string
     index++
   }
 }
 
 function rotateEmoji() {
-  emoji.value = gen.next().value
+  emoji.value = gen.next().value!
 }
-
-const gen = generator()
-const emoji = shallowRef(gen.next().value)
 
 export default function () {
   return { emoji, rotateEmoji }

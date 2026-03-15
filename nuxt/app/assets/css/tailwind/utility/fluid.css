@@ -1,0 +1,32 @@
+@theme {
+  --f-screen-min: 20;
+  --f-screen-max: 120;
+
+  --f-heading-max-count: 4;
+
+  --f-heading-min: 1.12500;
+  --f-heading-max: 1.5;
+
+  --f-heading-scale-min: 1.1586755494;
+  --f-heading-scale-max: 1.25992104989;
+}
+
+@layer base { :root {
+  --f-slope: calc((100vw - var(--f-screen-min) * 1rem) / (var(--f-screen-max) - var(--f-screen-min)));
+  --f-slope-beyond: calc(100vw / var(--f-screen-max));
+} }
+
+@utility f-heading-* {
+  --fh-step: calc(var(--f-heading-max-count) - --value(integer));
+  --fh-min: calc(var(--f-heading-min) * pow(var(--f-heading-scale-min), var(--fh-step)));
+  --fh-max: calc(var(--f-heading-max) * pow(var(--f-heading-scale-max), var(--fh-step)));
+
+  font-size: max(
+    var(--fh-min) * 1rem,
+    var(--fh-min) * 1rem + (var(--fh-max) - var(--fh-min)) * var(--f-slope),
+    var(--fh-max) * var(--f-slope-beyond)
+  );
+}
+
+@utility f-text-* { font-size: max(--value([number]) * 1rem, --value([number]) * 1rem + (--modifier([number]) - --value([number])) * var(--f-slope), --modifier([number]) * var(--f-slope-beyond)); }
+@utility f-w-* { width: max(--value([number]) * 1rem, --value([number]) * 1rem + (--modifier([number]) - --value([number])) * var(--f-slope), --modifier([number]) * var(--f-slope-beyond)); }

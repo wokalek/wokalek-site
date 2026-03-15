@@ -1,0 +1,11 @@
+@layer components {
+  .link {
+    @apply hover:link-hover;
+
+    &.router-link-exact-active {
+      @apply opacity-50 hover:cursor-default;
+    }
+  }
+}
+
+@utility link-hover { @apply opacity-50; }

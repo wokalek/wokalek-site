@@ -2,7 +2,6 @@ import type { NuxtConfig } from '@nuxt/schema'
 
 export default [
   '@nuxt/eslint',
-  '@nuxt/fonts',
   '@nuxt/icon',
   '@nuxt/image',
   '@nuxtjs/color-mode',
@@ -11,6 +10,7 @@ export default [
   '@nuxtjs/sitemap',
   '@pinia/colada-nuxt',
   '@pinia/nuxt',
+  '@primevue/nuxt-module',
   '@vueuse/nuxt',
   'nuxt-schema-org',
   'nuxt-umami',

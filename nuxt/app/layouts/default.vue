@@ -1,7 +1,7 @@
 <template>
-  <div class="flex min-h-dvh flex-col justify-between">
+  <div class="mx-auto flex min-h-dvh f-w-[20]/[62.5] flex-col justify-between">
     <!-- <LazyLayoutSnowflakes v-if="isWinter" hydrate-on-idle /> -->
-    <div class="flex flex-col">
+    <div class="flex w-full flex-col">
       <!-- <TheHeader /> -->
       <slot />
     </div>
