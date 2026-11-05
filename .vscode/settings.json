@@ -2,4 +2,5 @@
   "python.autoComplete.extraPaths": ["${workspaceFolder}/django"],
   "python.analysis.extraPaths": ["${workspaceFolder}/django"],
   "python-envs.pythonProjects": [],
+  "svg.preview.background": "transparent",
 }

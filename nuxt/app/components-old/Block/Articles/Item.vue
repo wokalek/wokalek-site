@@ -1,6 +1,6 @@
 <template>
   <article>
-    <GeneralLink class="mb-8-4 block lead" :to="{ name: 'articles-slug', params: { slug: article.slug } }">
+    <GeneralLink class="f-mb-[4px/8px] block lead" :to="{ name: 'articles-slug', params: { slug: article.slug } }">
       {{ article.title }}
     </GeneralLink>
     <GeneralTime class="text-grey-4 caption" :date="article.pubDate" capitalize />

@@ -16,7 +16,7 @@
     >
       -
     </button>
-    <div class="px-16-8 flex items-center select-none">{{ value }}</div>
+    <div class="f-px-[8px/16px] flex items-center select-none">{{ value }}</div>
     <button
       class="flex justify-center items-center leading-1 select-none size-64-32 text-38-24 font-light"
       :class="{ 'text-grey-4 cursor-default': value === maxValue }"

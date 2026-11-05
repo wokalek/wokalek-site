@@ -1,11 +1,11 @@
 <template>
-  <div class="grid gap-64-32">
+  <div class="grid f-gap-[32px/64px]">
     <div v-for="(item, index) in items" :key="item.title">
-      <div class="mb-32-16">
+      <div class="f-mb-[16px/32px]">
         <h2 class="inline">
           {{ item.title }}
         </h2>
-        <span class="caption ml-8-4 align-top text-grey-4 select-none">
+        <span class="caption f-ml-[4px/8px] align-top text-grey-4 select-none">
           {{ item.images.length }}
         </span>
       </div>

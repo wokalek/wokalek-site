@@ -10,6 +10,7 @@
 /nuxt/public/media
 /nuxt/dist
 /nuxt/scripts
+/nuxt/fonts
 /nuxt/.nuxt
 /nuxt/.env
 /nuxt/.gitignore

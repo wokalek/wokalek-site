@@ -1,6 +1,6 @@
 <template>
   <article v-if="article" class="prose w-full">
-    <GeneralTime class="mb-16-8 text-grey-4 caption" :date="article.pubDate">
+    <GeneralTime class="f-mb-[8px/16px] text-grey-4 caption" :date="article.pubDate">
       <template #before>Опубликовано&nbsp;</template>
     </GeneralTime>
     <h1>{{ article.title }}</h1>

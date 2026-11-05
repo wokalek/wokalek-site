@@ -17,6 +17,8 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 FROM deps AS develop
 
+RUN mkdir -p /app/public/media
+
 ENTRYPOINT ["pnpm", "dev"]
 
 FROM deps AS build

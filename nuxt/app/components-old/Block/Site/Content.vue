@@ -30,27 +30,27 @@
     <p>Используются:</p>
     <ul>
       <li>
-        <SvgoLogoNuxt :filled="true" class="inline mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
+        <SvgoLogoNuxt :filled="true" class="inline f-mr-[8px/16px] fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
         <NuxtLink :to="('https://nuxt.com' as string)" target="_blank">Nuxt</NuxtLink>, фронтенд.
       </li>
       <li>
-        <SvgoLogoDjango :filled="true" class="inline mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
+        <SvgoLogoDjango :filled="true" class="inline f-mr-[8px/16px] fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
         <NuxtLink :to="('https://www.djangoproject.com' as string)" target="_blank">Django</NuxtLink>, бэкенд.
       </li>
       <li>
-        <SvgoLogoGraphql :filled="true" class="inline mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
+        <SvgoLogoGraphql :filled="true" class="inline f-mr-[8px/16px] fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
         <NuxtLink :to="('https://graphql.org' as string)" target="_blank">GraphQL</NuxtLink>, обмен данными.
       </li>
       <li>
-        <SvgoLogoUmami :filled="true" class="inline mr-16-8 fluid-[width,40-30] h-auto umami stroke-black fill-black dark:stroke-white dark:fill-white" aria-disabled="true" :font-controlled="false" />
+        <SvgoLogoUmami :filled="true" class="inline f-mr-[8px/16px] fluid-[width,40-30] h-auto umami stroke-black fill-black dark:stroke-white dark:fill-white" aria-disabled="true" :font-controlled="false" />
         <NuxtLink :to="('https://umami.is' as string)" target="_blank">Umami</NuxtLink>, статистика.
       </li>
       <li>
-        <SvgoLogoNginx :filled="true" class="inline mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
+        <SvgoLogoNginx :filled="true" class="inline f-mr-[8px/16px] fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
         <NuxtLink :to="('https://nginx.org' as string)" target="_blank">Nginx</NuxtLink>, сервер.
       </li>
       <li>
-        <SvgoLogoDocker :filled="true" class="inline mr-16-8 fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
+        <SvgoLogoDocker :filled="true" class="inline f-mr-[8px/16px] fluid-[width,40-30] h-auto" aria-disabled="true" :font-controlled="false" />
         <NuxtLink :to="('https://docker.com' as string)" target="_blank">Docker</NuxtLink>, оркестрация.
       </li>
     </ul>

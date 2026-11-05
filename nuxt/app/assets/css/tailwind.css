@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
-@import "./fonts.css";
+@plugin "./tailwind/plugins/fluid/index.ts";
 
+@import "./tailwind/typography.css";
 @import "./tailwind/theme.css";
 @import "./tailwind/utility.css";
 @import "./tailwind/global.css";
