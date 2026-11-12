@@ -1,26 +1,26 @@
 <template>
   <div class="w-full">
-    <div class="mb-4-2 flex items-center justify-between overflow-hidden">
-      <div v-if="file" class="flex text-nowrap overflow-hidden mr-16-8">
-        <div class="caption text-grey-4 overflow-hidden text-ellipsis">
+    <div class="f-mb-0.5/1 flex items-center justify-between f-gap-2/4 overflow-hidden">
+      <div v-if="file" class="flex overflow-hidden text-nowrap">
+        <div class="caption overflow-hidden text-ellipsis text-grey-4">
           {{ file.name }}
         </div>
         <div class="caption text-grey-4">
           {{ '.' + file.extension }}
         </div>
       </div>
-      <button class="caption ml-auto text-grey-4 select-none text-nowrap" type="button" @click="copy(code)">
+      <button class="caption ml-auto text-nowrap text-grey-4 select-none" type="button" @click="copy(code)">
         {{ isCopied ? 'Скопировано ✓' : 'Копировать' }}
       </button>
     </div>
     <div
       class="
-        scrollbar relative border-1-1 rounded-0.25em
-        border-grey-2 bg-grey-1 bg-opacity-50
-        dark:border-grey-5 dark:bg-grey-6 dark:bg-opacity-100
+        scrollbar border-1-1 rounded-0.25em bg-opacity-50
+        dark:bg-opacity-100 relative border-grey-2
+        bg-grey-1 dark:border-grey-5 dark:bg-grey-6
       "
     >
-      <pre class="py-32-16 px-32-16 flex overflow-y-auto" :class="$props.class">
+      <pre class="flex overflow-y-auto f-p-4/8" :class="$props.class">
         <slot />
       </pre>
     </div>

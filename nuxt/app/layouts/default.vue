@@ -1,8 +1,8 @@
 <template>
-  <div class="mx-auto flex min-h-dvh f-w-[20]/[62.5] flex-col justify-between">
+  <div class="mx-auto flex min-h-dvh flex-col justify-between f-px-4 320:f-max-w-[320px/1000px]">
     <!-- <LazyLayoutSnowflakes v-if="isWinter" hydrate-on-idle /> -->
-    <div class="flex w-full flex-col">
-      <!-- <TheHeader /> -->
+    <div class="flex grow flex-col">
+      <Header />
       <slot />
     </div>
     <Footer />

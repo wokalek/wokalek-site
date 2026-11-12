@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isServer || isSupported" class="mt-64-32 select-none">
+  <div v-if="isServer || isSupported" class="f-mt-[32px/64px] select-none">
     <p>
       <button
         class="inline-block items-baseline text-current transition-opacity desktop:hover:opacity-50 ease-in-out-quad opacity-100"

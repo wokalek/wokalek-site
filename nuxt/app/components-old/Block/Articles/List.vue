@@ -1,5 +1,5 @@
 <template>
-  <div class="grid gap-32-32">
+  <div class="grid f-gap-[32px/32px]">
     <BlockArticlesItem v-for="article in articlesStore.articles" :key="article.id" :article="article" />
   </div>
 </template>

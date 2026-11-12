@@ -1,6 +1,6 @@
 <template>
   <article class="prose w-full">
-    <GeneralTime class="mb-16-8 text-grey-4 caption" :date="post.pubDate" capitalize />
+    <GeneralTime class="f-mb-[8px/16px] text-grey-4 caption" :date="post.pubDate" capitalize />
     <MDC :value="post.content" />
   </article>
 </template>

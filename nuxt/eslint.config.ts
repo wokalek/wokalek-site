@@ -8,7 +8,7 @@ export default withNuxt({
   ],
   settings: {
     'better-tailwindcss': {
-      entryPoint: 'app/assets/css/index.css',
+      entryPoint: 'app/assets/css/tailwind.css',
       detectComponentClasses: true,
     },
   },

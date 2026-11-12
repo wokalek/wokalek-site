@@ -4,14 +4,8 @@ export default {
   mode: 'css',
   cssLayer: 'base',
   provider: 'none',
-  clientBundle: {
-    scan: true,
-  },
+  clientBundle: { scan: true },
   customCollections: [
-    {
-      prefix: 'icons',
-      dir: './app/assets/icons',
-      recursive: true,
-    },
+    { prefix: 'icons', dir: './app/assets/icons', recursive: true },
   ],
 } satisfies NuxtConfig['icon']

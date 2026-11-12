@@ -2,14 +2,14 @@
 
 import 'zx/globals'
 
-const srcDir = '../nuxt/app/assets/fonts'
+const srcDir = '../nuxt/fonts'
 const destDir = '../nuxt/public/fonts'
 
 try {
   await $`which woff2_compress`
 }
 catch {
-  console.error(chalk.red('Ошибка: woff2_compress не установлен. Установите его через apt или скомпилируйте из google/woff2'))
+  console.error(chalk.red('Error: woff2_compress is not installed. Install it via apt or compile it from google/woff2'))
   process.exit(1)
 }
 
@@ -20,11 +20,11 @@ function toMB(bytes: string) {
 const fonts = await glob(`${srcDir}/*.ttf`)
 
 if (fonts.length === 0) {
-  console.log(chalk.yellow('TTF файлы не найдены в ' + srcDir))
+  console.log(chalk.yellow('TTF files not found in ' + srcDir))
   process.exit(0)
 }
 
-console.log(chalk.blue(`Найдено шрифтов: ${fonts.length}. Начинаю сжатие...\n`))
+console.log(chalk.blue(`${fonts.length} fonts found. Starting compression...\n`))
 
 await Promise.all(fonts.map(async (fontPath) => {
   const fileName = path.basename(fontPath)
@@ -41,14 +41,14 @@ await Promise.all(fonts.map(async (fontPath) => {
       const [_, oldSize, newSize] = match
       const diff = (parseInt(oldSize) - parseInt(newSize))
 
-      const info = chalk.grey(`[${toMB(oldSize)}MB -> ${toMB(newSize)}MB], разница ${toMB(diff.toString())}MB`)
+      const info = chalk.grey(`[${toMB(oldSize)}MB -> ${toMB(newSize)}MB], diff ${toMB(diff.toString())}MB`)
 
       console.log(chalk.green(`✓ ${fileName} ${info}`))
     }
   }
   catch (err: unknown) {
-    console.error(chalk.red(`× Ошибка в ${fileName}:`), (err as ProcessOutput).stderr)
+    console.error(chalk.red(`× Error in ${fileName}:`), (err as ProcessOutput).stderr)
   }
 }))
 
-console.log(chalk.bold.magenta('\nВсе шрифты успешно перенесены в ' + destDir))
+console.log(chalk.bold.magenta('\nAll fonts have been successfully transferred to ' + destDir))

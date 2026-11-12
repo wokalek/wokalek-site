@@ -1,8 +1,8 @@
 @theme {
-  --font-sirius: "Sirius", "Sirius Fallback";
-  --font-lora: "Lora", "Lora Fallback";
-  --font-code: "Fira Code", "Fira Code Fallback";
+  --font-sirius: "Sirius", "Sirius Fallback", var(--font-sans);
+  --font-lora: "Lora", "Lora Fallback", var(--font-serif);
+  --font-code: "Fira Code", "Fira Code Fallback", var(--font-mono);
   --font-emoji: "Noto Emoji", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-  --default-font-family: "Sirius", "Noto Emoji", "Sirius Fallback";
+  --default-font-family: "Sirius", "Noto Emoji", "Sirius Fallback", var(--font-sans);
 }

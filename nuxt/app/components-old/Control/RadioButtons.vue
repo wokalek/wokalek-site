@@ -1,5 +1,5 @@
 <template>
-  <div :key="forceUpdate" role="radiogroup" class="grid grid-cols-3 gap-32-16 items-center">
+  <div :key="forceUpdate" role="radiogroup" class="grid grid-cols-3 f-gap-[16px/32px] items-center">
     <div v-for="element in set" :key="element.value" class="flex flex-col items-center">
       <button
         class="
@@ -15,7 +15,7 @@
       >
         <span class="emoji text-28-18">{{ element.icon }}</span>
       </button>
-      <label v-if="element.label" class="caption select-none mt-8-4">{{ element.label }}</label>
+      <label v-if="element.label" class="caption select-none f-mt-[4px/8px]">{{ element.label }}</label>
     </div>
   </div>
 </template>
